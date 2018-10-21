@@ -17,6 +17,8 @@ library(car) # Pooled groups
 library(moments) # Skewness and kurtosis
 library(MVN) # Comparing fitting to a normal distribution before and after the transformation with Mardia test 
 library(mvoutlier)
+library(Hmisc)
+library(MXM)
 
 ###################################################
 ##########           Sources       ################
