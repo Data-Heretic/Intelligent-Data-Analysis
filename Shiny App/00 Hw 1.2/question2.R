@@ -49,6 +49,7 @@ hw2_q2_server <- function(input, output, session) {
     # Probability randomized
     output$probability_randomized <- renderPrint({
         nreps <- 10000
+        r.obt <- rcorr(as.matrix(restaurantTips[, c(1, 7)]), type = "pearson")$r[1, 2]
         r.random <- replicate(nreps, { Y <- restaurantTips$PctTip; X <- sample(restaurantTips$Bill, length(restaurantTips$Bill), replace = FALSE); cor(X, Y) })
         prob <- length(r.random[r.random >= r.obt]) / nreps
         return(cat("Probability randomized r >= r.obt", prob))
@@ -56,6 +57,7 @@ hw2_q2_server <- function(input, output, session) {
 
     # Histogram
     output$histogram_prob_random <- renderPlot({
+        r.random <- replicate(nreps, { Y <- restaurantTips$PctTip; X <- sample(restaurantTips$Bill, length(restaurantTips$Bill), replace = FALSE); cor(X, Y) })
         return(hist(r.random, breaks = 50, main = expression(paste("Distribution around p = 0")), xlab = "r from randomized samples"))
     })
 }

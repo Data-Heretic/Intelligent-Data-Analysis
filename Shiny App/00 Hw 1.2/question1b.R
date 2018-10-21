@@ -77,7 +77,7 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
     # Fit: Bivariate Normality before the transformation
     # We reject normality given p values equal to 0 for skewness and kurtosis
     output$test.mardia.before_transf <- renderPlot({
-        mardiaTest(cbind(wines$VolAcid, wines$ResSug), qqplot = TRUE)
+        mvn(cbind(wines$VolAcid, wines$ResSug), mvnTest = "mardia", multivariatePlot = "qq")
     })
 
     # Summary: Power transformation for bivariate data
@@ -93,7 +93,7 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
     # We have not improved normality
     output$test.mardia.after_transf <- renderPlot({
         winesT <- bcPower(cbind(wines$VolAcid, wines$ResSug), c(0.0584, -0.7548))
-        mardiaTest(winesT, qqplot = TRUE)
+        mvn(winesT, mvnTest = "mardia", multivariatePlot = "qq")
     })
 
     # Mahalanobis
