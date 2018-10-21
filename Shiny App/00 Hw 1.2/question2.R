@@ -23,7 +23,7 @@ hw2_q2_ui <- function(id) {
 
 # Server
 
-hw2_q2_server <- function(input, output, session, data, dataM) {
+hw2_q2_server <- function(input, output, session) {
 
     # plot tips ~ pctTip
     output$plot_tips_pctTip <- renderPlot({

@@ -13,6 +13,6 @@ hw2_q1c_ui <- function(id) {
 
 # Server
 
-hw2_q1c_server <- function(input, output, session, data, dataM) {
+hw2_q1c_server <- function(input, output, session) {
 
 }

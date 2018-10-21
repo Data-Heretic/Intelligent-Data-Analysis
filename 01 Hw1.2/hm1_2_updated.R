@@ -105,7 +105,7 @@ legend(x="bottomright", legend=c("Data", "centroid", "distribution ellipse"),
        pch=c(1, 16, NA), lty=c(NA, NA, 1), col=c("black", "blue", "blue"),cex=0.6)
 
 #Bivariate Normality Before the transformation
-mvn(cbind(wines$VolAcid,wines$ResSug), mvnTest="mardia", multivariatePlot="qq") # We reject normality given p values equal to 0 for skewness and kurtosis
+mardiaTest(cbind(wines$VolAcid,wines$ResSug), qqplot = TRUE) # We reject normality given p values equal to 0 for skewness and kurtosis
 
 # Power transformation for bivariate data
 # Bivariate Normality for the joint variable (wines$CitAcid,wines$A)
