@@ -10,11 +10,14 @@ hw2_q1a_ui <- function(id) {
             h3(" Choose a quantitative variable and explore its distribution in terms of descriptive measures of center, dispersion, skewness and kurtosis. Is a normal model a plausible one for its distribution? If the answer is no, can you think of a transformation of the variable that improves normality. Are there any outliers?"),
             fluidPage(
                 fluidRow(
+                  
+                  column(6,
                     box(h5("Summary"), verbatimTextOutput(ns("summary")),
                         h5("Sample variance"), verbatimTextOutput(ns("sample_variance")),
                         h5("Standard deviation"), verbatimTextOutput(ns("standard_deviation")),
                         h5("Coefficient variation"), verbatimTextOutput(ns("coefficient_variation")),
-                        h5("Quantile"), verbatimTextOutput(ns("quantile")),align = "center")
+                        h5("Quantile"), verbatimTextOutput(ns("quantile")),align = "center",width = 12),offset = 3)
+                  
                     
                 ),
                 fluidRow(
