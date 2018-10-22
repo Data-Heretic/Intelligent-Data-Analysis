@@ -18,7 +18,7 @@ hw2_q1b_ui <- function(id) {
                     box(plotOutput(ns("plot.scatterplot.volAcid_resSug")))
                 ),
                 fluidRow(
-                  h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), box(verbatimTextOutput(ns("summary.transformation.volAcid_resSug")))
+                  h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug"))
                 ),
                 fluidRow(
                     
