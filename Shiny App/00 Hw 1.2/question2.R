@@ -57,7 +57,6 @@ hw2_q2_server <- function(input, output, session) {
 
     # Histogram
     output$histogram_prob_random <- renderPlot({
-        nreps <- 10000
         r.random <- replicate(nreps, { Y <- restaurantTips$PctTip; X <- sample(restaurantTips$Bill, length(restaurantTips$Bill), replace = FALSE); cor(X, Y) })
         return(hist(r.random, breaks = 50, main = expression(paste("Distribution around p = 0")), xlab = "r from randomized samples"))
     })
