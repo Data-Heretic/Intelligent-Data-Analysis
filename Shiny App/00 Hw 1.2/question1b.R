@@ -18,9 +18,11 @@ hw2_q1b_ui <- function(id) {
                     box(plotOutput(ns("plot.scatterplot.volAcid_resSug")))
                 ),
                 fluidRow(
-                    box(plotOutput(ns("plot.ellipses.volAcid_resSug"))),
+                  h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), box(verbatimTextOutput(ns("summary.transformation.volAcid_resSug")))
+                ),
+                fluidRow(
+                    
                     box(h5("Bivariate normality before the transformation."), plotOutput(ns("test.mardia.before_transf")), h5("We reject normality given p values equal to 0 for skewness and kurtosis.")),
-                    box(h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug"))),
                     box(h5("Bivariate normality after the transformation. Now we are going to transform them with (\\lambda_1,\\lambda_2) values =c(0.0584, -0.7548). Defining the transformed variable with those lambdas."), plotOutput(ns("test.mardia.after_transf")), h5("We have not improved normality."))
                 ),
                 h3("Outliers"),
@@ -31,9 +33,7 @@ hw2_q1b_ui <- function(id) {
                         h5("95th percentile of a chi-squared distribution with 2 degrees of freedom (we are using 2 variables). Position of outliers"),
                         verbatimTextOutput(ns("summary.mahalanobis.position")),
                         h5("We got 8 outliers, which are:"),
-                        verbatimTextOutput(ns("summary.mahalanobis.outliers")),
-                        h4("Potential outliers"),
-                        h5("Coming soon...")
+                        verbatimTextOutput(ns("summary.mahalanobis.outliers"))
                     ),
                     box(plotOutput(ns("plot.scatterplot.outliers")), plotOutput(ns("plot.qq.outliers")))
                 )
@@ -66,13 +66,7 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
              main = "Joint distribution per group", xlab = "Volatile Acidity", ylab = "Residual Sugar")
     })
 
-    # Plot: Joint distribution of two variables
-    output$plot.ellipses.volAcid_resSug <- renderPlot({
-        dataEllipse(wines$VolAcid, wines$ResSug, xlab = "x", ylab = "y", asp = 1, levels = 0.5, lwd = 2, center.pch = 16,
-            col = "blue", main = "Joint distribution of two variables")
-        legend(x = "bottomright", legend = c("Data", "centroid", "distribution ellipse"),
-        pch = c(1, 16, NA), lty = c(NA, NA, 1), col = c("black", "blue", "blue"), cex = 0.6)
-    })
+    
 
     # Fit: Bivariate Normality before the transformation
     # We reject normality given p values equal to 0 for skewness and kurtosis
