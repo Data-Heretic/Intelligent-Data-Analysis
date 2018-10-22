@@ -22,7 +22,6 @@ library(MXM)
 library(corrplot)
 library(corrgram)
 library(ppcor)
-library(acepack)
 
 ###################################################
 ##########           Sources       ################
