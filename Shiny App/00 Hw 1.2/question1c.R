@@ -9,29 +9,23 @@ hw2_q1c_ui <- function(id) {
     tabItem(tabName = str_c(id, "Q1c"),
             h3("Choose a subset of 4 or 5 quantitative variables and explore linear relationships."),
             fluidPage(
-                h5("R matrix of pairwise correlations"),
+                h1("R matrix of pairwise correlations"),
                 div(HTML("<ul><li>Moderate relation between Chloride and Sulfates</li><li>Moderate relation between Alcohol % and quality</li><li>Neglible relation between Alcohol % and Residual sugar</li></ul>")),
                 fluidRow(
-                    column(4,
-                        box(plotOutput(ns("plot.corrplot.rmatrix")), width = 12),
-                        box(plotOutput(ns("plot.corrgram.wines")), width = 12)
+                    column(4, box(h5("Reordering the correlation matrix: there are different methods. Sometimes it is useful for minning the hidden structure and pattern in the matrix."),
+                    plotOutput(ns("plot.corrplot.mixed_rmatrix_AOE")), width = 12)
+                        
                     ),
                     column(4,
-                        box(plotOutput(ns("plot.corrplot.mixed_rmatrix")), width = 12),
-                        box(plotOutput(ns("plot.corrgram.wines_pie")), width = 12)
+                        box(h5("Other times, using correlation plots with the aid of piecharts can help us interpretated information more quickly"),plotOutput(ns("plot.corrgram.wines_pie")), width = 12)
                     ),
                     column(4,
-                        box(h5("Reordering the correlation matrix: there are different methods. Sometimes it is useful for minning the hidden structure and pattern in the matrix."),
-                            plotOutput(ns("plot.corrplot.mixed_rmatrix_AOE")), width = 12),
-                        box(plotOutput(ns("plot.corrgram.wines_pts")), width = 12)
+                        box(h5("You can even use scatterplots in the correlation plot, to visualize the linear regression between the variables "), plotOutput(ns("plot.corrgram.wines_pts")), width = 12)
                     )
                 ),
+                h1("R matrix of pairwise correlations"),
                 fluidRow(
-                    column(4,
-                        box(h5("There is correlation between chlorides and S and C2 Matrix of partial correlations"),
-                            plotOutput(ns("plot.corrgram.partial_matrix")),
-                            width = 12)
-                    ),
+                    
                     column(4, box(plotOutput(ns("plot.corrgram.partial_matrix_pie")), width = 12)),
                     column(4, box(plotOutput(ns("plot.corrplot.mixed_partial_matrix")), width = 12))
                 ),
@@ -58,50 +52,31 @@ hw2_q1c_ui <- function(id) {
 
 hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
 
-    # Plot: Corrplot rmatrix
-    output$plot.corrplot.rmatrix <- renderPlot({
-        rmatrix <- cor(wines_for_correlations()) #R matrix with Pearson
-        corrplot(rmatrix)
-    })
+    
 
-    # Plot: Corrplot mixed rmatrix
-    output$plot.corrplot.mixed_rmatrix <- renderPlot({
-        rmatrix <- cor(wines_for_correlations()) #R matrix with Pearson
-        corrplot.mixed(rmatrix)
-    })
-
-    # Plot: Corrplot mixed rmatrix AOE
+    # Plot: Corrplot mixed rmatrix AOE #####
     output$plot.corrplot.mixed_rmatrix_AOE <- renderPlot({
         rmatrix <- cor(wines_for_correlations()) #R matrix with Pearson
         corrplot.mixed(rmatrix, order = "AOE")
     })
 
-    # Plot: Corrgram wines
-    output$plot.corrgram.wines <- renderPlot({
-        corrgram(wines_for_correlations())
-    })
 
-    # Plot: Corrgram wines. Pie format
+    # Plot: Corrgram wines. Pie format ·####
     output$plot.corrgram.wines_pie <- renderPlot({
         corrgram(wines_for_correlations(), order = TRUE,
          lower.panel = panel.shade, upper.panel = panel.pie,
          diag.panel = panel.minmax, text.panel = panel.txt)
     })
 
-    # Plot: Corrgram wines. Pts format
+    # Plot: Corrgram wines. Pts format ####
     output$plot.corrgram.wines_pts <- renderPlot({
         corrgram(wines_for_correlations(), order = TRUE,
          lower.panel = panel.shade, upper.panel = panel.pts,
          diag.panel = panel.minmax, text.panel = panel.txt)
     })
 
-    # Plot: Corrgram partial matrix.
-    output$plot.corrgram.partial_matrix <- renderPlot({
-        partialmatrix <- pcor(wines_for_correlations())$estimate
-        corrgram(partialmatrix)
-    })
 
-    # Plot: Corrgram partial matrix. Pie format.
+    # Plot: Corrgram partial matrix. Pie format. ####
     output$plot.corrgram.partial_matrix_pie <- renderPlot({
         partialmatrix <- pcor(wines_for_correlations())$estimate
         corrgram(partialmatrix,
@@ -109,7 +84,7 @@ hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
          diag.panel = panel.minmax, text.panel = panel.txt)
     })
 
-    # Plot: Corrplot mixed partial matrix. Order AOE
+    # Plot: Corrplot mixed partial matrix. Order AOE ###
     output$plot.corrplot.mixed_partial_matrix <- renderPlot({
         partialmatrix <- pcor(wines_for_correlations())$estimate
         corrplot.mixed(partialmatrix, order = "AOE")
