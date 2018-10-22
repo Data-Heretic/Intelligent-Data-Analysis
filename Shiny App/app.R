@@ -22,7 +22,7 @@ library(MXM)
 library(corrplot)
 library(corrgram)
 library(ppcor)
-library(stringr) # Different line
+library(mvoutlier) # Conflicting line
 
 ###################################################
 ##########           Sources       ################
