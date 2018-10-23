@@ -17,4 +17,4 @@ mahalanobis24 <- reactive({ mahalanobis(wines24(), sapply(wines24(), mean), cov(
 
 # Question 1c
 
-wines_for_correlations <- reactive({ wines[, c("A", "ResSug", "chlor", "S", "d")] })
+wines_for_correlations <- reactive({ wines[, c("ResSug", "chlor", "S", "pH", "A")] })
