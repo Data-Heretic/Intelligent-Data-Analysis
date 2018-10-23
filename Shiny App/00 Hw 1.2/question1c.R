@@ -49,13 +49,17 @@ hw2_q1c_ui <- function(id) {
                         h4("Are any linear relationships present in this dataset? Let's calculate the determinant of R and S, respectively:"),
                         verbatimTextOutput(ns("summary.determinant.cor")),
                         verbatimTextOutput(ns("summary.determinant.cov")),
-                        h5("A non zero determinante indicates that there are not strong correlations among the variables and so there are no possible linear combinations. "),
+                        h5("A non-zero |R| indicates that there are not strong correlations among the variables and so there are no possible linear combinations. "),
                         h3("Effective dependence coefficient"),
                         verbatimTextOutput(ns("summary.effective_depend_coefficient")),
                         h5("This explains that the linear dependances between all variables selected have a low influence (16,6%), on the variability of the dataset so we end up on the same conclussion as with the |R|.")
                     ),
                     box(h3("Find the variables involved in the overall linear dependence"),
-                        h5("Assuming all values are close to 0 except the second 0.989, we can conclude that this variable has very small variance, it is almost constant through the observed data."),
+    h5("Looking at the eigenvalues we observe that Sulfites, pH and Alcohol percentage have eigenvalues closer to cero. Lets analyze their eigenvectors:"),
+    h5("[3] For Sulfites, assuming all values are close to 0 except the third -0,968 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
+    h5("[4] For pH, assuming all values are close to 0 except the forth -0,978 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
+    h5("[5] For Alcohol %, assuming all values are close to 0 except the second -0,989 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
+    
                         verbatimTextOutput(ns("summary.eigen"))
                         
                     )
