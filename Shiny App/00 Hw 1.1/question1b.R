@@ -7,6 +7,7 @@
 hw1_q1b_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1b"),
+            h2(HTML("<b> Mileage Analysis </b>")),
             h3("What about for highway mileage?"),
             div(HTML("<ol start='1'><li> Boxplot and density plot of Highway Mileage vs type of transmision. <br>
                      The analysis is done with a new variable that differs between automatic and manual cars. <br>

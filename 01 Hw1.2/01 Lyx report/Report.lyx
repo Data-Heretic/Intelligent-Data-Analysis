@@ -1,0 +1,653 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Intelligent Data Analysis - Homework 1.2
+\end_layout
+
+\begin_layout Author
+Panagiotis Michalopoulos, Javier de la Rua, Michail Gongolidis, 
+\begin_inset Newline newline
+\end_inset
+
+Ignacio Rodriguez, Daniel Minguez
+\end_layout
+
+\begin_layout Date
+October 24th, 2018
+\end_layout
+
+\begin_layout Section
+Basic exploration of a dataset
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Standard
+We have chosen the wines dataset, this dataset has 11 variables based on
+ physicochemical tests on different wines plus a categorical variable grading
+ the wine quality by experts between 0 (very bad) and 10 (very excellent)
+ and a binary variable, type: (1 = white wine and 2 = red wine).
+ In order to understand better the dataset, we have research information
+ about the different variables:
+\end_layout
+
+\begin_layout Itemize
+Fixed acidity: a non-volatile acid (also known as a fixed acid or metabolic
+ acid) is an acid produced from sources other than carbon dioxide.
+ They are produced from e.g.
+ an incomplete metabolism of carbohydrates, fats, and proteins.
+ 
+\end_layout
+
+\begin_layout Itemize
+Volatile acidity: In the context of wine making, volatile acidity is a form
+ of wine spoilage that is by-product of microbial metabolism that can occur
+ during the wine making process with the introduction of harmful bacteria.
+ Dimensionality not appreciated
+\end_layout
+
+\begin_layout Itemize
+Citric acid has many uses in wine production.
+ Citric acid is a weak organic acid, which is often used as a natural preservati
+ve or additive to food or drink to add a sour taste to food.
+ It can also be used to neutralize surfaces that have been treated with
+ basic substances.
+ Dimensionality not appreciated
+\end_layout
+
+\begin_layout Itemize
+Residual sugar, percentage of sugar not fermented (sugar fermented= alcohol)
+\end_layout
+
+\begin_layout Itemize
+Chloride: Cl-, don’t know too much but high concentrations makes the wine
+ salty (pH >7)
+\end_layout
+
+\begin_layout Itemize
+Free sulphur dioxide: Sulphur dioxide (SO(2)) is used as a preservative
+ and stabilizer in wine production to prevent undesired biochemical processes
+ in the must and the final product.
+ The concentration of SO(2) is restricted by national regulations.
+ There are two main forms of SO(2) in wine-free (inorganic forms) and bound
+ (fixed to organic compounds, e.g.
+ aldehydes) 
+\end_layout
+
+\begin_layout Itemize
+Total sulphur dioxide
+\end_layout
+
+\begin_layout Itemize
+Density: mass/volume
+\end_layout
+
+\begin_layout Itemize
+pH(acid, salinity meter)
+\end_layout
+
+\begin_layout Itemize
+Sulphates: turns into sulphur dioxide (S-)
+\end_layout
+
+\begin_layout Itemize
+Alcohol percentage
+\end_layout
+
+\begin_layout Itemize
+Quality: rated from 0 to 10
+\end_layout
+
+\begin_layout Itemize
+Type (1= white wine or 2) 
+\end_layout
+
+\begin_layout Subsection
+Descriptive statistics
+\end_layout
+
+\begin_layout Subsubsection
+Questions
+\end_layout
+
+\begin_layout Description
+a) 
+\series bold
+Choose a quantitative variable and explore its distribution in terms of
+ descriptive measures of center, dispersion, skewness and kurtosis.
+ Is a normal model a plausible one for its distribution? If the answer is
+ no, can you think of a transformation of the variable that improves normality.
+ Are there any outliers?
+\end_layout
+
+\begin_layout Standard
+We have choose to explore the quantitative variable “Total Sulfur Dioxide”,
+ and we have calculated the statistics related with center, dispersion,
+ skewness and kurtosis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The skewness is 0.2167518.
+ This value implies that the distribution of the data is slightly skewed
+ to the right or positive skewed.
+ It is skewed to the right because the computed value is positive, and is
+ slightly, because the value is close to zero.
+ For the kurtosis, we have 2.073274 implying that the distribution of the
+ data is platykurtic, since the computed value is less than 3.
+ By checking the histogram of the variable, its easy to check that it seems
+ to not follow a normal distribution because it shows two different peaks:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also have tested normality with the Anscombe-Glynn Kurtosis-based test
+ and D'Agostino skewness-based test.
+ The kurtosis test rejects normality in part because of the two-peaks that
+ we can see in the distribution, on the other hand, the skewness is closer
+ to a normal distribution.
+ Finally the jarque bera test has a p-value greater than 0.05 but still small
+ (0.11).
+ In order to improve the normality of the data, we have chosen to apply
+ the the Box-Cox transformation: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After applying the transformation and reapplying the test, we can see that
+ there is not significance improvement regarding normality.
+ It could be because this variable is explained by others variables in the
+ dataset.
+ Finally, by using a boxplot graph, we have checked that there are not outliers
+ in the data: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+b) 
+\series bold
+Choose two quantitative variables and describe its joint bivariate distribution.
+ Does it seem to be Normal? Are there any outliers?
+\end_layout
+
+\begin_layout Standard
+For this part, we have chosen the variables “Volatile acidity” and “Residual
+ sugar”.
+ As a first step we have tested if any of the variables by their own follow
+ a normal distribution, after that we have applied the Shapiro Wilk test
+ for bivariate data.
+ We have seen that the data does not follow a normal distribution:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we have applied the box-cox transformation to the bivariate data (check
+ shiny app), we can see that neither the transformation follows a normal
+ distribution by following the fact that the mahalanobis distance of a bivariate
+ normal distribution follows a Chi-Square distribution (mardia test):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the qqplot for the original data we can appreciate that the distribution
+ of the distance seems to be bimodal and right-light tailed compared with
+ the chi-squared distribution.
+ On the other hand, the transformed data seems to have heavier right tails.
+\end_layout
+
+\begin_layout Standard
+Finally, we check for outliers by using also the mahalanobis distance and
+ taking all and comparing the values that take the chi squared distribution
+ with 2 degrees of freedom and 95% quantile.
+\end_layout
+
+\begin_layout Standard
+We can see that it seems to be 8 outliers, with two pairs of two observations
+ with the same Mahalanobis distance (and the same values), that is why in
+ the scatterplot we can only see six red dots: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+c) 
+\series bold
+Choose a subset of 4 or 5 quantitative variables and explore linear relationship
+s
+\end_layout
+
+\begin_layout Standard
+We have chosen 5 quantitative variables which are 
+\shape italic
+Residual sugar, Chlorides, Sulphites, pH
+\shape default
+ and 
+\shape italic
+Alcohol percentage.
+\end_layout
+
+\begin_layout Section
+Permutation tests
+\end_layout
+
+\begin_layout Subsection
+Choose a subset of 4 or 5 quantitative variables and explore linear relationship
+s
+\end_layout
+
+\begin_layout Description
+a) 
+\series bold
+R matrix of pairwise correlations
+\end_layout
+
+\begin_layout Standard
+The following is the matrix of partial correlations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Is it possible to appreciate:
+\end_layout
+
+\begin_layout Itemize
+Moderate direct relation between Chlorides and Sulfites which makes sense
+ as are used together for taste stabilizers.
+\end_layout
+
+\begin_layout Itemize
+Neglible inverse relation between Residual sugar and pH levels, which tells
+ us that the more sugar molecules rest in the wine, the pH will descent
+ making the wine more acid.
+ (The same happens in our mouth when we eat candies)
+\end_layout
+
+\begin_layout Itemize
+Neglible direct relation between Alcohol percentage and pH, which can be
+ explain with the logic of the point above, in the other words, more alcohol,
+ less sugar so pH increases (less acidity).
+\end_layout
+
+\begin_layout Itemize
+Neglible inver relation between chlorides and alcohol, as acyl chlorides
+ consumes alcohols to produce esters.
+ 
+\end_layout
+
+\begin_layout Description
+b) 
+\series bold
+Matrix of partial correlations
+\end_layout
+
+\begin_layout Standard
+Partial conrrelation between 2 given variables, removes the external influences
+ of the rest of the variables, by comparing this matrix with the R matrix
+ we can reveal hidden relations between 2 variables alone , e.g.
+ in our example we can see that the relations commented before are only
+ enhanced so there are not hidden relations revealed.
+ The Pearson coefficient between chlorides and alcohol percentage is still
+ on the same value.
+ The relationship between Chlorides and Sulfites has decreased, but Alcohol
+ and Residual Sugar is enhanced which makes the most sense as the the fermentati
+on of sugar molecules creates ethanol molecules that increase the Alcohol
+ percentage.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+c) 
+\series bold
+Coefficient of determination (function r2multv() we define in R)
+\end_layout
+
+\begin_layout Standard
+Chlorides (chlor) is the best linearly explained by the others (R2 = 0.372),
+ followed by Sulphates (S, R2 = 0.308).
+ The worst linearly explained by the others is pH (pH, R2 = 0.129).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+d) 
+\series bold
+The determinant of R (correlation matrix) as an overall measure of linear
+ relationships.
+\end_layout
+
+\begin_layout Standard
+The determinant of R is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A non-zero 
+\begin_inset Formula $|R|$
+\end_inset
+
+ indicates that there are not strong correlations among the variables and
+ so there are no possible linear combinations.
+\end_layout
+
+\begin_layout Description
+e) 
+\series bold
+An eigenanalysis of matrix R, looking for really small eigenvalues.
+\end_layout
+
+\begin_layout Standard
+Looking at the eigenvalues we observe that Sulfites, pH and Alcohol percentage
+ have eigenvalues closer to cero.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lets analyze their eigenvectors:
+\end_layout
+
+\begin_layout Description
+[3] For Sulfites, assuming all values are close to 0 except the third -0,968
+ we can conclude that this variable has very small variance, it is almost
+ constant through the observed data.
+\end_layout
+
+\begin_layout Description
+[4] For pH, assuming all values are close to 0 except the forth -0,978 we
+ can conclude that this variable has very small variance, it is almost constant
+ through the observed data.
+ 
+\end_layout
+
+\begin_layout Description
+[5] For Alcohol %, assuming all values are close to 0 except the second
+ -0,989 we can conclude that this variable has very small variance, it is
+ almost constant through the observed data.
+ 
+\end_layout
+
+\begin_layout Subsection
+Repeat the analysis deleting the values for three customers that left a
+ tip greater than 30% of the bill.
+ These generous customers seem to be outliers.
+\end_layout
+
+\end_body
+\end_document

@@ -7,6 +7,7 @@
 hw2_q1b_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1b"),
+            h2(HTML("<b> Wines Analysis </b>")),
             h3("Choose two quantitative variables and describe its joint bivariate distribution. Does it seem to be Normal? Are there any outliers?"),
             h4("The variables chosen are: Volatile acidity and residual sugar"),
             fluidPage(
@@ -62,8 +63,8 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
 
     # Plot: Joint distribution per group
     output$plot.scatter.volAcid_resSug <- renderPlot({
-        plot(wines$VolAcid, wines$ResSug, pch = c(4, 16), lwd = 2, col = c("black", "blue"),
-             main = "Joint distribution per group", xlab = "Volatile Acidity", ylab = "Residual Sugar")
+        ScatterHist(wines,"VolAcid", "ResSug",
+             title = "Joint distribution per group",contour = TRUE)
     })
 
     

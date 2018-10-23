@@ -8,4 +8,4 @@ colnames(wines) <- c("FixAcid", "VolAcid", "CitAcid", "ResSug", "chlor", "FSo2",
 
 # Restaurants
 load(str_c(hw2_path, "RestaurantTips.rda"))
-restaurantTips <- RestaurantTips[-which(RestaurantTips$PctTip > 30),]
+restaurantTips <- RestaurantTips

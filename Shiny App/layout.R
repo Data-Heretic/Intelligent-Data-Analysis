@@ -28,20 +28,6 @@ sidebar <- function(id) {
     )
 }
 
-# Outliers input
-
-outliersInput <- function(id) {
-    ns <- NS(id)
-    tags$footer(checkboxInput("outliers", "Remove Outliers", value = FALSE))
-}
-
-# Title
-
-title <- function(id) {
-    ns <- NS(id)
-    h2(HTML("<b> Mileage Analysis </b>"))
-}
-
 # Content
 
 content <- function(id) {
