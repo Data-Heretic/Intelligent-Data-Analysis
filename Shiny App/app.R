@@ -41,8 +41,6 @@ ui <- dashboardPage(
   ),
   dashboardBody(
     styles("Styles"),
-    outliersInput("OutliersInput"),
-    title("Title"),
     content("Content")
   )
 )

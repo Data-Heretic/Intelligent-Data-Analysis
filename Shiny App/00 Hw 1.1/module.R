@@ -22,6 +22,7 @@ source(str_c(hw1_path, "data-preprocessing.R"), local = TRUE)
 hw1_menuItem <- function(id) {
     ns <- NS(id)
     menuItem("Homework 1.1",
+        checkboxInput("outliers", "Remove Outliers", value = FALSE),
         menuItem("Question 1", tabName = str_c(id, "Q1"), icon = icon("comment", lib = "font-awesome"),
             menuItem("a",
                     tabName = str_c(id, "Q1a"),

@@ -7,6 +7,7 @@
 hw1_q4_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q4"),
+            h2(HTML("<b> Mileage Analysis </b>")),
             h3("Proposed Question - 
                Is there any difference in city and highway data between manufacturers?"),
             h5("For this question we have used a double box plot to show how the different manufacturers engines behave in terms of consumption for City driving and highway driving."),

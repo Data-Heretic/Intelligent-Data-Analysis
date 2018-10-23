@@ -7,6 +7,7 @@
 hw1_q3_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q3"),
+            h2(HTML("<b> Mileage Analysis </b>")),
             h3("Comparing the distribution of some of the variables in years 1999 and 2008, determine whether the requests on automobiles have been changed."),
             h5("On the histogram plot we compare the distribution of the engine displacement for each automotive throught the years "),
             h5("On the scatterplot it is illustrated how the milage is affected by the type of transmission and the year of the car manufacturing."),

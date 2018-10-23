@@ -7,6 +7,7 @@
 hw1_q2_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q2"),
+            h2(HTML("<b> Mileage Analysis </b>")),
             h3("Has fuel type (or cylinders) any influence on highway data or city data?"),
             h5("Boxplots comparing the City Mileage to the Highway Mileage with respect to : A)The fuel type of each automobile and B)The number of cylinders each automobile has. "),
             fluidPage(
