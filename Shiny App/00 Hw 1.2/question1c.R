@@ -33,7 +33,7 @@ hw2_q1c_ui <- function(id) {
                 ),
                 fluidRow(
                     box(h5("Coefficient of determination (function r2multv() we define in R)"),
-                        h5("Chlorides (chlor) is the best linearly explained by the others (R^2 = 0.358), followed by Sulphates (S, R^2 = 0.326). The worst linearly explained by the others is Sugar Residual (ResSug, R^2 = 0.15)."),
+                        h5(div(HTML("Chlorides (chlor) is the best linearly explained by the others (R<sup>2</sup> = 0.358), followed by Sulphates (S, R<sup>2</sup> = 0.326). The worst linearly explained by the others is Sugar Residual (ResSug, R<sup>2</sup> = 0.15)."))),
                         verbatimTextOutput(ns("summary.coefficient_determination")),
                         h5("Are any linear relationships present in this dataset? Let's calculate the determinant of S and R:"),
                         verbatimTextOutput(ns("summary.determinant.cor")),
@@ -65,7 +65,7 @@ hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
     })
 
 
-    # Plot: Corrgram wines. Pie format ·####
+    # Plot: Corrgram wines. Pie format ?####
     output$plot.corrgram.wines_pie <- renderPlot({
         corrgram(wines_for_correlations(), order = TRUE,
          lower.panel = panel.shade, upper.panel = panel.pie,
