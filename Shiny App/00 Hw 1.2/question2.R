@@ -19,7 +19,7 @@ hw2_q2_ui <- function(id) {
                as it is to appear with X<sub>j</sub>, i&ne;j."))),
             fluidPage(
                   fluidRow(checkboxInput(ns("remove_30_percentage"), "What if I repeat the analysis deleting the values for three customers that left a tip greater than
-                           30% of the bill?", value = FALSE)),
+                           30% of the bill? Are these generous customers outliers?", value = FALSE)),
                   fluidRow(box(plotOutput(ns("plot_tips_pctTip"))), box(plotOutput(ns("histogram_prob_random")))
                   ),
                   fluidRow(box(h5("Correlation"), verbatimTextOutput(ns("correlation")),
@@ -68,7 +68,9 @@ hw2_q2_server <- function(input, output, session) {
         # Histogram
         output$histogram_prob_random <- renderPlot({
           hist(r.random, breaks = 50, main =  expression(paste("Distribution around p = 0")), xlab = "r from randomized samples", col = "blue", border = "red")
-          legend(.05, 500, paste("obtained correlation =",as.character(round(r.obt, digits = 2))), bty = "n")
+          # legend(.05, 500, paste("obtained correlation =",as.character(round(r.obt, digits = 2))), bty = "n")
+          legend("topright", legend=paste("obtained correlation =",as.character(round(r.obt, digits = 2))),
+                 col="green", lty=1:2, cex=0.7, box.lty = 0)
           abline(v=r.obt,col="green",lwd=2)
         })
 
