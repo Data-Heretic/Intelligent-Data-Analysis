@@ -25,7 +25,7 @@ hw2_q2_ui <- function(id) {
                   ),
                   fluidRow(box(h5("Correlation"), verbatimTextOutput(ns("correlation")),
                                h5("Probability randomized"), verbatimTextOutput(ns("probability_randomized")),
-                               h5("The p-value is lower than the significance level of 0.05 that means there is some evidence against the null hypothesis."),align = "center",width = 12)
+                               verbatimTextOutput(ns("p_value_explanation")),align = "center",width = 12)
 
                   )
             )
@@ -76,6 +76,16 @@ hw2_q2_server <- function(input, output, session) {
         })
 
         return(cat("Probability randomized r >= r.obt:", prob))
+    })
+    
+    output$p_value_explanation <- renderPrint({
+      if(input$remove_30_percentage){
+        return(cat("The p-value is less than the significance level of 0.05 that means there is strong evidence against the null hypothesis. 
+                   So we can conclude that generous customers were indeed outliers in our distribution!"))
+      }
+      else{
+        return(cat("The p-value fluctuates around the significance level of 0.05 that means there is evidence against the null hypothesis but not clear."))
+      }
     })
 
     
