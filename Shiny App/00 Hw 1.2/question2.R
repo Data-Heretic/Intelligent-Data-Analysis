@@ -25,7 +25,7 @@ hw2_q2_ui <- function(id) {
                   ),
                   fluidRow(box(h5("Correlation"), verbatimTextOutput(ns("correlation")),
                                h5("Probability randomized"), verbatimTextOutput(ns("probability_randomized")),
-                               h5("The p-value is lower than the significance level of 0.05 that means there is some evidence against the null hypothesis."))
+                               h5("The p-value is lower than the significance level of 0.05 that means there is some evidence against the null hypothesis."),align = "center",width = 12)
 
                   )
             )
