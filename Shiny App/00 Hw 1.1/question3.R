@@ -43,9 +43,6 @@ hw1_q3_ui <- function(id) {
 
 hw1_q3_server <- function(input, output, session, data, dataM) {
 
-    # Detach Hmisc
-    detach(package:Hmisc)
-
     # Plot: Density two years (1999 - 2008)
     output$plot.density.two_years <- renderPlot({
         d1 <- density(data()$displ[data()$year == 1999])
@@ -72,27 +69,27 @@ hw1_q3_server <- function(input, output, session, data, dataM) {
 
         t1 <- data() %>%
             group_by(year, manufacturer) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         tfl <- data() %>%
             group_by(year, fl) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         tclass <- data() %>%
             group_by(year, class) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         ttr <- data() %>%
             group_by(year, tr) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         tdt <- data() %>%
             group_by(year, drv) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         tcyl <- data() %>%
             group_by(year, cyl) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         datos <- if (input$selection_2 == '1') { t1 }
         else if (input$selection_2 == '2') { tfl }
@@ -111,27 +108,27 @@ hw1_q3_server <- function(input, output, session, data, dataM) {
     output$test.chi.selection_2 <- renderTable({
         t1 <- data() %>%
             group_by(year, manufacturer) %>%
-            summarize(Count1 = n())
+            dplyr::summarize(Count1 = n())
 
         tfl <- data() %>%
         group_by(year, fl) %>%
-        summarize(Count1 = n())
+        dplyr::summarize(Count1 = n())
 
         tclass <- data() %>%
         group_by(year, class) %>%
-        summarize(Count1 = n())
+        dplyr::summarize(Count1 = n())
 
         ttr <- data() %>%
         group_by(year, tr) %>%
-        summarize(Count1 = n())
+        dplyr::summarize(Count1 = n())
 
         tdt <- data() %>%
         group_by(year, drv) %>%
-        summarize(Count1 = n())
+        dplyr::summarize(Count1 = n())
 
         tcyl <- data() %>%
         group_by(year, cyl) %>%
-        summarize(Count1 = n())
+        dplyr::summarize(Count1 = n())
 
         datos <- if (input$selection_2 == '1') { t1 }
         else if (input$selection_2 == '2') { tfl }
