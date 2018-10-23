@@ -42,17 +42,18 @@ hw2_q1c_ui <- function(id) {
                     column(4, box(plotOutput(ns("plot.corrgram.partial_matrix_pie")), width = 12))
                 ),
                 fluidRow(
-                    box(h5("Coefficient of determination (function r2multv() we define in R)"),
+                    box(h3("Coefficient of determination (function r2multv() we define in R)"),
                         h5(div(HTML("Chlorides (chlor) is the best linearly explained by the others (R<sup>2</sup> = 0.372), followed by Sulphates (S, R<sup>2</sup> = 0.308). The worst linearly explained by the others is pH (pH, R<sup>2</sup> = 0.129)."))),
                         verbatimTextOutput(ns("summary.coefficient_determination")),
-                        h5("Are any linear relationships present in this dataset? Let's calculate the determinant of R and S, respectively:"),
+                        h4("Are any linear relationships present in this dataset? Let's calculate the determinant of R and S, respectively:"),
                         verbatimTextOutput(ns("summary.determinant.cor")),
-                        verbatimTextOutput(ns("summary.determinant.cov")),  
-                        h5("Effective dependence coefficient"),
+                        verbatimTextOutput(ns("summary.determinant.cov")),
+                        h5("A non zero determinante indicates that there are not strong correlations among the variables and so there are no possible linear combinations. "),
+                        h3("Effective dependence coefficient"),
                         verbatimTextOutput(ns("summary.effective_depend_coefficient")),
-                        h5("This explains that the linear dependances between all variables selected have a low influence (16,6%) but still some, on the variability of the dataset.")
+                        h5("This explains that the linear dependances between all variables selected have a low influence (16,6%), on the variability of the dataset so we end up on the same conclussion as with the |R|.")
                     ),
-                    box(h5("Find the variables involved in the overall linear dependence"),
+                    box(h3("Find the variables involved in the overall linear dependence"),
                         h5("Assuming all values are close to 0 except the second 0.989, we can conclude that this variable has very small variance, it is almost constant through the observed data."),
                         verbatimTextOutput(ns("summary.eigen"))
                         
