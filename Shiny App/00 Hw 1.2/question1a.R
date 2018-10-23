@@ -40,6 +40,7 @@ hw2_q1a_ui <- function(id) {
                     box(plotOutput(ns("histogram_3")))
                 ),
                 h3("Outliers"),
+                div(HTML("We can see that there are not apparent outliers")),
                 fluidRow(box(plotOutput(ns("boxplot"))))
             )
     )

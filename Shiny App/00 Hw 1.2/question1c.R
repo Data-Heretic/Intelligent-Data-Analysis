@@ -136,6 +136,6 @@ hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
 
     # Summary: Effective dependence coefficient
     output$summary.effective_depend_coefficient <- renderPrint({
-        return(1 - det(cor(wines_for_correlations())) ^ { 1 / 4 })
+        return(1 - det(cor(wines_for_correlations())) ^ { 1 / 4 }) # Altogether, linear dependences explain 17.5 % of the variability in the dataset.
     })
 }
