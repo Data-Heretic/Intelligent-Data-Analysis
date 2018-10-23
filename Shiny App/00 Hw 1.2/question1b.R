@@ -7,6 +7,7 @@
 hw2_q1b_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1b"),
+            h2(HTML("<b> Wines Analysis </b>")),
             h3("Choose two quantitative variables and describe its joint bivariate distribution. Does it seem to be Normal? Are there any outliers?"),
             h4("The variables chosen are: Volatile acidity and residual sugar"),
             fluidPage(

@@ -7,6 +7,7 @@
 hw2_q1c_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1c"),
+            h2(HTML("<b> Wines Analysis </b>")),
             h3("Choose a subset of 4 or 5 quantitative variables and explore linear relationships."),
             h5("We have chosen these variables:"),
             div(HTML("<ul><li>Residual sugar</li><li>Chlorides </li><li>Sulfites</li><li>pH</li><li>Alcohol percentage</li></ul>")),

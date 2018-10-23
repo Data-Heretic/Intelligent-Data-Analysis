@@ -7,6 +7,7 @@
 hw2_q1a_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1a"),
+            h2(HTML("<b> Wines Analysis </b>")),
             h3(" Choose a quantitative variable and explore its distribution in terms of descriptive measures of center, dispersion, skewness and kurtosis. Is a normal model a plausible one for its distribution? If the answer is no, can you think of a transformation of the variable that improves normality. Are there any outliers?"),
             fluidPage(
                 fluidRow(

@@ -7,6 +7,7 @@
 hw2_q2_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q2"),
+            h2(HTML("<b> Wines Analysis </b>")),
             h3("Permutation test"),
             h4(div(HTML("With Permutation testing the reference distribution is generated from the data themselves, instead of comparing the
                 actual value of a test statistic to a standard statistical distribution. Permutation provides an efficient
