@@ -47,7 +47,8 @@ hw2_q1c_ui <- function(id) {
                         h5("Assuming all values are close to 0 except the third 0.989, we can conclude that this variable has very small variance, it is almost constant through the observed data."),
                         verbatimTextOutput(ns("summary.eigen")),
                         h5("Effective dependence coefficient"),
-                        verbatimTextOutput(ns("summary.effective_depend_coefficient"))
+                        verbatimTextOutput(ns("summary.effective_depend_coefficient")),
+                        h5("Altogether, linear dependences explain 17.5% of the variability in the dataset.")
                     )
                 )
             )
@@ -141,6 +142,6 @@ hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
 
     # Summary: Effective dependence coefficient
     output$summary.effective_depend_coefficient <- renderPrint({
-        return(1 - det(cor(wines_for_correlations())) ^ { 1 / 4 })
+        return(1 - det(cor(wines_for_correlations())) ^ { 1 / 4 }) # Altogether, linear dependences explain 17.5 % of the variability in the dataset.
     })
 }

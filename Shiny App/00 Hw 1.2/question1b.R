@@ -15,7 +15,7 @@ hw2_q1b_ui <- function(id) {
                         verbatimTextOutput(ns("test.jarque_bera.resSug")),
                         h5("Doing shapiro test to check normality of the two variables"),
                         verbatimTextOutput(ns("test.shapiro.volAcid_resSug"))),
-                    box(plotOutput(ns("plot.scatterplot.volAcid_resSug")))
+                    box(plotOutput(ns("plot.scatter.volAcid_resSug")))
                 ),
                 fluidRow(
                   h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug"))
@@ -35,7 +35,7 @@ hw2_q1b_ui <- function(id) {
                         h5("We got 8 outliers, which are:"),
                         verbatimTextOutput(ns("summary.mahalanobis.outliers"))
                     ),
-                    box(plotOutput(ns("plot.scatterplot.outliers")), plotOutput(ns("plot.qq.outliers")))
+                    box(plotOutput(ns("plot.scatter.outliers")), plotOutput(ns("plot.qq.outliers")))
                 )
             )
     )
@@ -61,7 +61,7 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
     })
 
     # Plot: Joint distribution per group
-    output$plot.scatterplot.volAcid_resSug <- renderPlot({
+    output$plot.scatter.volAcid_resSug <- renderPlot({
         plot(wines$VolAcid, wines$ResSug, pch = c(4, 16), lwd = 2, col = c("black", "blue"),
              main = "Joint distribution per group", xlab = "Volatile Acidity", ylab = "Residual Sugar")
     })
@@ -107,7 +107,7 @@ hw2_q1b_server <- function(input, output, session, mahalanobis24) {
     })
 
     # Plot: Scatterplot of outliers
-    output$plot.scatterplot.outliers <- renderPlot({
+    output$plot.scatter.outliers <- renderPlot({
         pos <- which(mahalanobis24() > qchisq(0.95, df = 2))
         x = rep(1, dim(wines)[1])
         x[pos] = 0

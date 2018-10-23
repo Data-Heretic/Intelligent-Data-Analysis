@@ -6,6 +6,7 @@ library(shiny)
 library(shinydashboard)
 library(tidyverse)
 library(stringr)
+library(Hmisc)
 library(ggplot2)
 library(gridExtra)
 library(reshape2)
@@ -17,7 +18,6 @@ library(car) # Pooled groups
 library(moments) # Skewness and kurtosis
 library(MVN) # Comparing fitting to a normal distribution before and after the transformation with Mardia test 
 library(mvoutlier)
-library(Hmisc)
 library(MXM)
 library(corrplot)
 library(corrgram)
