@@ -100,83 +100,117 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-We have chosen the wines dataset, this dataset has 11 variables based on
- physicochemical tests on different wines plus a categorical variable grading
- the wine quality by experts between 0 (very bad) and 10 (very excellent)
- and a binary variable, type: (1 = white wine and 2 = red wine).
- In order to understand better the dataset, we have research information
- about the different variables:
+We have chosen the wines dataset, this dataset has 11 variables related
+ to tests on different wines plus a categorical variable grading the wine
+ quality by experts and a binary variable indicating the type (white or
+ red):
 \end_layout
 
 \begin_layout Itemize
-Fixed acidity: a non-volatile acid (also known as a fixed acid or metabolic
- acid) is an acid produced from sources other than carbon dioxide.
- They are produced from e.g.
- an incomplete metabolism of carbohydrates, fats, and proteins.
+
+\series bold
+Fixed acidity:
+\series default
+ related to fixed acids or metabolic acids.
+ They are produced, for example, from an incomplete metabolism of carbohydrates,
+ fats, and proteins.
  
 \end_layout
 
 \begin_layout Itemize
-Volatile acidity: In the context of wine making, volatile acidity is a form
- of wine spoilage that is by-product of microbial metabolism that can occur
- during the wine making process with the introduction of harmful bacteria.
- Dimensionality not appreciated
+
+\series bold
+Volatile acidity:
+\series default
+ form of wine spoilage.
+ Unit of measurement not appreciated.
 \end_layout
 
 \begin_layout Itemize
-Citric acid has many uses in wine production.
- Citric acid is a weak organic acid, which is often used as a natural preservati
-ve or additive to food or drink to add a sour taste to food.
- It can also be used to neutralize surfaces that have been treated with
- basic substances.
- Dimensionality not appreciated
+
+\series bold
+Citric acid: 
+\series default
+is a weak organic acid.
+ Unit of measurement not appreciated.
 \end_layout
 
 \begin_layout Itemize
-Residual sugar, percentage of sugar not fermented (sugar fermented= alcohol)
+
+\series bold
+Residual sugar: 
+\series default
+percentage of sugar not fermented.
 \end_layout
 
 \begin_layout Itemize
-Chloride: Cl-, don’t know too much but high concentrations makes the wine
- salty (pH >7)
+
+\series bold
+Chloride:
+\series default
+ Cl-, high concentrations makes the wine salty (pH >7).
 \end_layout
 
 \begin_layout Itemize
-Free sulphur dioxide: Sulphur dioxide (SO(2)) is used as a preservative
- and stabilizer in wine production to prevent undesired biochemical processes
- in the must and the final product.
- The concentration of SO(2) is restricted by national regulations.
- There are two main forms of SO(2) in wine-free (inorganic forms) and bound
- (fixed to organic compounds, e.g.
- aldehydes) 
+
+\series bold
+Free sulphur dioxide:
+\series default
+ sulphur dioxide is used as a stabilizer in wine production to prevent undesired
+ biochemical processes in the must and the final product.
+ 
 \end_layout
 
 \begin_layout Itemize
-Total sulphur dioxide
+
+\series bold
+Total sulphur dioxide.
 \end_layout
 
 \begin_layout Itemize
-Density: mass/volume
+
+\series bold
+Density:
+\series default
+ mass/volume.
 \end_layout
 
 \begin_layout Itemize
-pH(acid, salinity meter)
+
+\series bold
+pH
+\series default
+: (acid, salinity meter).
 \end_layout
 
 \begin_layout Itemize
-Sulphates: turns into sulphur dioxide (S-)
+
+\series bold
+Sulphates:
+\series default
+ turns into sulphur dioxide (S-).
 \end_layout
 
 \begin_layout Itemize
-Alcohol percentage
+
+\series bold
+Alcohol percentage.
 \end_layout
 
 \begin_layout Itemize
-Quality: rated from 0 to 10
+
+\series bold
+Quality:
+\series default
+ rated from 0 to 10.
 \end_layout
 
 \begin_layout Itemize
-Type (1= white wine or 2) 
+
+\series bold
+Type:
+\series default
+ (1= white wine or 2).
 \end_layout
 
 \begin_layout Subsection
@@ -208,13 +242,16 @@ We have choose to explore the quantitative variable “Total Sulfur Dioxide”,
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im01.PNG
+	scale 50
 
-\end_layout
+\end_inset
 
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -227,13 +264,21 @@ status collapsed
 The skewness is 0.2167518.
  This value implies that the distribution of the data is slightly skewed
  to the right or positive skewed.
- It is skewed to the right because the computed value is positive, and is
+ 
+\end_layout
+
+\begin_layout Standard
+It is skewed to the right because the computed value is positive, and is
  slightly, because the value is close to zero.
  For the kurtosis, we have 2.073274 implying that the distribution of the
  data is platykurtic, since the computed value is less than 3.
- By checking the histogram of the variable, its easy to check that it seems
- to not follow a normal distribution because it shows two different peaks:
  
+\end_layout
+
+\begin_layout Standard
+By checking the histogram of the variable, its easy to check that it seems
+ to not follow a normal distribution because it shows two different peaks
+ (bimodal): 
 \end_layout
 
 \begin_layout Standard
@@ -241,9 +286,16 @@ The skewness is 0.2167518.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im02.PNG
+	scale 50
+
+\end_inset
+
 
 \end_layout
 
@@ -253,9 +305,9 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-We also have tested normality with the Anscombe-Glynn Kurtosis-based test
- and D'Agostino skewness-based test.
- The kurtosis test rejects normality in part because of the two-peaks that
+We also have tested normality (check shiny App) with the Anscombe-Glynn
+ Kurtosis-based test and D'Agostino skewness-based test.
+ The kurtosis test rejects normality in part because of the bimodality that
  we can see in the distribution, on the other hand, the skewness is closer
  to a normal distribution.
  Finally the jarque bera test has a p-value greater than 0.05 but still small
@@ -269,25 +321,23 @@ We also have tested normality with the Anscombe-Glynn Kurtosis-based test
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
-
-\end_layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im03.PNG
+	scale 40
 
 \end_inset
 
 
-\end_layout
+\begin_inset Graphics
+	filename 00 Images/Im04.PNG
+	scale 25
 
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+\end_inset
 
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -298,7 +348,8 @@ status collapsed
 
 \begin_layout Standard
 After applying the transformation and reapplying the test, we can see that
- there is not significance improvement regarding normality.
+ there is not significance improvement regarding normality (check shiny
+ App for the exact parameters of the tests).
  It could be because this variable is explained by others variables in the
  dataset.
  Finally, by using a boxplot graph, we have checked that there are not outliers
@@ -310,9 +361,16 @@ After applying the transformation and reapplying the test, we can see that
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im05.PNG
+	scale 40
+
+\end_inset
+
 
 \end_layout
 
@@ -331,7 +389,7 @@ Choose two quantitative variables and describe its joint bivariate distribution.
 \begin_layout Standard
 For this part, we have chosen the variables “Volatile acidity” and “Residual
  sugar”.
- As a first step we have tested if any of the variables by their own follow
+ As a first step we have tested if any of the variables by their own follows
  a normal distribution, after that we have applied the Shapiro Wilk test
  for bivariate data.
  We have seen that the data does not follow a normal distribution:
@@ -342,9 +400,16 @@ For this part, we have chosen the variables “Volatile acidity” and “Residu
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im06.PNG
+	scale 35
+
+\end_inset
+
 
 \end_layout
 
@@ -365,9 +430,16 @@ Then we have applied the box-cox transformation to the bivariate data (check
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im07.PNG
+	scale 35
+
+\end_inset
+
 
 \end_layout
 
@@ -390,6 +462,13 @@ Finally, we check for outliers by using also the mahalanobis distance and
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We can see that it seems to be 8 outliers, with two pairs of two observations
  with the same Mahalanobis distance (and the same values), that is why in
  the scatterplot we can only see six red dots: 
@@ -400,9 +479,16 @@ We can see that it seems to be 8 outliers, with two pairs of two observations
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im08.PNG
+	scale 25
+
+\end_inset
+
 
 \end_layout
 
