@@ -10,9 +10,9 @@ hw2_q1c_ui <- function(id) {
             h3("Choose a subset of 4 or 5 quantitative variables and explore linear relationships."),
             fluidPage(
                 h1("R matrix of pairwise correlations"),
-                div(HTML("<ul><li>Moderate relation between Chloride and Sulfates</li><li>Moderate relation between Alcohol % and quality</li><li>Neglible relation between Alcohol % and Residual sugar</li></ul>")),
+                div(HTML("<ul><li>Moderate relation between Chloride and Sulfates which makes sense as both together regulate pH, the first is used to control the saltiness (chemical precipitation of salts) and the second controls the precipitation of acids. </li><li>Very Moderate relation between Alcohol % and quality perceived by judges </li><li>Neglible relation between Alcohol % and Residual sugar which is logical as Alcohol is made out from the fermentation of sugar molecules</li></ul>")),
                 fluidRow(
-                    column(4, box(h5("Reordering the correlation matrix: there are different methods. Sometimes it is useful for minning the hidden structure and pattern in the matrix."),
+                    column(4, box(h5("Reordering the correlation matrix: there are different methods. Sometimes it is useful for minning the hidden structure and pattern in the matrix. "),
                     plotOutput(ns("plot.corrplot.mixed_rmatrix_AOE")), width = 12)
                         
                     ),
@@ -23,11 +23,13 @@ hw2_q1c_ui <- function(id) {
                         box(h5("You can even use scatterplots in the correlation plot, to visualize the linear regression between the variables "), plotOutput(ns("plot.corrgram.wines_pts")), width = 12)
                     )
                 ),
-                h1("R matrix of pairwise correlations"),
+                h1("Matrix of partial correlations"),
+                div(HTML("<ul>Partial conrrelation between 2 given variables, removes the external influences of the rest of the variables, by comparing this matrix with the R matrix we can reveal hidden relations between 2 variables alone , e.g. in our example we can see that the relations commented before are only enhanced so there are not hidden relations revealed. The Pearson coefficient between Quality perceived and Alcohol percentage is still on the same order on magnitude.
+                    This also applies to the relationship between Chlorides and Sulfites,BUT Alcohol and Residual Sugar is enhanced which makes the most sense as the the fermentation of sugar molecules creates ethanol molecules that increase the Alcohol percentage,. ")),
                 fluidRow(
-                    
-                    column(4, box(plotOutput(ns("plot.corrgram.partial_matrix_pie")), width = 12)),
-                    column(4, box(plotOutput(ns("plot.corrplot.mixed_partial_matrix")), width = 12))
+                    column(4, 
+                    box(plotOutput(ns("plot.corrplot.mixed_partial_matrix")), width = 12)),
+                    column(4, box(plotOutput(ns("plot.corrgram.partial_matrix_pie")), width = 12))
                 ),
                 fluidRow(
                     box(h5("Coefficient of determination (function r2multv() we define in R)"),
@@ -35,13 +37,15 @@ hw2_q1c_ui <- function(id) {
                         verbatimTextOutput(ns("summary.coefficient_determination")),
                         h5("Are any linear relationships present in this dataset? Let's calculate the determinant of S and R:"),
                         verbatimTextOutput(ns("summary.determinant.cor")),
-                        verbatimTextOutput(ns("summary.determinant.cov"))
+                        verbatimTextOutput(ns("summary.determinant.cov")),  
+                        h5("Effective dependence coefficient"),
+                        verbatimTextOutput(ns("summary.effective_depend_coefficient")),
+                        h5("This explains that the linear dependances between all variables selected have a low influence (17%) but still some, on the variability of the dataset.")
                     ),
                     box(h5("Find the variables involved in the overall linear dependence"),
                         h5("Assuming all values are close to 0 except the third 0.989, we can conclude that this variable has very small variance, it is almost constant through the observed data."),
-                        verbatimTextOutput(ns("summary.eigen")),
-                        h5("Effective dependence coefficient"),
-                        verbatimTextOutput(ns("summary.effective_depend_coefficient"))
+                        verbatimTextOutput(ns("summary.eigen"))
+                        
                     )
                 )
             )
