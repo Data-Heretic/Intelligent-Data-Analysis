@@ -57,8 +57,8 @@ hw2_q1c_ui <- function(id) {
                     box(h3("Find the variables involved in the overall linear dependence"),
     h5("Looking at the eigenvalues we observe that Sulfites, pH and Alcohol percentage have eigenvalues closer to cero. Lets analyze their eigenvectors:"),
     h5("[3] For Sulfites, assuming all values are close to 0 except the third -0,968 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
-    h5("[4] For pH, assuming all values are close to 0 except the forth -0,978 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
-    h5("[5] For Alcohol %, assuming all values are close to 0 except the second -0,989 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
+    h5("[4] For pH, assuming all values are close to 0 except the forth -0,978 we can conclude that this variable has very small variance, it is almost constant through the observed data. "),
+    h5("[5] For chlor %, assuming all values are close to 0 except the second -0,989 we can conclude that this variable has very small variance, it is almost constant through the observed data."),
     
                         verbatimTextOutput(ns("summary.eigen"))
                         
