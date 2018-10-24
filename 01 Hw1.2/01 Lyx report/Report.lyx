@@ -545,7 +545,7 @@ R matrix of pairwise correlations
 \end_layout
 
 \begin_layout Standard
-The following is the matrix of partial correlations (check the shiny app
+The following is the matrix of pairwise correlations (check the shiny app
  for more examples):
 \end_layout
 
@@ -688,7 +688,7 @@ We have calculated the eigenvalues and eigenvectors of the matrix with columns
 
 .
  Looking at the eigenvalues we have observed that Sulfites, pH and chlor
- percentage have eigenvalues closer to cero.
+ percentage have eigenvalues closer to zero.
  
 \end_layout
 
@@ -759,8 +759,19 @@ The null hypothesis is that correlation is equal to 0.
  This means that there is no linear relationship between the two variables.
  If that is true, then any of the Y observations is just as likely to appear
  with any of the X's.
- In other words, Yi is just as likely to appear with Xi as it is to appear
- with Xj, i≠j.
+ In other words, 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ is just as likely to appear with 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ as it is to appear with 
+\begin_inset Formula $X_{j},i≠j$
+\end_inset
+
+.
  
 \end_layout
 
