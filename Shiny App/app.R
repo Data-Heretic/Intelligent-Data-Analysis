@@ -17,6 +17,11 @@ library(car) # Pooled groups
 library(moments) # Skewness and kurtosis
 library(MVN) # Comparing fitting to a normal distribution before and after the transformation with Mardia test 
 library(mvoutlier)
+library(Hmisc)
+library(corrplot)
+library(corrgram)
+library(ppcor)
+library(WVPlots)
 
 ###################################################
 ##########           Sources       ################
@@ -37,8 +42,6 @@ ui <- dashboardPage(
   ),
   dashboardBody(
     styles("Styles"),
-    outliersInput("OutliersInput"),
-    title("Title"),
     content("Content")
   )
 )

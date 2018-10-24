@@ -7,24 +7,25 @@
 hw1_q1b_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1b"),
+            h2(HTML("<b> Mileage Analysis </b>")),
             h3("What about for highway mileage?"),
             div(HTML("<ol start='1'><li> Boxplot and density plot of Highway Mileage vs type of transmision. <br>
                      The analysis is done with a new variable that differs between automatic and manual cars. <br>
                      The objective is to determine whether the mean between both populations is equal <br></li></ol>")),
             fluidPage(
-              fluidRow(box(plotOutput(ns("plot_hwy"))),
-                       box(plotOutput(ns("plot2_hwy")),
-                           selectInput(ns("XPlot1_hwy"), "Logarithmic or normal variable?", c("Original Data" = "hwy", "Log Data" = "log(hwy)")))
+              fluidRow(box(plotOutput(ns("plot.box.hwy"))),
+                       box(plotOutput(ns("plot.density.hwy")),
+                           selectInput(ns("hwy_variable_type"), "Logarithmic or normal variable?", c("Original Data" = "hwy", "Log Data" = "log(hwy)")))
               ),
               div(HTML("<ol start='2'><li> In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
                        Before we test the assumptions of normality of the errors and Homoscedasticity with Jarque bera and Levene tests, respectively.<br>
                        Finally we use One-Way ANOVA if the test assumptions are met otherwsise we apply the non-parametric Kruskall-Wallis test. <br>
                        There is also an option of performing the whole process removing the outliers from the Highway Mileage Data. <br>
                        We can Conclude by using the log of the data that there is a difference <br></li></ol> ")),
-              fluidRow(box(plotOutput(ns("Errors2"))), box(verbatimTextOutput(ns("Errors2_jar")), verbatimTextOutput(ns("Errors2_Lev")))),
+              fluidRow(box(plotOutput(ns("plot.qq.hwy_errors"))), box(verbatimTextOutput(ns("test.jarque_bera.hwy")), verbatimTextOutput(ns("test.levene.hwy")))),
               fluidRow(
-                verbatimTextOutput(ns("text21")),
-                verbatimTextOutput(ns("text22"))
+                verbatimTextOutput(ns("summary.aov.hwy")),
+                verbatimTextOutput(ns("test.kruskal.hwy"))
               )
             )
     )
@@ -34,8 +35,8 @@ hw1_q1b_ui <- function(id) {
 
 hw1_q1b_server <- function(input, output, session, data, dataM) {
 
-    # plot_hwy
-    output$plot_hwy <- renderPlot({
+    # Plot: Boxplot hwy
+    output$plot.box.hwy <- renderPlot({
         ggplot(data = data(), aes(x = tr, y = hwy, fill = tr)) +
         geom_boxplot() +
         labs(fill = "Miles", x = "Type of transmission", y = "Miles per gallon") +
@@ -43,23 +44,16 @@ hw1_q1b_server <- function(input, output, session, data, dataM) {
         theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
     })
 
-    # plot2_hwy
-    output$plot2_hwy <- renderPlot({
+    # Plot: Density hwy
+    output$plot.density.hwy <- renderPlot({
         ggplot(data = data(),
-             aes(x = eval(parse(text = input$XPlot1_hwy)), fill = tr, colour = tr)) +
-        geom_density(alpha = 0.2) + theme_minimal() + xlab(if (input$XPlot1_hwy == "hwy") { "Highway Mileage" } else { "log(Highway Mileage)" })
+             aes(x = eval(parse(text = input$hwy_variable_type)), fill = tr, colour = tr)) +
+        geom_density(alpha = 0.2) + theme_minimal() + xlab(if (input$hwy_variable_type == "hwy") { "Highway Mileage" } else { "log(Highway Mileage)" })
     })
 
-    # Errors2_jar
-    output$Errors2_jar <- renderPrint({
-        c <- if (input$XPlot1_hwy == "hwy") { jarque.bera.test(data()$hwy) }
-        else { jarque.bera.test(log(data()$hwy)) }
-        return(c)
-    })
-
-    # Errors2
-    output$Errors2 <- renderPlot({
-        c <- if (input$XPlot1_hwy == "hwy") {
+    # Plot: QQplot hwy
+    output$plot.qq.hwy_errors <- renderPlot({
+        c <- if (input$hwy_variable_type == "hwy") {
             qqnorm(data()$hwy - mean(data()$hwy), main = "QQ-Plot of Errors Highway Mileage")
             qqline(data()$hwy - mean(data()$hwy))
         }
@@ -70,23 +64,30 @@ hw1_q1b_server <- function(input, output, session, data, dataM) {
         return(c)
     })
 
-    # Errors2_Lev
-    output$Errors2_Lev <- renderPrint({
-        c <- if (input$XPlot1_hwy == "hwy") { leveneTest(hwy ~ tr, data = data()) }
+    # Test: Jarque bera hwy
+    output$test.jarque_bera.hwy <- renderPrint({
+        c <- if (input$hwy_variable_type == "hwy") { jarque.bera.test(data()$hwy) }
+        else { jarque.bera.test(log(data()$hwy)) }
+        return(c)
+    })
+
+    # Test: Levene hwy
+    output$test.levene.hwy <- renderPrint({
+        c <- if (input$hwy_variable_type == "hwy") { leveneTest(hwy ~ tr, data = data()) }
         else { leveneTest(log(hwy) ~ tr, data = data()) }
         return(c)
     })
 
-    # text21
-    output$text21 <- renderPrint({
-        c <- if (input$XPlot1_hwy == "hwy") { summary(aov(hwy ~ tr, data())) }
+    # Summary: AOV hwy
+    output$summary.aov.hwy <- renderPrint({
+        c <- if (input$hwy_variable_type == "hwy") { summary(aov(hwy ~ tr, data())) }
         else { summary(aov(log(hwy) ~ tr, data())) }
         return(c)
     })
 
-    # text22
-    output$text22 <- renderPrint({
-        c <- if (input$XPlot1_hwy == "hwy") { kruskal.test(hwy ~ as.factor(tr), data = data()) }
+    # Test: Kruskal hwy
+    output$test.kruskal.hwy <- renderPrint({
+        c <- if (input$hwy_variable_type == "hwy") { kruskal.test(hwy ~ as.factor(tr), data = data()) }
         else { kruskal.test(log(hwy) ~ as.factor(tr), data = data()) }
         return(c)
     })

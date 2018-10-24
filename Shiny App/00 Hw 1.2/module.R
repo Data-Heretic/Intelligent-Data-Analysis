@@ -53,7 +53,7 @@ hw2_server <- function(input, output, session, outliers) {
     # Call questions' servers
 
     hw2_q1a_server(input, output, session, wines_TS02)
-    hw2_q1b_server(input, output, session)
-    hw2_q1c_server(input, output, session)
+    hw2_q1b_server(input, output, session, mahalanobis24)
+    hw2_q1c_server(input, output, session, wines_for_correlations)
     hw2_q2_server(input, output, session)
 }

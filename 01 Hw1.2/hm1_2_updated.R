@@ -105,19 +105,19 @@ legend(x="bottomright", legend=c("Data", "centroid", "distribution ellipse"),
        pch=c(1, 16, NA), lty=c(NA, NA, 1), col=c("black", "blue", "blue"),cex=0.6)
 
 #Bivariate Normality Before the transformation
-mvn(cbind(wines$VolAcid,wines$ResSug), mvnTest="mardia", multivariatePlot="qq") # We reject normality given p values equal to 0 for skewness and kurtosis
+mvn(cbind(wines$VolAcid, wines$ResSug), mvnTest = "mardia", multivariatePlot = "qq") # We reject normality given p values equal to 0 for skewness and kurtosis
 
 # Power transformation for bivariate data
 # Bivariate Normality for the joint variable (wines$CitAcid,wines$A)
 # Estimating bivariate parameter (\lambda_1,\lambda_2)
-summary(powerTransform(cbind(wines$VolAcid,wines$ResSug)~1))
+summary(powerTransform(cbind(wines$VolAcid, wines$ResSug) ~ 1))
 
 # Now we are going to transform them with (\lambda_1,\lambda_2) values =c(0.0584, -0.7548).
 # Defining the transformed variable with those lambdas
-winesT=bcPower(cbind(wines$VolAcid,wines$ResSug), c(0.0584, -0.7548))
+winesT = bcPower(cbind(wines$VolAcid, wines$ResSug), c(0.0584, -0.7548))
 
 #Bivariate Normality After the transformation
-mvn(winesT, mvnTest="mardia", multivariatePlot="qq") #We have not improved normality
+mvn(winesT, mvnTest = "mardia", multivariatePlot = "qq") #We have not improved normality
 
 
 ### Outliers
@@ -234,6 +234,7 @@ r2multv<-function(x){
 
 # What is the variable "more linearly explained" by the others?
 Coefdeterm=r2multv(dataforC)
+Coefdeterm
 # Chlorides (chlor) is the best linearly explained by the others (R^2 = 0.358), followed by Sulphates (S, R^2 = 0.326)
 # The worst linearly explained by the others is Sugar Residual (ResSug, R^2 = 0.15).
 

@@ -7,28 +7,32 @@
 hw2_q1a_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1a"),
+            h2(HTML("<b> Wines Analysis </b>")),
+            h3(" Choose a quantitative variable and explore its distribution in terms of descriptive measures of center, dispersion, skewness and kurtosis. Is a normal model a plausible one for its distribution? If the answer is no, can you think of a transformation of the variable that improves normality. Are there any outliers?"),
             fluidPage(
                 fluidRow(
+                  
+                  column(6,
                     box(h5("Summary"), verbatimTextOutput(ns("summary")),
                         h5("Sample variance"), verbatimTextOutput(ns("sample_variance")),
                         h5("Standard deviation"), verbatimTextOutput(ns("standard_deviation")),
                         h5("Coefficient variation"), verbatimTextOutput(ns("coefficient_variation")),
-                        h5("Quantile"), verbatimTextOutput(ns("quantile"))),
-                    box(plotOutput(ns("histogram")))
+                        h5("Quantile"), verbatimTextOutput(ns("quantile")),align = "center",width = 12),offset = 3)
+                  
+                    
                 ),
                 fluidRow(
+                  div(HTML("<ol start='2'><li>The skewness here is 0.2167518. This value implies that the distribution of the data is slightly skewed to the right or positive skewed. It is skewed to the right because the computed value is positive, and is slightly, because the value is close to zero. For the kurtosis, we have 2.073274 implying that the distribution of the data is platykurtic, since the computed value is less than 3. <br></li></ol> ")),
                     box(verbatimTextOutput(ns("test.kurtosis")),
                         verbatimTextOutput(ns("test.skewness")),
                         verbatimTextOutput(ns("test.jarque_bera"))),
                     box(plotOutput(ns("histogram_2")))
                 ),
                 fluidRow(
-                    div(HTML("<ol start='2'><li>The skewness here is 0.2167518. This value implies that the distribution of the data is slightly skewed to the right or positive skewed. It is skewed to the right because the computed value is positive, and is slightly, because the value is close to zero. For the kurtosis, we have 2.073274 implying that the distribution of the data is platykurtic, since the computed value is less than 3. <br></li></ol> ")),
+                  div(HTML("<ol start='3'><li>The estimated parameter for the transformation is lamda=0.5788 together with its confidence interval (0.2971,0.8658). Then, it follows two tests on two specific values for lamda, lamda=0 which stands for the logarithm transformation and lamda=1 which means that you don?t need a transformation to actually improve the normality of your data. In this particular output, we observe a p-value very small for both lamda = 0 and lamda = 1 so we reject the hypothesis that lamda=0 or lamda=1 is a good transformation value. We can define now a transformed variable, using lamda=0.5788 and see if the normality has been improved.<br></li></ol> ")),
                     box(h5("Power Transformations, Box-Cox transformation to improve normality"), verbatimTextOutput(ns("power_transform")))
                 ),
-                fluidRow(
-                    div(HTML("<ol start='3'><li>The estimated parameter for the transformation is lamda=0.5788 together with its confidence interval (0.2971,0.8658). Then, it follows two tests on two specific values for lamda, lamda=0 which stands for the logarithm transformation and lamda=1 which means that you don’t need a transformation to actually improve the normality of your data. In this particular output, we observe a p-value very small for both lamda = 0 and lamda = 1 so we reject the hypothesis that lamda=0 or lamda=1 is a good transformation value. We can define now a transformed variable, using lamda=0.5788 and see if the normality has been improved.<br></li></ol> "))
-                ),
+                
                 fluidRow(
                     box(verbatimTextOutput(ns("test.kurtosis_transformed")),
                         verbatimTextOutput(ns("test.skewness_transformed")),
@@ -36,6 +40,7 @@ hw2_q1a_ui <- function(id) {
                     box(plotOutput(ns("histogram_3")))
                 ),
                 h3("Outliers"),
+                div(HTML("We can see that there are not apparent outliers")),
                 fluidRow(box(plotOutput(ns("boxplot"))))
             )
     )
@@ -50,11 +55,7 @@ hw2_q1a_server <- function(input, output, session, wines_TS02) {
         return(summary(wines$TSo2))
     })
 
-    # histogram
-    output$histogram <- renderPlot({
-        return(hist(wines$TSo2))
-    })
-
+    
     # sample variance
     output$sample_variance <- renderPrint({
         return(var(wines$TSo2, na.rm = TRUE))
@@ -132,6 +133,6 @@ hw2_q1a_server <- function(input, output, session, wines_TS02) {
     output$boxplot <- renderPlot({ # Both shows the same plot
         #return(boxplot(wines$TSo2, id.method = "y"))
         #return(boxplot(wines$TSo2)$out)
-        return(boxplot(wines$TSo2))
+        return(boxplot(wines$TSo2,col="green",main="No outliers detected",xlab="Sulflur Dioxide"))
     })
 }
