@@ -53,6 +53,7 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
     callModule(hw1_server, "HW1", reactive({ input$outliers }))
     callModule(hw2_server, "HW2", reactive({ input$outliers }))
+    callModule(hw3_server, "HW3", reactive({ input$outliers }))
 }
 
 shinyApp(ui, server)
