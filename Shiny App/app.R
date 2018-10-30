@@ -26,6 +26,7 @@ library(FactoMineR) #load FactoMineR and perform a PCA analysis on matrix R.
 library(factoextra)
 library(GGally)
 library(forcats) # for merging
+library(shinycssloaders) #for loading icon
 
 ###################################################
 ##########           Sources       ################

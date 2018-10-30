@@ -2,19 +2,23 @@
 ##########       Data preprocessing      ##########
 ###################################################
 
-# Wines
+# ~~~~~   Wines ~~~~~~
+#  We use "wines" as the complete dataset and "wns" the one without the quality variable.
 wns = read.table(str_c(hw3_path, "wines.txt"))
 colnames(wns) <- c("FixAcid", "VolAcid", "CitAcid", "ResSug", "chlor", "FSo2", "TSo2", "d", "pH", "S", "A", "qual", "type")
+
+
+wns$type=as.factor(wns$type)
+wns<-wines
+quality<-wns$qual
+wns<-wns[,-12]
+
 
 # Cars
 cars = read.table(str_c(hw3_path, "cars.txt"))
 colnames(cars) <- c("mpg", "cyl", "displ", "hpower", "weight", "acc", "model", "origin", "name")
 
 
-quality <- wns$qual
-
-wns <- wns[, -12]
-wns$type = as.factor(wns$type)
 
 ######   A    ####
 #We will use the R matrix (correlation) because variables are on different scales
