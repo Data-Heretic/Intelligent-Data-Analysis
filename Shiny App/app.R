@@ -22,6 +22,10 @@ library(corrplot)
 library(corrgram)
 library(ppcor)
 library(WVPlots)
+library(FactoMineR) #load FactoMineR and perform a PCA analysis on matrix R.
+library(factoextra)
+library(GGally)
+library(forcats) # for merging
 
 ###################################################
 ##########           Sources       ################
