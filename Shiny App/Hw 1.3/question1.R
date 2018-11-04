@@ -17,18 +17,70 @@ the correlation matrix (R) when variables are on different scales
 scale.unit=TRUE bases the PCA on the correlation matrix")
                 ),
                 fluidRow(
-                    plotOutput(ns("plot.pairs")), type = getOption("spinner.type", default = 1)
+                    plotOutput(ns("plot.pairs")),
+                    br(),
+                    br()
                 ),
                 fluidRow(
                   column(6,
-                  box(h5("First 4 components"),
+                  box(status = "primary",
+                    h5("First 4 components"),
                     verbatimTextOutput(ns("f4comp")),
                     h5("First 4 cumulative components"),
                     verbatimTextOutput(ns("fc4comp")),
-                    align = "center",width = 12),offset=3
-                 ) 
+                    align = "center",width = 12)),
+                  column(6,
+                         box(status = "primary",
+                          h4("We can see that the first 4 components reflect 71.7% of the variation of data;
+we can see that components 1 and 2 are the components that 
+                             mostly reflect the variation of data with a value of 48%,
+                             so we can use those values to represent the data."),
+                          align="center",width=12
+                         ))
                 ),
-                box(verbatimTextOutput(ns("Sum.pca")))
+                fluidRow(
+                  column(6,
+                         box(status = "warning",
+                             h5("Most important components"),
+                             verbatimTextOutput(ns("m2_comp")),
+                             align = "center",width = 12)
+                         ),
+                  column(6,
+                         box(status = "warning",
+                           h4("Interpretation of the Principal components is based on finding which variables are strongly correlated with the components,
+so values with high values either in positive or negative directions will be considered highly correlated,
+                              ( > | 0.5 | ).The first component is highly correlated with 'total sulfur dioxide', 'free sulfur dioxide',
+            'citic acid' and 'residual sugar' in a positive direction. This suggests that these 4 criteria vary together.
+                              If one increases, then the remaining ones tend to as well.The second component can be viewed as a measure of fixed acidity, chlorides and sulphates , while having a low ph and alcohol ,
+                              so this component can be viewed as a term of how un-alcoholic this wine could be."),
+                           align="center",width=12)
+                         )
+                  ),
+                fluidRow(
+                  column(6,box(status="warning",plotOutput(ns("variables")),align = "center",width = 12)),
+                  column(6,box(status="warning",plotOutput(ns("top.var")),align = "center",width = 12))
+                ),
+                fluidRow(
+                  column(6,box(status="success",plotOutput(ns("pca_type")),align = "center",width = 12)),
+                  column(6,box(status="success",h4("In the dataset we have 2 wine types and one of the main functions of the PCA is to do classification,
+                                  as we can see in the below plot we can cluster the wine variables based on their types.
+                                  We can asssume that Dim2 separates wines according to type more that Dim1."),align = "center",width = 12))
+                ),
+                fluidRow(
+                  column(6,box(status="danger",plotOutput(ns("without.qual")),align="center",width=12)),
+                  column(6,box(status="danger",plotOutput(ns("with.qual")),align="center",width=12))
+                ),
+                fluidRow(
+                  column(6,box(status="danger")),
+                  column(6,box(status="danger"))
+                ),
+                fluidRow(
+                  column(6,box(status="info",plotOutput(ns("circle_corr")),align="center",width=12)),
+                  column(6,box(status="info",h4("In the  circle correlation plot we can see the reflection of what we described previously
+                                              in the interpretation of the first 2 PCA components , the closer to the PC1 components the wines 
+                                                are the more the more sulfur dioxide and cidic acid they will have, aslo the lower they close to DIM2 ,
+                                                the less alcoholic those wines would be."),align="center",width=12))
+                )
             )
     )
 }
@@ -37,46 +89,42 @@ scale.unit=TRUE bases the PCA on the correlation matrix")
 
 hw3_q1_server <- function(input, output, session, wines, cars) {
 
+  
+  
     output$plot.pairs <- renderPlot({
-      dat <- data.frame(x = numeric(0), y = numeric(0))
-      
-      # Create a Progress object
-      progress <- shiny::Progress$new()
-      # Make sure it closes when we exit this reactive, even if there's an error
-      on.exit(progress$close())
-      
-      progress$set(message = "Making plot", value = 0)
-      
-      # Number of times we'll go through the loop
-      n <- 30
-      
-      for (i in 1:n) {
-        # Each time through the loop, add another row of data. This is
-        # a stand-in for a long-running computation.
-        dat <- rbind(dat, data.frame(x = rnorm(1), y = rnorm(1)))
-        
-        # Increment the progress bar, and update the detail text.
-        progress$inc(1/n, detail = paste("Doing part", i))
-        
-        # Pause for 0.1 seconds to simulate a long computation.
-        Sys.sleep(0.1)
-      }
-      
       ggpairs(wns, lower = list(continuous = "points", combo = "facetdensity", mapping = aes(color = type)))
-      
-      
     })
 
     output$f4comp <- renderPrint({
-        #First 4 components 
+      #First 4 components 
         w_pca$eig[1:4,2]
     })
     output$fc4comp <- renderPrint({
       #This can answer the first two questions 
       w_pca$eig[1:4,3]
     })
-    output$Sum.pca <- renderPrint({
+    output$m2_comp <- renderPrint({
       #This can answer the first two questions 
-      summary(w_pca)
+      w_pca$var$coord[,1:2]
+    })
+    output$variables <- renderPlot({
+      fviz_pca_var(w_pca, col.var="contrib")+
+        scale_color_gradient2(low="green",mid = "green" ,high="red")+theme_light()
+      
+    })
+    output$top.var <- renderPlot({
+      plot(w_pca, shadow=TRUE,choix="var", select="contrib 3")
+    })
+    output$pca_type <- renderPlot({
+      fviz_pca_ind(w_pca,  label="none", habillage=12)
+    })
+    output$with.qual <- renderPlot({
+      fviz_pca_ind(wines_pca,  label="none", habillage=quality,cex=0.8,addEllipses=TRUE)
+    })
+    output$without.qual <- renderPlot({
+      fviz_pca_ind(w_pca,  label="none", habillage=quality,cex=0.8,addEllipses=TRUE)
+    })
+    output$circle_corr <- renderPlot({
+      fviz_pca_var(w_pca)
     })
 }

@@ -11,6 +11,7 @@ colnames(wns) <- c("FixAcid", "VolAcid", "CitAcid", "ResSug", "chlor", "FSo2", "
 wns$type=as.factor(wns$type)
 wns<-wines
 quality<-wns$qual
+quality<-fct_collapse(as.factor(quality), low = c("4","5"), medium = c("6"), high = c("7","8"))
 wns<-wns[,-12]
 
 
@@ -27,3 +28,5 @@ colnames(cars) <- c("mpg", "cyl", "displ", "hpower", "weight", "acc", "model", "
 #scale.unit=TRUE bases the PCA on the correlation matrix
 
 w_pca = PCA(wns, quali.sup = 12, scale.unit = TRUE, graph = FALSE)
+wines$qual<-fct_collapse(as.factor(wines$qual), low = c("4","5"), medium = c("6"), high = c("7","8"))
+wines_pca=PCA(wines,quali.sup=12,scale.unit=TRUE, graph=FALSE)
