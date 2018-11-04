@@ -9,14 +9,10 @@ hw3_q2_ui <- function(id) {
     tabItem(tabName = str_c(id, "Q2"),
             h2(HTML("<b> Cars analysis </b>")),
             h4("Perform a Principal Component Analysis on the cars data set (on the set of 5 quantitative variables)."),
-            h4("We will use the R matrix (correlation) because variables are on different scales
-            You tend to use the covariance matrix (S) when the variable scales are similar and 
-            the correlation matrix (R) when variables are on different scales
-            scale.unit=TRUE bases the PCA on the correlation matrix"),
             fluidPage(
                 fluidRow(
                     h3("Interpreting the results"),
-                    box(h5("We will use the R matrix (correlation) because variables are on different scales
+                    box(h5("We will use the R matrix (correlation) because variables are on different scales.
                         You tend to use the covariance matrix (S) when the variable scales are similar and 
                         the correlation matrix (R) when variables are on different scales
                         scale.unit=TRUE bases the PCA on the correlation matrix"), width = 12),
@@ -92,24 +88,36 @@ hw3_q2_ui <- function(id) {
                         verbatimTextOutput(ns("summary.kmeans.cars_scores")),
                         width = 12
                     ),
-                    box(plotOutput(ns("plot.scatter.matrix.cars_scores.cluster")), width = 4),
-                    box(plotOutput(ns("plot.scatter.matrix.cars_scores.origin")), width = 4),
-                    box(plotOutput(ns("plot.scatter.matrix.cars_scores.cylinders")), width = 4)
+                    box(
+                      h5("The scores of the individuals are colored according to the cluster they are assigned to."),
+                      plotOutput(ns("plot.scatter.matrix.cars_scores.cluster")), width = 4),
+                    box(
+                      h5("The scores of the individuals are colored according to the origin they belong to."),
+                      plotOutput(ns("plot.scatter.matrix.cars_scores.origin")), width = 4),
+                    box(
+                      h5("The scores of the individuals are colored according to the number of cylinders the corresponding car has."),
+                      plotOutput(ns("plot.scatter.matrix.cars_scores.cylinders")), width = 4)
                 ),
                 fluidRow(
                     box(h5("Change the color of individuals by their cluster"),
                         plotOutput(ns("plot.points.ellipsis.cars.pca.cluster")),
                         width = 4),
                     box(h4("Origin of the cars"),
+                        h5("Let's compare the clusters with the origin class. The rows of the table correspond to the cluster and the columns to the origin of the cars."),
                         verbatimTextOutput(ns("summary.table.cluster_origin")),
+                        h5("The number of lumping errors of the kmeans clustering algorithm:"),
                         verbatimTextOutput(ns("summary.lumping_errors.cluster_origin")),
+                        h5("The number of splitting errors of the kmeans clustering algorithm:"),
                         verbatimTextOutput(ns("summary.splitting_errors.cluster_origin")),
                         h5("Here we explore visually how well the clustering recovers the actual origin of the cars"),
                         plotOutput(ns("plot.mapping.cluster_origin")),
                         width = 4),
                     box(h4("Number of Cylinders"),
+                        h5("Let's compare the clusters with the origin class. The rows of the table correspond to the cluster and the columns to the number of cylinders of each cars."),
                         verbatimTextOutput(ns("summary.table.cluster_cylinders")),
+                        h5("The number of lumping errors of the kmeans clustering algorithm is:"),
                         verbatimTextOutput(ns("summary.lumping_errors.cluster_cylinders")),
+                        h5("The number of splitting errors of the kmeans clustering algorithm:"),
                         verbatimTextOutput(ns("summary.splitting_errors.cluster_cylinders")),
                         h5("Here we explore visually how well the clustering recovers the number of cylinders of the cars"),
                         plotOutput(ns("plot.mapping.cluster_cylinders")),
@@ -278,7 +286,11 @@ hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, c
         newdf = data.frame(col = as.factor(cars.k3()$cluster), shape = cars$origin, PC1 = cars.pca()$ind$coord[, 1], PC2 = cars.pca()$ind$coord[, 2])
 
         ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape)) +
-            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + geom_jitter() + labs(colour = "Origin", shape = "Cluster")
+            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + 
+          geom_jitter() + 
+          scale_shape_manual(values=c(8, 2, 3)) +
+          scale_size_manual(values=c(5,5,5)) +
+          labs(colour = "Origin", shape = "Cluster")
     })
 
     # Summary: Table. Cluster - cylinders
@@ -301,6 +313,10 @@ hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, c
         newdf = data.frame(col = as.factor(cars.k3()$cluster), shape = cars$cylinders, PC1 = cars.pca()$ind$coord[, 1], PC2 = cars.pca()$ind$coord[, 2])
 
         ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape)) +
-            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + geom_jitter() + labs(colour = "Cylinders", shape = "Cluster")
+            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + 
+          geom_jitter() + 
+          scale_shape_manual(values=c(8, 2, 3)) +
+          scale_size_manual(values=c(5,5,5)) +
+          labs(colour = "Cylinders", shape = "Cluster")
     })
 }
