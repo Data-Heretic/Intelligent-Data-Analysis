@@ -22,7 +22,6 @@ hw2_q1b_ui <- function(id) {
                   h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug"))
                 ),
                 fluidRow(
-                    
                     box(h5("Bivariate normality before the transformation."), plotOutput(ns("test.mardia.before_transf")), h5("We reject normality given p values equal to 0 for skewness and kurtosis.")),
                     box(h5("Bivariate normality after the transformation. Now we are going to transform them with (\\lambda_1,\\lambda_2) values =c(0.0584, -0.7548). Defining the transformed variable with those lambdas."), plotOutput(ns("test.mardia.after_transf")), h5("We have not improved normality."))
                 ),

@@ -40,6 +40,6 @@ hw3_server <- function(input, output, session, outliers) {
 
     # Call questions' servers
 
-    hw3_q1_server(input, output, session, wines, cars)
-    hw3_q2_server(input, output, session, wines, cars)
+    hw3_q1_server(input, output, session, wines)
+    hw3_q2_server(input, output, session, cars, cars.pca, cars.scores, cars.k3)
 }

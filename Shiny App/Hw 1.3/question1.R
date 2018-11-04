@@ -7,15 +7,13 @@
 hw3_q1_ui <- function(id) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q1"),
-            h2(HTML("<b> Wines | Cars Analysis </b>")),
-            h3("Perform a Principal Component Analysis on the wine data set ( 11 quantitative variables, don't include quality, but you might want to include type as a supplementary categorical variable)."),
+            h2(HTML("<b> Wines analysis </b>")),
+            h4("Perform a Principal Component Analysis on the wine data set (11 quantitative variables, don't include quality, but you might want to include type as a supplementary categorical variable)."),
+            h4("We will use the R matrix (correlation) because variables are on different scales
+            You tend to use the covariance matrix (S) when the variable scales are similar and 
+            the correlation matrix (R) when variables are on different scales
+            scale.unit=TRUE bases the PCA on the correlation matrix"),
             fluidPage(
-                fluidRow(
-                  h4("We will use the R matrix (correlation) because variables are on different scales
-You tend to use the covariance matrix (S) when the variable scales are similar and 
-the correlation matrix (R) when variables are on different scales
-scale.unit=TRUE bases the PCA on the correlation matrix")
-                ),
                 fluidRow(
                     plotOutput(ns("plot.pairs")),
                     br(),
@@ -87,10 +85,8 @@ so values with high values either in positive or negative directions will be con
 
 # Server
 
-hw3_q1_server <- function(input, output, session, wines, cars) {
+hw3_q1_server <- function(input, output, session, wines) {
 
-  
-  
     output$plot.pairs <- renderPlot({
       ggpairs(wns, lower = list(continuous = "points", combo = "facetdensity", mapping = aes(color = type)))
     })
