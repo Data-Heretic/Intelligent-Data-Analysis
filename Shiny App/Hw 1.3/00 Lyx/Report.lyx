@@ -104,7 +104,29 @@ Decide whether to use matrix S or R to extract the principal components.
 \end_layout
 
 \begin_layout Standard
-<x<zxz<x<zxz<x<zcsdvsdfdsadfsdwgfweqfxcsg
+After we have explored the data, we have decided to use the R matrix (correlatio
+n) because the variables have different scales.
+ The covariance matrix (S) is used when the variable scales are similar
+ and the correlation matrix (R) when variables are on different scales in
+ order to have an objective measure to compare.
+ We have used the following plot to explore the data:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -114,11 +136,57 @@ Describe the 4 first components, the proportion of variance explained and
 \end_layout
 
 \begin_layout Standard
-sadsadasdasd
+We can see that the first 4 components reflect 71.7% of the variation of
+ data;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cmponents 1 and 2 are the components that mostly reflect the variation of
+ data with a value of 38%, we can use those values to represent the data.
+ By analyzing the results we can say which variables contribute the most
+ to each one:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Try to give an interpretation of the first two PC's.
+\end_layout
+
+\begin_layout Standard
+Pending
 \end_layout
 
 \begin_layout Subsubsection
