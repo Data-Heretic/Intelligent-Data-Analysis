@@ -5,11 +5,8 @@
 # Wines
 
 # We use "wines" as the complete dataset and "wns" the one without the quality variable.
-wns = read.table(str_c(hw3_path, "wines.txt"))
-colnames(wns) <- c("FixAcid", "VolAcid", "CitAcid", "ResSug", "chlor", "FSo2", "TSo2", "d", "pH", "S", "A", "qual", "type")
-
-wns$type=as.factor(wns$type)
-wns<-wines
+wns <- wines
+wns$type = as.factor(wns$type)
 quality<-wns$qual
 quality<-fct_collapse(as.factor(quality), low = c("4","5"), medium = c("6"), high = c("7","8"))
 wns<-wns[,-12]

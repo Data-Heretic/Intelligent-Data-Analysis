@@ -24,7 +24,7 @@ hw3_q2_ui <- function(id) {
                         h5("An alternative method to determine the number of principal components is to look at a Scree Plot, which is the plot of eigenvalues ordered from largest to the smallest. The number of   component is determined at the point, beyond which the remaining eigenvalues are all relatively small and of comparable size."),
                         plotOutput(ns("plot.scree.cars"))
                     ),
-                    box(h5("The correlation between a variable and a principal component (PC) is used as the coordinates of the variable on the PC. The representation of variables differs from the plot of the observations: The observations are represented by their projections, but the variables are represented by their correlations."), width = 12)
+                    box(h5("The correlation between a variable and a principal component (PC) gives information about the linear relation between them. The representation of variables differs from the plot of the observations: The observations are represented by their projections, but the variables are represented by their correlations."), width = 12)
                 )
             ),
             fluidPage(
@@ -285,12 +285,11 @@ hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, c
     output$plot.mapping.cluster_origin <- renderPlot({
         newdf = data.frame(col = as.factor(cars.k3()$cluster), shape = cars$origin, PC1 = cars.pca()$ind$coord[, 1], PC2 = cars.pca()$ind$coord[, 2])
 
-        ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape)) +
-            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + 
-          geom_jitter() + 
-          scale_shape_manual(values=c(8, 2, 3)) +
-          scale_size_manual(values=c(5,5,5)) +
-          labs(colour = "Origin", shape = "Cluster")
+        ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape, size = shape)) +
+            geom_jitter() + 
+          scale_shape_manual(values=c(15, 16, 17)) +
+          scale_size_manual(values=c(3,5,7)) +
+          labs(colour = "Cluster", shape = "Origin", size = "Origin")
     })
 
     # Summary: Table. Cluster - cylinders
@@ -312,11 +311,11 @@ hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, c
     output$plot.mapping.cluster_cylinders <- renderPlot({
         newdf = data.frame(col = as.factor(cars.k3()$cluster), shape = cars$cylinders, PC1 = cars.pca()$ind$coord[, 1], PC2 = cars.pca()$ind$coord[, 2])
 
-        ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape)) +
-            geom_text(aes(label = rownames(newdf)), hjust = 1.5) + 
-          geom_jitter() + 
-          scale_shape_manual(values=c(8, 2, 3)) +
-          scale_size_manual(values=c(5,5,5)) +
-          labs(colour = "Cylinders", shape = "Cluster")
+        ggplot(data = newdf, aes(x = PC1, y = PC2, colour = col, shape = shape, size = shape)) +
+            #geom_text(aes(label = rownames(newdf)), hjust = 1.5) +
+          geom_jitter() +
+          scale_shape_manual(values = c(15, 16, 17)) +
+          scale_size_manual(values = c(3, 5, 7)) +
+          labs(colour = "Cluster", shape = "Cylinders", size = "Cylinders")
     })
 }
