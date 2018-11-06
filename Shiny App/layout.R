@@ -16,7 +16,7 @@ header <- function(id) {
                     dropdownMenu(type="notifications",icon = icon("warning"),badgeStatus = "warning",
                                  notificationItem("Hw 1.3 takes time to load,be patient.")),
                     dropdownMenu(type = "tasks", badgeStatus = "primary", icon = icon("tasks"),
-                                 taskItem(value = 57, color = "aqua", "HW 1.3 coming soon")
+                                 taskItem(value = 99, color = "aqua", "HW 1.3 grade pending...")
                                  ),
         tags$li(a(href = 'https://www.fi.upm.es/',
                   img(src = 'Captura.png', title = "a", height = "31px", width = "96px"),
