@@ -62,15 +62,17 @@ so values with high values either in positive or negative directions will be con
                   column(6,box(status="success",plotOutput(ns("pca_type")),align = "center",width = 12)),
                   column(6,box(status="success",h4("In the dataset we have 2 wine types and one of the main functions of the PCA is to do classification,
                                   as we can see in the below plot we can cluster the wine variables based on their types.
-                                  We can asssume that Dim2 separates wines according to type more that Dim1."),align = "center",width = 12))
+                                  We can asssume that Dim1 separates wines according to type more that Dim2."),align = "center",width = 12))
                 ),
                 fluidRow(
-                  column(6,box(status="danger",plotOutput(ns("without.qual")),align="center",width=12)),
+                  #column(6,box(status="danger",plotOutput(ns("without.qual")),align="center",width=12)),
                   column(6,box(status="danger",plotOutput(ns("with.qual")),align="center",width=12))
-                ),
-                fluidRow(
-                  column(6,box(status="danger")),
-                  column(6,box(status="danger"))
+                ,
+                  #column(6,box(status="danger")),
+                column(6, box(status = "danger", h4("We can appreciate how the second principal component seems to divide the zones with high quality versus the zone with lower quality, being the mayority in the bottom right quadrant.
+                                                Also the top left quadrant seems to albergate mostly low quality, although low quality elements are more or less equally ditributed among all the quadrants.
+                                                Finally the medium level group are present equally distributed in all quadrants except the top left one.
+                                                We can say that top - medium quality tend to be in the bottom right quadrant "),align=" center ",width=12))
                 ),
                 fluidRow(
                   column(6,box(status="info",plotOutput(ns("circle_corr")),align="center",width=12)),
@@ -114,12 +116,13 @@ hw3_q1_server <- function(input, output, session, wines) {
     output$pca_type <- renderPlot({
       fviz_pca_ind(w_pca,  label="none", habillage=12)
     })
+    
     output$with.qual <- renderPlot({
       fviz_pca_ind(wines_pca,  label="none", habillage=quality,cex=0.8,addEllipses=TRUE)
     })
-    output$without.qual <- renderPlot({
-      fviz_pca_ind(w_pca,  label="none", habillage=quality,cex=0.8,addEllipses=TRUE)
-    })
+    #output$without.qual <- renderPlot({
+    #  fviz_pca_ind(w_pca,  label="none", habillage=quality,cex=0.8,addEllipses=TRUE)
+    #})
     output$circle_corr <- renderPlot({
       fviz_pca_var(w_pca)
     })
