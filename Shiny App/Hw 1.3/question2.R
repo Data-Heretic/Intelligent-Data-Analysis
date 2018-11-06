@@ -192,7 +192,7 @@ hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, c
                      palette = c("#00AFBB", "#E7B800", "#FC4E07"),
                      addEllipses = TRUE, # Concentration ellipses
                      ellipse.level = 0.95,
-                     legend.title = "Number of Cylinders"
+                     legend.title = "Origin"
         )
     })
 
