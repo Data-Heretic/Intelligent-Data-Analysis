@@ -169,9 +169,9 @@ newdf=data.frame(col=as.factor(cars.k3$cluster),shape=cars$cylinders,
 
 ggplot(data=newdf, aes(x=PC1, y=PC2, colour=col, shape=shape))+
   geom_text(aes(label=rownames(newdf)), hjust=1.5)+geom_jitter()+
+  scale_shape_manual(values=c(8, 2, 3))+
+  scale_size_manual(values=c(5,5,5))+
   labs(title = "Clustering Results vs Number of Cylinders of the Cars", 
        colour = "Cylinders", 
-       shape = "Cluster",
-       xlab = "PC1 (82.055%)",
-       ylab = "PC2 (12.842%)")
+       shape = "Cluster")
 
