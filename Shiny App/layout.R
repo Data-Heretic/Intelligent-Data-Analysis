@@ -5,6 +5,8 @@
 source("Hw 1.1/module.R")
 source("Hw 1.2/module.R")
 source("Hw 1.3/module.R")
+source("Hw 2.1/module.R")
+source("Hw 2.2/module.R")
 
 # Header
 
@@ -16,13 +18,11 @@ header <- function(id) {
                     dropdownMenu(type="notifications",icon = icon("warning"),badgeStatus = "warning",
                                  notificationItem("Hw 1.3 takes time to load,be patient.")),
                     dropdownMenu(type = "tasks", badgeStatus = "primary", icon = icon("tasks"),
-                                 taskItem(value = 99, color = "aqua", "HW 1.3 grade pending...")
-                                 ),
+                                 taskItem(value = 99, color = "aqua", "HW 1.3 grade pending...")),
         tags$li(a(href = 'https://www.fi.upm.es/',
                   img(src = 'Captura.png', title = "a", height = "31px", width = "96px"),
                   style = "padding-top:10px; padding-bottom:10px;"
-                ), class = "dropdown"
-        )
+                ), class = "dropdown")
     )
 }
 
@@ -33,7 +33,9 @@ sidebar <- function(id) {
     sidebarMenu(
         hw1_menuItem("HW1"),
         hw2_menuItem("HW2"),
-        hw3_menuItem("HW3")
+        hw3_menuItem("HW3"),
+        hw2.1_menuItem("HW2_1"),
+        hw2.2_menuItem("HW2_2")
     )
 }
 
@@ -41,5 +43,5 @@ sidebar <- function(id) {
 
 content <- function(id) {
     ns <- NS(id)
-    do.call(tabItems, c(hw1_ui("HW1"), hw2_ui("HW2"), hw3_ui("HW3")))
+    do.call(tabItems, c(hw1_ui("HW1"), hw2_ui("HW2"), hw3_ui("HW3"), hw2.1_ui("HW2_1"), hw2.2_ui("HW2_2")))
 }
