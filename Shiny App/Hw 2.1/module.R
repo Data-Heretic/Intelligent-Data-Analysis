@@ -23,8 +23,17 @@ hw2.1_menuItem <- function(id) {
     menuItem("Homework 2.1",
         menuItem("Question 1", tabName = str_c(id, "Q1"), icon = icon("comment", lib = "font-awesome")),
         menuItem("Question 2", tabName = str_c(id, "Q2"), icon = icon("comment", lib = "font-awesome")),
-        menuItem("Question 3a", tabName = str_c(id, "Q3a"), icon = icon("comment", lib = "font-awesome")),
-        menuItem("Question 3b", tabName = str_c(id, "Q3b"), icon = icon("comment", lib = "font-awesome")),
+        menuItem("Question 3", tabName = str_c(id, "Q3"), icon = icon("comment", lib = "font-awesome"),
+            menuItem("Section a)",
+                    tabName = str_c(id, "Q3a"),
+                    icon = icon("line-chart")),
+            menuItem("Section b)",
+                    tabName = str_c(id, "Q3b"),
+                    icon = icon("line-chart")),
+            menuItem("Section c)",
+                    tabName = str_c(id, "Q3c"),
+                    icon = icon("line-chart"))
+        ),
         menuItem("Question 4", tabName = str_c(id, "Q4"), icon = icon("comment", lib = "font-awesome"))
     )
 }

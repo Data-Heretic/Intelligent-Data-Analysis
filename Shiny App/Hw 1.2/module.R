@@ -21,13 +21,13 @@ hw2_menuItem <- function(id) {
     ns <- NS(id)
     menuItem("Homework 1.2",
         menuItem("Question 1", tabName = str_c(id, "Q1"), icon = icon("comment", lib = "font-awesome"),
-            menuItem("a",
+            menuItem("Section a)",
                     tabName = str_c(id, "Q1a"),
                     icon = icon("line-chart")),
-            menuItem("b",
+            menuItem("Section b)",
                     tabName = str_c(id, "Q1b"),
                     icon = icon("line-chart")),
-            menuItem("c",
+            menuItem("Section c)",
                     tabName = str_c(id, "Q1c"),
                     icon = icon("line-chart"))
         ),
