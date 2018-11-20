@@ -63,7 +63,7 @@ plot(modelNoOutlier, which=c(1:4), ask=F)
 
 #Stratifying Carat into groups
 breaks <- c(0, 0.5, 1 ,1.1) # intervals
-labels <- c("Small", "Medium", "large") # groups names
+labels <- c("Small", "Medium", "Large") # groups names
 Carat_Size <- cut(diamonds$Weight, breaks, labels) # cut income into intervals using breaks and codes each value to the corresponding interval
 diamonds <- cbind(diamonds, Carat_Size) # add wealth as a column to ds
 head(diamonds)
@@ -132,3 +132,4 @@ jarque.bera.test(model3$residuals)
 
 #Check equal variances for residuals
 bptest(model3)
+
