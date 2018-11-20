@@ -12,7 +12,7 @@ hw3_q1_ui <- function(id) {
             h4("We will use the R matrix (correlation) because variables are on different scales
             You tend to use the covariance matrix (S) when the variable scales are similar and 
             the correlation matrix (R) when variables are on different scales
-            scale.unit=TRUE bases the PCA on the correlation matrix"),
+            scale.unit=TRUE bases the PCA on the correlation matrix."),
             fluidPage(
                 fluidRow(
                     plotOutput(ns("plot.pairs")),
@@ -34,6 +34,18 @@ we can see that components 1 and 2 are the components that
                              mostly reflect the variation of data with a value of 48%,
                              so we can use those values to represent the data."),
                           align="center",width=12
+                         ))
+                ),
+                fluidRow(
+                  column(6,
+                  box(status = "primary",
+                    h5("Contributions"),
+                    verbatimTextOutput(ns("fc4contrib")),
+                    align = "center", width = 12)),
+                  column(6,
+                         box(status = "primary",
+                          h4("We can see which variables contribute the most to the first 4 components"),
+                          align = "center", width = 12
                          ))
                 ),
                 fluidRow(
@@ -100,6 +112,10 @@ hw3_q1_server <- function(input, output, session, wines) {
     output$fc4comp <- renderPrint({
       #This can answer the first two questions 
       w_pca$eig[1:4,3]
+    })
+    output$fc4contrib <- renderPrint({
+    #This can answer the first two questions 
+      w_pca$var$contrib
     })
     output$m2_comp <- renderPrint({
       #This can answer the first two questions 
