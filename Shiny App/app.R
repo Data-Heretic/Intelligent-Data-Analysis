@@ -22,6 +22,11 @@ library(corrplot)
 library(corrgram)
 library(ppcor)
 library(WVPlots)
+library(FactoMineR) #load FactoMineR and perform a PCA analysis on matrix R.
+library(factoextra)
+library(GGally)
+library(forcats) # for merging
+library(shinycssloaders) #for loading icon
 
 ###################################################
 ##########           Sources       ################
@@ -53,6 +58,7 @@ ui <- dashboardPage(
 server <- function(input, output, session) {
     callModule(hw1_server, "HW1", reactive({ input$outliers }))
     callModule(hw2_server, "HW2", reactive({ input$outliers }))
+    callModule(hw3_server, "HW3", reactive({ input$outliers }))
 }
 
 shinyApp(ui, server)
