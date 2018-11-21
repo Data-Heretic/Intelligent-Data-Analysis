@@ -29,12 +29,20 @@
 
 .box-options {
     position: fixed;
-    left: 84.6%; /* TODO: Temporary workaround */
+    left: 85%; /* TODO: Temporary workaround */
     width: 14.4%; /* TODO: Temporary workaround */
 }
 
 .tabbable {
     margin-top: 22px;
+}
+
+.shiny-plot-output, .box {
+    margin: 12px 0;
+}
+
+.shiny-table {
+    margin: 0 auto;
 }
 
 .footer {

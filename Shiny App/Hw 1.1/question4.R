@@ -9,30 +9,24 @@ hw1.1_q4_ui <- function(id, options) {
     tabPanel(title = "Question 4",
         column(10,
             h2(hw1.1_title),
-            h3("Proposed Question - 
-               Is there any difference in city and highway data between manufacturers?"),
-            h5("For this question we have used a double box plot to show how the different manufacturers engines behave in terms of consumption for City driving and highway driving."),
-            fluidPage(
-                  fluidRow(plotOutput(ns("plot.box.dataM"))),
-                  fluidRow(
-                    box(selectInput(ns("selection_3"), h3("Between which variables do you want to perform a statistical test?"),
-                                    choices = list("City Mileage ~ Manufacturer" = 1, "Highway Mileage ~ Manufacturer" = 2), selected = 1))
-                  ),
-                  div(HTML("In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
-                           Before we apply it we have to test the assumptions of normality of the errors and Homoscedasticity taking advantage of Jarque bera and Levene tests, respectively.<br>
-                           If the test assumptions are met we apply One-Way ANOVA, otherwsise we apply the non-parametric Kruskall-Wallis test. <br>
-                           In case One-Way ANOVA finds significant results we then run Tukey&apos;s HSD, a post-hoc test based on the studentized range distribution, to find out which specific groups&apos;s means (compared with each other) are different.<br>
-                           There is also an option of performing the whole process removing the outliers from the respective Data. <br>")),
-                  fluidRow(box(plotOutput(ns("plot.qq.cty"))),
-                           box(verbatimTextOutput(ns("test.jarque_bera.selection_3")), verbatimTextOutput(ns("test.levene.selection_3")))),
-                  fluidRow(
-                    verbatimTextOutput(ns("summary.aov.selection_3")),
-                    verbatimTextOutput(ns("test.tukeyhsd.selection_3")),
-                    verbatimTextOutput(ns("test.kruskal.selection_3"))
-                  )
+            h3("Proposed Question: Is there any difference in city and highway data between manufacturers?"),
+            p("For this question we have used a double box plot to show how the different manufacturers engines behave in terms of consumption for City driving and highway driving."),
+            fluidRow(plotOutput(ns("plot.box.dataM"))),
+            h4("In order to test if there is a difference between the means, we propose to use One-Way ANOVA."),
+            p("Before we apply it we have to test the assumptions of normality of the errors and Homoscedasticity taking advantage of Jarque bera and Levene tests, respectively.
+                If the test assumptions are met we apply One-Way ANOVA, otherwsise we apply the non-parametric Kruskall-Wallis test.
+                In case One-Way ANOVA finds significant results we then run Tukey's HSD, a post-hoc test based on the studentized range distribution, to find out which specific groups' means (compared with each other) are different. There is also an option of performing the whole process removing the outliers from the respective Data."),
+            fluidRow(
+                box(plotOutput(ns("plot.qq.cty"))),
+                box(verbatimTextOutput(ns("test.jarque_bera.selection_3")), verbatimTextOutput(ns("test.levene.selection_3")))),
+            fluidRow(
+                box(verbatimTextOutput(ns("summary.aov.selection_3")), verbatimTextOutput(ns("test.kruskal.selection_3"))),
+                box(verbatimTextOutput(ns("test.tukeyhsd.selection_3")))
             )
         ),
-        column(2, box(width = 12, class = 'well box-options', options))
+        column(2, box(width = 12, class = 'well box-options', options,
+            selectInput(ns("selection_3"), "Between which variables do you want to perform a statistical test?",
+                    choices = list("City Mileage ~ Manufacturer" = 1, "Highway Mileage ~ Manufacturer" = 2), selected = 1)))
     )
 }
 

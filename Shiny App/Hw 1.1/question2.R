@@ -8,33 +8,30 @@ hw1.1_q2_ui <- function(id, options) {
     ns <- NS(id)
     tabPanel(title = "Question 2",
         column(10,
-            h2(hw1.1_title, class = 'accent-color'),
+            h2(hw1.1_title),
             h3("Has fuel type (or cylinders) any influence on highway data or city data?"),
-            h5("Boxplots comparing the City Mileage to the Highway Mileage with respect to : A)The fuel type of each automobile and B)The number of cylinders each automobile has. "),
-            fluidPage(
-                  fluidRow(box(plotOutput(ns("plot.box.data"))),
-                           box(plotOutput(ns("plot.box.datam")))
-                  ),
-                  fluidRow(
-                    box(selectInput(ns("selection"), h3("Between which variables do you want to perform a statistical test?"),
-                                    choices = list("City Mileage ~ Fuel Type" = 1, "Highway Mileage ~ Fuel Type" = 2,
-                                                   "City Mileage ~ Number of Cylinders" = 3, "Highway Mileage ~ Number of Cylinders" = 4), selected = 1))
-                  ),
-                  p("In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
-                           Before we apply it we have to test the assumptions of normality of the errors and Homoscedasticity taking advantage of Jarque bera and Levene tests, respectively.<br>
-                           If the test assumptions are met we apply One-Way ANOVA, otherwsise we apply the non-parametric Kruskall-Wallis test. <br>
-                           In case One-Way ANOVA finds significant results we then run Tukey&apos;s HSD, a post-hoc test based on the studentized range distribution, to find out which specific groups&apos;s means (compared with each other) are different.<br>
-                           There is also an option of performing the whole process removing the outliers from the respective Data. <br>"),
-                  fluidRow(box(plotOutput(ns("plot.qq.selection_errors"))),
-                           box(verbatimTextOutput(ns("test.jarque_bera.selection")), verbatimTextOutput(ns("test.levene.selection")))),
-                  fluidRow(
-                    verbatimTextOutput(ns("summary.aov.selection")),
-                    verbatimTextOutput(ns("test.tukeyhsd.selection")),
-                    verbatimTextOutput(ns("test.kruskal.selection"))
-                  )
+            p("Boxplots comparing the City Mileage to the Highway Mileage with respect to:"),
+            p("A) The fuel type of each automobile and B) The number of cylinders each automobile has."),
+            fluidRow(
+                box(plotOutput(ns("plot.box.data"))),
+                box(plotOutput(ns("plot.box.datam")))
+            ),
+            h4("In order to test if there is a difference between the means, we propose to use One-Way ANOVA."),
+            p("Before we apply it we have to test the assumptions of normality of the errors and Homoscedasticity taking advantage of Jarque bera and Levene tests, respectively.
+                If the test assumptions are met we apply One-Way ANOVA, otherwsise we apply the non-parametric Kruskall-Wallis test.
+                In case One-Way ANOVA finds significant results we then run Tukey's HSD, a post-hoc test based on the studentized range distribution, to find out which specific groups' means (compared with each other) are different.
+                There is also an option of performing the whole process removing the outliers from the respective Data."),
+            fluidRow(
+                box(plotOutput(ns("plot.qq.selection_errors"))),
+                box(verbatimTextOutput(ns("test.jarque_bera.selection")), verbatimTextOutput(ns("test.levene.selection")))),
+            fluidRow(
+                box(verbatimTextOutput(ns("summary.aov.selection")), verbatimTextOutput(ns("test.kruskal.selection"))),
+                box(verbatimTextOutput(ns("test.tukeyhsd.selection")))
             )
         ),
-        column(2, box(width = 12, class = 'well box-options', options))
+        column(2, box(width = 12, class = 'well box-options', options,
+            selectInput(ns("selection"), "Between which variables do you want to perform a statistical test?", choices = list("City Mileage ~ Fuel Type" = 1, "Highway Mileage ~ Fuel Type" = 2,
+                    "City Mileage ~ Number of Cylinders" = 3, "Highway Mileage ~ Number of Cylinders" = 4), selected = 1)))
     )
 }
 

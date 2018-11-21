@@ -7,29 +7,31 @@
 hw1.1_q1a_ui <- function(id, options) {
     ns <- NS(id)
     tabPanel(title = "Section a)",
+        fluidRow(
             column(10,
                 h3("Is there a significant difference in city mileage between automatic and manual transmission cars?"),
-                div(HTML("<ol start='1'><li> Boxplot and density plot of City Mileage vs type of transmision. <br>
-                         The analysis is done with a new variable that differs between automatic and manual cars. <br>
-                         The objective is to determine whether the mean between both populations is equal <br></li></ol>")),
-                fluidPage(
-                  fluidRow(box(plotOutput(ns("plot.box.cty"))),
-                           box(plotOutput(ns("plot.density.cty")))),
-                  div(HTML("<ol start='2'><li> In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
-                           Before we test the assumptions of normality of the errors and Homoscedasticity with Jarque bera and Levene tests, respectively.<br>
-                           Finally we use One-Way ANOVA if the test assumptions are met otherwsise we apply the non-parametric Kruskall-Wallis test. <br>
-                           There is also an option of performing the whole process removing the outliers from the City Mileage Data. <br>
-                           We can Conclude by using the log of the data that there is a difference <br></li></ol> ")),
-                  fluidRow(box(plotOutput(ns("plot.qq.cty_errors"))),
-                           box(verbatimTextOutput(ns("test.jarque_bera.cty")), verbatimTextOutput(ns("test.levene.cty")))),
-                  fluidRow(
-                    verbatimTextOutput(ns("summary.aov.cty")),
-                    verbatimTextOutput(ns("test.kruskal.cty"))
-                  )
+                h4("Boxplot and density plot of City Mileage vs type of transmision."),
+                p("The analysis is done with a new variable that differs between automatic and manual cars.
+                   The objective is to determine whether the mean between both populations is equal."),
+                fluidRow(
+                    box(plotOutput(ns("plot.box.cty"))),
+                    box(plotOutput(ns("plot.density.cty")))),
+                h4("In order to test if there is a difference between the means, we propose to use One-Way ANOVA."),
+                p("Before we test the assumptions of normality of the errors and Homoscedasticity with Jarque bera and Levene tests, respectively.
+                   Finally we use One-Way ANOVA if the test assumptions are met otherwsise we apply the non-parametric Kruskall-Wallis test.
+                   There is also an option of performing the whole process removing the outliers from the City Mileage Data.
+                   We can Conclude by using the log of the data that there is a difference."),
+                fluidRow(
+                    box(plotOutput(ns("plot.qq.cty_errors"))),
+                    box(verbatimTextOutput(ns("test.jarque_bera.cty")), verbatimTextOutput(ns("test.levene.cty")))),
+                fluidRow(
+                    box(width = 6, verbatimTextOutput(ns("summary.aov.cty"))),
+                    box(width = 6, verbatimTextOutput(ns("test.kruskal.cty")))
                 )
             ),
-            column(2, box(width = 12, class = 'well box-options',
-                options, selectInput(ns("cty_variable_type"), "Logarithmic or normal variable?", c("Original Data" = "cty", "Log Data" = "log(cty)"))))
+            column(2, box(width = 12, class = 'well box-options', options,
+                selectInput(ns("cty_variable_type"), "Logarithmic or normal variable?", c("Original Data" = "cty", "Log Data" = "log(cty)"))))
+            )
         )
 }
 
