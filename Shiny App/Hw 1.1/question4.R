@@ -4,10 +4,11 @@
 
 # UI
 
-hw1_q4_ui <- function(id) {
+hw1.1_q4_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q4"),
-            h2(HTML("<b> Mileage Analysis </b>")),
+    tabPanel(title = "Question 4",
+        column(10,
+            h2(hw1.1_title),
             h3("Proposed Question - 
                Is there any difference in city and highway data between manufacturers?"),
             h5("For this question we have used a double box plot to show how the different manufacturers engines behave in terms of consumption for City driving and highway driving."),
@@ -30,12 +31,14 @@ hw1_q4_ui <- function(id) {
                     verbatimTextOutput(ns("test.kruskal.selection_3"))
                   )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw1_q4_server <- function(input, output, session, data, dataM) {
+hw1.1_q4_server <- function(input, output, session, data, dataM) {
 
     # Plot: Boxplot dataM
     output$plot.box.dataM <- renderPlot({

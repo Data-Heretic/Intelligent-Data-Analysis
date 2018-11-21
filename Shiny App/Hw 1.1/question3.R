@@ -4,10 +4,11 @@
 
 # UI
 
-hw1_q3_ui <- function(id) {
+hw1.1_q3_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q3"),
-            h2(HTML("<b> Mileage Analysis </b>")),
+    tabPanel(title = "Question 3",
+        column(10,
+            h2(hw1.1_title),
             h3("Comparing the distribution of some of the variables in years 1999 and 2008, determine whether the requests on automobiles have been changed."),
             h5("On the histogram plot we compare the distribution of the engine displacement for each automotive throught the years "),
             h5("On the scatterplot it is illustrated how the milage is affected by the type of transmission and the year of the car manufacturing."),
@@ -36,12 +37,14 @@ hw1_q3_ui <- function(id) {
                         box(plotOutput(ns("plot.mosaic.selection_2"), width = "100%"), width = 7)
                     )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw1_q3_server <- function(input, output, session, data, dataM) {
+hw1.1_q3_server <- function(input, output, session, data, dataM) {
 
     # Plot: Density two years (1999 - 2008)
     output$plot.density.two_years <- renderPlot({

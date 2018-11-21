@@ -4,10 +4,10 @@
 
 # UI
 
-hw2_q1b_ui <- function(id) {
+hw1.2_q1b_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q1b"),
-            h2(HTML("<b> Wines Analysis </b>")),
+    tabPanel(title = "Section b)",
+        column(10,
             h3("Choose two quantitative variables and describe its joint bivariate distribution. Does it seem to be Normal? Are there any outliers?"),
             h4("The variables chosen are: Volatile acidity and residual sugar"),
             fluidPage(
@@ -38,12 +38,14 @@ hw2_q1b_ui <- function(id) {
                     box(plotOutput(ns("plot.scatter.outliers")), plotOutput(ns("plot.qq.outliers")))
                 )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw2_q1b_server <- function(input, output, session, mahalanobis24) {
+hw1.2_q1b_server <- function(input, output, session, mahalanobis24) {
 
     # Jarque bera test: wines$volAcid
     output$test.jarque_bera.volAcid <- renderPrint({

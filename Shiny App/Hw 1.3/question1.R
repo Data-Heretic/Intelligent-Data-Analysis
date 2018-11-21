@@ -4,10 +4,11 @@
 
 # UI
 
-hw3_q1_ui <- function(id) {
+hw1.3_q1_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q1"),
-            h2(HTML("<b> Wines analysis </b>")),
+    tabPanel(title = "Question 1",
+        column(10,
+            h2(hw1.3_title),
             h4("Perform a Principal Component Analysis on the wine data set (11 quantitative variables, don't include quality, but you might want to include type as a supplementary categorical variable)."),
             h4("We will use the R matrix (correlation) because variables are on different scales
             You tend to use the covariance matrix (S) when the variable scales are similar and 
@@ -94,12 +95,14 @@ so values with high values either in positive or negative directions will be con
                                                 the less alcoholic those wines would be."),align="center",width=12))
                 )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw3_q1_server <- function(input, output, session, wines) {
+hw1.3_q1_server <- function(input, output, session, wines) {
 
     output$plot.pairs <- renderPlot({
       ggpairs(wns, lower = list(continuous = "points", combo = "facetdensity", mapping = aes(color = type)))

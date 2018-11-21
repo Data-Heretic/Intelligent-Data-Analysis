@@ -4,10 +4,10 @@
 
 # UI
 
-hw2_q1c_ui <- function(id) {
+hw1.2_q1c_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q1c"),
-            h2(HTML("<b> Wines Analysis </b>")),
+    tabPanel(title = "Section c)",
+        column(10,
             h3("Choose a subset of 4 or 5 quantitative variables and explore linear relationships."),
             h5("We have chosen these variables:"),
             div(HTML("<ul><li>Residual sugar</li><li>Chlorides </li><li>Sulfites</li><li>pH</li><li>Alcohol percentage</li></ul>")),
@@ -65,12 +65,14 @@ hw2_q1c_ui <- function(id) {
                     )
                 )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw2_q1c_server <- function(input, output, session, wines_for_correlations) {
+hw1.2_q1c_server <- function(input, output, session, wines_for_correlations) {
 
     
 

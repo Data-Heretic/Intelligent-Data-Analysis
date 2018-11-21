@@ -4,10 +4,11 @@
 
 # UI
 
-hw1_q2_ui <- function(id) {
+hw1.1_q2_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q2"),
-            h2(HTML("<b> Mileage Analysis </b>")),
+    tabPanel(title = "Question 2",
+        column(10,
+            h2(hw1.1_title, class = 'accent-color'),
             h3("Has fuel type (or cylinders) any influence on highway data or city data?"),
             h5("Boxplots comparing the City Mileage to the Highway Mileage with respect to : A)The fuel type of each automobile and B)The number of cylinders each automobile has. "),
             fluidPage(
@@ -19,11 +20,11 @@ hw1_q2_ui <- function(id) {
                                     choices = list("City Mileage ~ Fuel Type" = 1, "Highway Mileage ~ Fuel Type" = 2,
                                                    "City Mileage ~ Number of Cylinders" = 3, "Highway Mileage ~ Number of Cylinders" = 4), selected = 1))
                   ),
-                  div(HTML("In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
+                  p("In order to test if there is a difference between the means, we propose to use One-Way ANOVA. <br>
                            Before we apply it we have to test the assumptions of normality of the errors and Homoscedasticity taking advantage of Jarque bera and Levene tests, respectively.<br>
                            If the test assumptions are met we apply One-Way ANOVA, otherwsise we apply the non-parametric Kruskall-Wallis test. <br>
                            In case One-Way ANOVA finds significant results we then run Tukey&apos;s HSD, a post-hoc test based on the studentized range distribution, to find out which specific groups&apos;s means (compared with each other) are different.<br>
-                           There is also an option of performing the whole process removing the outliers from the respective Data. <br>")),
+                           There is also an option of performing the whole process removing the outliers from the respective Data. <br>"),
                   fluidRow(box(plotOutput(ns("plot.qq.selection_errors"))),
                            box(verbatimTextOutput(ns("test.jarque_bera.selection")), verbatimTextOutput(ns("test.levene.selection")))),
                   fluidRow(
@@ -32,12 +33,14 @@ hw1_q2_ui <- function(id) {
                     verbatimTextOutput(ns("test.kruskal.selection"))
                   )
             )
-        )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
+    )
 }
 
 # Server
 
-hw1_q2_server <- function(input, output, session, data, dataM) {
+hw1.1_q2_server <- function(input, output, session, data, dataM) {
 
     # Plot: Boxplot data
     output$plot.box.data <- renderPlot({

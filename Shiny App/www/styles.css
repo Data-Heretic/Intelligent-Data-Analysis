@@ -1,0 +1,46 @@
+/*
+*       Styles
+*/
+
+.plot_engine2 {
+    height: 1500px;
+    width: 500px;
+}
+
+/* Layout */
+
+.container-fluid {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.content-wrapper {
+    margin-top: 60px;
+    padding-top: 12px;
+}
+
+.content-wrapper > .row > .col-sm-2.well {
+    position: fixed;
+}
+
+.content-wrapper > .row > .col-sm-10 {
+    left: calc(100% / 12 * 2);
+}
+
+.box-options {
+    position: fixed;
+    left: 84.6%; /* TODO: Temporary workaround */
+    width: 14.4%; /* TODO: Temporary workaround */
+}
+
+.tabbable {
+    margin-top: 22px;
+}
+
+.footer {
+    border-top: 1px solid rgba(235, 106, 102, 0.37);
+    margin-top: 12px;
+    padding: 20px;
+    text-align: center;
+}
+

@@ -4,14 +4,17 @@
 
 # UI
 
-hw2.2_q1_ui <- function(id) {
+hw2.2_q1_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q1"),
-            h2(HTML("<b> Caterage </b>")),
+    tabPanel(title = "Question 1",
+        column(10,
+            h2(hw2.2_title),
             h4("Description."),
             fluidPage(
 
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 

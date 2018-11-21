@@ -4,10 +4,11 @@
 
 # UI
 
-hw2_q2_ui <- function(id) {
+hw1.2_q2_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q2"),
-            h2(HTML("<b> Wines Analysis </b>")),
+    tabPanel(title = "Question 2",
+        column(10,
+            h2(hw1.2_title),
             h3("Permutation test"),
             h4(div(HTML("With Permutation testing the reference distribution is generated from the data themselves, instead of comparing the
                 actual value of a test statistic to a standard statistical distribution. Permutation provides an efficient
@@ -29,12 +30,14 @@ hw2_q2_ui <- function(id) {
 
                   )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw2_q2_server <- function(input, output, session) {
+hw1.2_q2_server <- function(input, output, session) {
   
   # Reactive object for RestaurantTips dataset
   datasetR <- reactive({

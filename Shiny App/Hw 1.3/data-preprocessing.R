@@ -22,7 +22,7 @@ wines_pca = PCA(wines, quali.sup = 12, scale.unit = TRUE, graph = FALSE)
 
 # Cars
 
-cars <- read.table(str_c(hw3_path, "cars.txt"), header = TRUE, as.is = TRUE, na.strings = "-1")
+cars <- read.table(str_c(hw1.3_path, "cars.txt"), header = TRUE, as.is = TRUE, na.strings = "-1")
 colnames(cars) <- c('mpg', 'cylinders', 'engine_displacement', 'horsepower', 'weight', 'acceleration', 'model_year', 'origin', 'car_name')
 
 cars <- cars[-which(cars$cylinders == 3),] # remove the unique entry with 3 number of cylinders

@@ -4,10 +4,11 @@
 
 # UI
 
-hw3_q2_ui <- function(id) {
+hw1.3_q2_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q2"),
-            h2(HTML("<b> Cars analysis </b>")),
+    tabPanel(title = "Question 2",
+        column(10,
+            h2(hw1.3_title),
             h4("Perform a Principal Component Analysis on the cars data set (on the set of 5 quantitative variables)."),
             fluidPage(
                 fluidRow(
@@ -124,12 +125,14 @@ hw3_q2_ui <- function(id) {
                         width = 4)
                 )
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options))
     )
 }
 
 # Server
 
-hw3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, cars.k3) {
+hw1.3_q2_server <- function(input, output, session, cars, cars.pca, cars.scores, cars.k3) {
 
     # Summary: Pca cars
     output$summary.pca.cars <- renderPrint({
