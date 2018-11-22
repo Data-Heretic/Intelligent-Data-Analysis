@@ -19,12 +19,13 @@
     padding-top: 12px;
 }
 
-.content-wrapper > .row > .col-sm-2.well {
+.content-wrapper > .row > .col-sm-1.well {
     position: fixed;
 }
 
-.content-wrapper > .row > .col-sm-10 {
-    left: calc(100% / 12 * 2);
+.content-wrapper > .row > .col-sm-11 {
+    left: calc(100% / 12);
+    padding: 0 30px;
 }
 
 .box-options {

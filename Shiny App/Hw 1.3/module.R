@@ -19,18 +19,11 @@ source(str_c(hw1.3_path, "data-preprocessing.R"))
 hw1.3_ui <- function(id) {
     ns <- NS(id)
     tabPanel("Homework 1.3", class = 'content-wrapper',
-        navlistPanel(widths = c(2, 10), "Questions",
-            hw1.3_q1_ui(id, hw1.3_options()),
-            hw1.3_q2_ui(id, hw1.3_options())
+        navlistPanel(widths = c(1, 11), "Questions",
+            hw1.3_q1_ui(id),
+            hw1.3_q2_ui(id)
         )
     )
-}
-
-hw1.3_options <- function() {
-    return(div(
-        h4("Options"),
-        checkboxInput("outliers", "Remove Outliers", value = FALSE)
-    ))
 }
 
 # Server

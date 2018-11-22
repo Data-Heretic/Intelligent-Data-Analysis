@@ -4,7 +4,7 @@
 
 # UI
 
-hw1.2_q2_ui <- function(id, options) {
+hw1.2_q2_ui <- function(id) {
     ns <- NS(id)
     tabPanel(title = "Question 2",
         column(10,
@@ -26,7 +26,7 @@ hw1.2_q2_ui <- function(id, options) {
                     verbatimTextOutput(ns("probability_randomized")),
                     verbatimTextOutput(ns("p_value_explanation")), align = "center"))
         ),
-        column(2, box(width = 12, class = 'well box-options', options,
+        column(2, box(width = 12, class = 'well box-options', h4("Options"),
             checkboxInput(ns("remove_30_percentage"), "Repeat the analysis deleting the values for three customers that left a tip greater than 30% of the bill? Are these generous customers outliers?", value = FALSE)))
     )
 }
