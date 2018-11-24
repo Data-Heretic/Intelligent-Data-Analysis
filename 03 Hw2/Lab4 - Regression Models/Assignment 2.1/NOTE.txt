@@ -1,2 +1,0 @@
-influence plot
-gls() GEneralized least squares, pck (nlme) , we can use this function in order to work with models that even fail in some of the assumptions

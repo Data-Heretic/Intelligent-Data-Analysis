@@ -1,3 +1,0 @@
-1  D VS2  GIA  large
-1  I VS2  GIA  large
-1  E VS2  GIA  large
