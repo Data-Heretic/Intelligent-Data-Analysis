@@ -4,46 +4,40 @@
 
 # UI
 
-hw2_q1b_ui <- function(id) {
+hw1.2_q1b_ui <- function(id) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q1b"),
-            h2(HTML("<b> Wines Analysis </b>")),
-            h3("Choose two quantitative variables and describe its joint bivariate distribution. Does it seem to be Normal? Are there any outliers?"),
-            h4("The variables chosen are: Volatile acidity and residual sugar"),
-            fluidPage(
-                fluidRow(
-                    box(verbatimTextOutput(ns("test.jarque_bera.volAcid")),
-                        verbatimTextOutput(ns("test.jarque_bera.resSug")),
-                        h5("Doing shapiro test to check normality of the two variables"),
-                        verbatimTextOutput(ns("test.shapiro.volAcid_resSug"))),
-                    box(plotOutput(ns("plot.scatter.volAcid_resSug")))
-                ),
-                fluidRow(
-                  h5("Power transformation for bivariate data. Bivariate Normality for the joint variable (wines$CitAcid,wines$A). Estimating bivariate parameter (\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug"))
-                ),
-                fluidRow(
-                    box(h5("Bivariate normality before the transformation."), plotOutput(ns("test.mardia.before_transf")), h5("We reject normality given p values equal to 0 for skewness and kurtosis.")),
-                    box(h5("Bivariate normality after the transformation. Now we are going to transform them with (\\lambda_1,\\lambda_2) values =c(0.0584, -0.7548). Defining the transformed variable with those lambdas."), plotOutput(ns("test.mardia.after_transf")), h5("We have not improved normality."))
-                ),
-                h3("Outliers"),
-                fluidRow(
-                    box(h5("Multivariate outliers, 'by hand' with Mahalanobis distance, non-robust. Variables: wines$VolAcid, wines$ResSug"),
-                        h5("Mahalanobis:"),
-                        verbatimTextOutput(ns("summary.mahalanobis")),
-                        h5("95th percentile of a chi-squared distribution with 2 degrees of freedom (we are using 2 variables). Position of outliers"),
-                        verbatimTextOutput(ns("summary.mahalanobis.position")),
-                        h5("We got 8 outliers, which are:"),
-                        verbatimTextOutput(ns("summary.mahalanobis.outliers"))
-                    ),
-                    box(plotOutput(ns("plot.scatter.outliers")), plotOutput(ns("plot.qq.outliers")))
-                )
-            )
+    tabPanel(title = "Section b)",
+        h3("Choose two quantitative variables and describe its joint bivariate distribution. Does it seem to be Normal? Are there any outliers?"),
+        h4("The variables chosen are: Volatile acidity and residual sugar"),
+        fluidRow(
+            box(verbatimTextOutput(ns("test.jarque_bera.volAcid")), verbatimTextOutput(ns("test.jarque_bera.resSug")),
+                h5("Doing shapiro test to check normality of the two variables"), verbatimTextOutput(ns("test.shapiro.volAcid_resSug"))),
+            box(plotOutput(ns("plot.scatter.volAcid_resSug"))),
+            box(width = 12, title = h5("Power transformation for bivariate data."), p("Bivariate Normality for the joint variable(wines$CitAcid, wines$A) . Estimating bivariate parameter(\\lambda_1,\\lambda_2)"), verbatimTextOutput(ns("summary.transformation.volAcid_resSug")))
+        ),
+        fluidRow(
+            box(title = h5("Bivariate normality before the transformation."), plotOutput(ns("test.mardia.before_transf")), footer = "We reject normality given p values equal to 0 for skewness and kurtosis."),
+            box(title = h5("Bivariate normality after the transformation."), p("Now we are going to transform them with (\\lambda_1,\\lambda_2) values = c(0.0584, -0.7548). Defining the transformed variable with those lambdas."), plotOutput(ns("test.mardia.after_transf")), footer = "We have not improved normality.")
+        ),
+        fluidRow(
+            box(width = 12, h3("Outliers")),
+            box(p("Multivariate outliers, 'by hand' with Mahalanobis distance, non-robust."),
+                p("Variables: wines$VolAcid, wines$ResSug"),
+                h5("Mahalanobis:"),
+                verbatimTextOutput(ns("summary.mahalanobis")),
+                p("95th percentile of a chi-squared distribution with 2 degrees of freedom (we are using 2 variables)."),
+                h5("Position of outliers"),
+                verbatimTextOutput(ns("summary.mahalanobis.position")),
+                p("We got 8 outliers, which are:"),
+                verbatimTextOutput(ns("summary.mahalanobis.outliers"))),
+            box(plotOutput(ns("plot.scatter.outliers")), plotOutput(ns("plot.qq.outliers")))
+        )
     )
 }
 
 # Server
 
-hw2_q1b_server <- function(input, output, session, mahalanobis24) {
+hw1.2_q1b_server <- function(input, output, session, mahalanobis24) {
 
     # Jarque bera test: wines$volAcid
     output$test.jarque_bera.volAcid <- renderPrint({

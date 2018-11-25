@@ -3,6 +3,7 @@
 ###################################################
 
 hw2.2_path <- "Hw 2.2/"
+hw2.2_title <- "Temporary title"
 
 # Load questions
 
@@ -12,20 +13,20 @@ source(str_c(hw2.2_path, "question1.R"))
 
 source(str_c(hw2.2_path, "data-preprocessing.R"))
 
-# Menu item
-
-hw2.2_menuItem <- function(id) {
-    ns <- NS(id)
-    menuItem("Homework 2.2",
-        menuItem("Question 1", tabName = str_c(id, "Q1"), icon = icon("comment", lib = "font-awesome"))
-    )
-}
-
 # UI (tabs)
 
 hw2.2_ui <- function(id) {
     ns <- NS(id)
-    list(hw2.2_q1_ui(id))
+    tabPanel("Homework 2.2", class = 'content-wrapper',
+        navlistPanel(widths = c(2, 10), "Questions", hw2.2_q1_ui(id, hw2.2_options()))
+    )
+}
+
+hw2.2_options <- function() {
+    return(div(
+        h4("Options"),
+        "Nothing yet"
+    ))
 }
 
 # Server

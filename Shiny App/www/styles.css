@@ -1,0 +1,55 @@
+/*
+*       Styles
+*/
+
+.plot_engine2 {
+    height: 1500px;
+    width: 500px;
+}
+
+/* Layout */
+
+.container-fluid {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.content-wrapper {
+    margin-top: 60px;
+    padding-top: 12px;
+}
+
+.content-wrapper > .row > .col-sm-1.well {
+    position: fixed;
+}
+
+.content-wrapper > .row > .col-sm-11 {
+    left: calc(100% / 12);
+    padding: 0 30px;
+}
+
+.box-options {
+    position: fixed;
+    left: 85%; /* TODO: Temporary workaround */
+    width: 14.4%; /* TODO: Temporary workaround */
+}
+
+.tabbable {
+    margin-top: 22px;
+}
+
+.shiny-plot-output, .box {
+    margin: 12px 0;
+}
+
+.shiny-table {
+    margin: 0 auto;
+}
+
+.footer {
+    border-top: 1px solid rgba(235, 106, 102, 0.37);
+    margin-top: 12px;
+    padding: 20px;
+    text-align: center;
+}
+

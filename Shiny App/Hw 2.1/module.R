@@ -3,6 +3,7 @@
 ###################################################
 
 hw2.1_path <- "Hw 2.1/"
+hw2.1_title <- "Temporary title"
 
 # Load questions
 
@@ -16,33 +17,25 @@ source(str_c(hw2.1_path, "question4.R"))
 
 source(str_c(hw2.1_path, "data-preprocessing.R"))
 
-# Menu item
-
-hw2.1_menuItem <- function(id) {
-    ns <- NS(id)
-    menuItem("Homework 2.1",
-        menuItem("Question 1", tabName = str_c(id, "Q1"), icon = icon("comment", lib = "font-awesome")),
-        menuItem("Question 2", tabName = str_c(id, "Q2"), icon = icon("comment", lib = "font-awesome")),
-        menuItem("Question 3", tabName = str_c(id, "Q3"), icon = icon("comment", lib = "font-awesome"),
-            menuItem("Section a)",
-                    tabName = str_c(id, "Q3a"),
-                    icon = icon("line-chart")),
-            menuItem("Section b)",
-                    tabName = str_c(id, "Q3b"),
-                    icon = icon("line-chart")),
-            menuItem("Section c)",
-                    tabName = str_c(id, "Q3c"),
-                    icon = icon("line-chart"))
-        ),
-        menuItem("Question 4", tabName = str_c(id, "Q4"), icon = icon("comment", lib = "font-awesome"))
-    )
-}
-
 # UI (tabs)
 
 hw2.1_ui <- function(id) {
     ns <- NS(id)
-    list(hw2.1_q1_ui(id), hw2.1_q2_ui(id), hw2.1_q3a_ui(id), hw2.1_q3b_ui(id), hw2.1_q4_ui(id))
+    tabPanel("Homework 2.1", class = 'content-wrapper',
+        navlistPanel(widths = c(1, 11), "Questions",
+            hw2.1_q1_ui(id, hw2.1_options()),
+            hw2.1_q2_ui(id, hw2.1_options()),
+            tabPanel(title = "Question 3", column(12, h2(hw2.1_title), tabsetPanel(hw2.1_q3a_ui(id, hw2.1_options()), hw2.1_q3b_ui(id, hw2.1_options()), type = "pills"))),
+            hw2.1_q4_ui(id, hw2.1_options())
+        )
+    )
+}
+
+hw2.1_options <- function() {
+    return(div(
+        h4("Options"),
+        "Nothing yet"
+    ))
 }
 
 # Server

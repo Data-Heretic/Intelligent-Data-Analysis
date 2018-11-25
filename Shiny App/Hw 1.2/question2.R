@@ -4,37 +4,36 @@
 
 # UI
 
-hw2_q2_ui <- function(id) {
+hw1.2_q2_ui <- function(id) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q2"),
-            h2(HTML("<b> Wines Analysis </b>")),
+    tabPanel(title = "Question 2",
+        column(10,
+            h2(hw1.2_title),
             h3("Permutation test"),
-            h4(div(HTML("With Permutation testing the reference distribution is generated from the data themselves, instead of comparing the
+            p(HTML("With Permutation testing the reference distribution is generated from the data themselves, instead of comparing the
                 actual value of a test statistic to a standard statistical distribution. Permutation provides an efficient
                approach to test when the data do not conform to the distributional assumptions of the
                statistical method one wants to use (e.g. normality).<br>
-               
                The null hypothesis is that correlation is equal to 0. This means that there is no linear
                relationship between the two variables. If that is true, then any of the Y observations is just
                as likely to appear with any of the X's. In other words, Y<sub>i</sub> is just as likely to appear with X<sub>i</sub>
-               as it is to appear with X<sub>j</sub>, i&ne;j."))),
-            fluidPage(
-                  fluidRow(checkboxInput(ns("remove_30_percentage"), "What if I repeat the analysis deleting the values for three customers that left a tip greater than
-                           30% of the bill? Are these generous customers outliers?", value = FALSE)),
-                  fluidRow(box(plotOutput(ns("plot_tips_pctTip"))), box(plotOutput(ns("histogram_prob_random")))
-                  ),
-                  fluidRow(box(h5("Correlation"), verbatimTextOutput(ns("correlation")),
-                               h5("Probability randomized"), verbatimTextOutput(ns("probability_randomized")),
-                               verbatimTextOutput(ns("p_value_explanation")),align = "center",width = 12)
-
-                  )
-            )
+               as it is to appear with X<sub>j</sub>, i&ne;j.")),
+            fluidRow(
+                box(plotOutput(ns("plot_tips_pctTip"))), box(plotOutput(ns("histogram_prob_random")))),
+            fluidRow(
+                box(width = 6, title = h5("Correlation"), verbatimTextOutput(ns("correlation"))),
+                box(width = 6, title = h5("Probability randomized"),
+                    verbatimTextOutput(ns("probability_randomized")),
+                    verbatimTextOutput(ns("p_value_explanation")), align = "center"))
+        ),
+        column(2, box(width = 12, class = 'well box-options', h4("Options"),
+            checkboxInput(ns("remove_30_percentage"), "Repeat the analysis deleting the values for three customers that left a tip greater than 30% of the bill? Are these generous customers outliers?", value = FALSE)))
     )
 }
 
 # Server
 
-hw2_q2_server <- function(input, output, session) {
+hw1.2_q2_server <- function(input, output, session) {
   
   # Reactive object for RestaurantTips dataset
   datasetR <- reactive({

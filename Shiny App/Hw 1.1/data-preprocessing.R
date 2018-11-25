@@ -2,7 +2,7 @@
 ##########       Data preprocessing      ##########
 ###################################################
 
-mpg <- get(load(str_c(hw1_path, "mpg.Rdata")))
+mpg <- get(load(str_c(hw1.1_path, "mpg.Rdata")))
 
 mpg$tr <- substr(mpg$trans, 0, 1)
 mpg$tr <- str_replace(mpg$tr, "^m", "Manual")

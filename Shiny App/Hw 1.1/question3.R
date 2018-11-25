@@ -4,44 +4,37 @@
 
 # UI
 
-hw1_q3_ui <- function(id) {
+hw1.1_q3_ui <- function(id, options) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q3"),
-            h2(HTML("<b> Mileage Analysis </b>")),
+    tabPanel(title = "Question 3",
+        column(10,
+            h2(hw1.1_title),
             h3("Comparing the distribution of some of the variables in years 1999 and 2008, determine whether the requests on automobiles have been changed."),
-            h5("On the histogram plot we compare the distribution of the engine displacement for each automotive throught the years "),
-            h5("On the scatterplot it is illustrated how the milage is affected by the type of transmission and the year of the car manufacturing."),
-
-            fluidPage(fluidRow(box(plotOutput(ns("plot.density.two_years"))),
-                               box(plotOutput(ns("plot.scatter.data")))),
-                    fluidRow(
-                        h5("We have used a reactive bar chart to visualize how the different levels of the categorical variables are distributed between 1999 and 2008."),
-                        box(column(3,
-                            div(style = "display: inline-block; margin-top: 25%",
-                                radioButtons(ns("selection_2"),
-                                            label = "Variable",
-                                            choices = list("Manufacturer" = 1,
-                                                            "Fuel Type" = 2,
-                                                            "Vehicle Class" = 3,
-                                                            "Transmission" = 4,
-                                                            "Drive Type" = 5,
-                                                            "Cylinders" = 6),
-                                            selected = 1))),
-                            column(8, (plotOutput(ns("plot.histogram.selection_2")))), width = 60)
-                    ),
-                    fluidRow(
-                        h5("A mosaic plot is a another useful graphical display that allows us to examine the relationship between one of the above mentioned categorical variables and the year of manufacturing.
-                           The plot is accompanied by a Chi-squared test among the corresponding categorical variables."),
-                        box(tableOutput(ns("test.chi.selection_2")), width = 5),
-                        box(plotOutput(ns("plot.mosaic.selection_2"), width = "100%"), width = 7)
-                    )
+            p("On the histogram plot we compare the distribution of the engine displacement for each automotive throught the years."),
+            p("On the scatterplot it is illustrated how the milage is affected by the type of transmission and the year of the car manufacturing."),
+            fluidRow(
+                box(plotOutput(ns("plot.density.two_years"))),
+                box(plotOutput(ns("plot.scatter.data")))),
+            fluidRow(
+                box(width = 12, h4("We have used a reactive bar chart to visualize how the different levels of the categorical variables are distributed between 1999 and 2008.")),
+                box(width = 12, plotOutput(ns("plot.histogram.selection_2")))),
+            fluidRow(
+                box(width = 12, p("A mosaic plot is a another useful graphical display that allows us to examine the relationship between one of the above mentioned categorical variables and the year of manufacturing. The plot is accompanied by a Chi-squared test among the corresponding categorical variables.")),
+                box(tableOutput(ns("test.chi.selection_2"))),
+                box(plotOutput(ns("plot.mosaic.selection_2")))
             )
+        ),
+        column(2, box(width = 12, class = 'well box-options', options,
+            radioButtons(ns("selection_2"),
+                        label = "Variable",
+                        choices = list("Manufacturer" = 1, "Fuel Type" = 2, "Vehicle Class" = 3, "Transmission" = 4, "Drive Type" = 5, "Cylinders" = 6),
+                        selected = 1)))
     )
 }
 
 # Server
 
-hw1_q3_server <- function(input, output, session, data, dataM) {
+hw1.1_q3_server <- function(input, output, session, data, dataM) {
 
     # Plot: Density two years (1999 - 2008)
     output$plot.density.two_years <- renderPlot({

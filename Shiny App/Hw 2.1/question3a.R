@@ -4,7 +4,7 @@
 
 # UI
 
-hw2.1_q3a_ui <- function(id) {
+hw2.1_q3a_ui <- function(id, options) {
     ns <- NS(id)
     tabItem(tabName = str_c(id, "Q3a"),
             h2(HTML("<b> Caterage </b>")),
