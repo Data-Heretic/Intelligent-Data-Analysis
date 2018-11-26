@@ -23,19 +23,12 @@ hw2.1_ui <- function(id) {
     ns <- NS(id)
     tabPanel("Homework 2.1", class = 'content-wrapper',
         navlistPanel(widths = c(1, 11), "Questions",
-            hw2.1_q1_ui(id, hw2.1_options()),
-            hw2.1_q2_ui(id, hw2.1_options()),
-            tabPanel(title = "Question 3", column(12, h2(hw2.1_title), tabsetPanel(hw2.1_q3a_ui(id, hw2.1_options()), hw2.1_q3b_ui(id, hw2.1_options()), type = "pills"))),
-            hw2.1_q4_ui(id, hw2.1_options())
+            hw2.1_q1_ui(id),
+            hw2.1_q2_ui(id),
+            tabPanel(title = "Question 3", column(12, h2(hw2.1_title), tabsetPanel(hw2.1_q3a_ui(id), hw2.1_q3b_ui(id), type = "pills"))),
+            hw2.1_q4_ui(id)
         )
     )
-}
-
-hw2.1_options <- function() {
-    return(div(
-        h4("Options"),
-        "Nothing yet"
-    ))
 }
 
 # Server
