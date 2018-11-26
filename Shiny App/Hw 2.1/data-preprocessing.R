@@ -2,6 +2,8 @@
 ##########       Data preprocessing      ##########
 ###################################################
 
+diamonds<- read.table("HW-diamonds.txt")
+names(diamonds) <- c('Weight','ColourPurity','Clarity', 'Certifier','Price')
 
 
 
@@ -19,8 +21,8 @@ Carat_Size <- cut(diamonds$Weight, breaks, labels) # cut income into intervals u
 diamonds3A <- cbind(diamonds, Carat_Size) # add wealth as a column to ds
 
 
-diamonds3A$Carat_Size=as.factor(diamonds$Carat_Size)
-diamonds3A$Carat_Size<-relevel(diamonds$Carat_Size, ref="Small")
+diamonds3A$Carat_Size=as.factor(diamonds3A$Carat_Size)
+diamonds3A$Carat_Size<-relevel(diamonds3A$Carat_Size, ref="Small")
 
 model3A <- lm(formula = log(Price) ~ Weight+ColourPurity+Clarity+Certifier+Carat_Size+Carat_Size*Weight , data=diamonds3A)
 ##Testing Colour purity differences
