@@ -1,0 +1,3 @@
+1  D VS2  GIA  large
+1  D VS2  IGI  large
+1  D VS2  HRD  large
