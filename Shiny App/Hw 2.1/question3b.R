@@ -4,9 +4,9 @@
 
 # UI
 
-hw2.1_q3b_ui <- function(id, options) {
+hw2.1_q3b_ui <- function(id) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q3b"),
+    tabPanel(title = "Section b)",
             h2(HTML("<b> Caterage </b>")),
             h4("Description."),
             fluidPage(
@@ -24,7 +24,6 @@ hw2.1_q3b_ui <- function(id, options) {
                   plotOutput(ns("bptest3b"))
               )
             )
-            
     )
 }
 

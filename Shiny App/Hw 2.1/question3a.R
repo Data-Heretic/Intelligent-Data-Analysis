@@ -4,9 +4,9 @@
 
 # UI
 
-hw2.1_q3a_ui <- function(id, options) {
+hw2.1_q3a_ui <- function(id) {
     ns <- NS(id)
-    tabItem(tabName = str_c(id, "Q3a"),
+    tabPanel(title = "Section a)",
             h2(HTML("<b> Caterage </b>")),
             h3("Description."),
             fluidPage(
