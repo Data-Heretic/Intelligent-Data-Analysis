@@ -7,9 +7,9 @@
 # We use "wines" as the complete dataset and "wns" the one without the quality variable.
 wns <- wines
 wns$type = as.factor(wns$type)
-quality<-wns$qual
-quality<-fct_collapse(as.factor(quality), low = c("4","5"), medium = c("6"), high = c("7","8"))
-wns<-wns[,-12]
+quality <- wns$qual
+quality <- fct_collapse(as.factor(quality), low = c("4", "5"), medium = c("6"), high = c("7", "8"))
+wns <- wns[, -12]
 
 #We will use the R matrix (correlation) because variables are on different scales
 #You tend to use the covariance matrix (S) when the variable scales are similar and 

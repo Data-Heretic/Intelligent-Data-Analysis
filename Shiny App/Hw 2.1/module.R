@@ -3,7 +3,7 @@
 ###################################################
 
 hw2.1_path <- "Hw 2.1/"
-hw2.1_title <- "Temporary title"
+hw2.1_title <- "Diamonds"
 
 # Load questions
 
@@ -26,9 +26,7 @@ hw2.1_ui <- function(id) {
             hw2.1_q1_ui(id),
             hw2.1_q2_ui(id),
             tabPanel(title = "Question 3", column(12, h2(hw2.1_title), tabsetPanel(hw2.1_q3a_ui(id), hw2.1_q3b_ui(id), type = "pills"))),
-            hw2.1_q4_ui(id)
-        )
-    )
+            hw2.1_q4_ui(id)))
 }
 
 # Server

@@ -28,6 +28,7 @@ library(FactoMineR) #load FactoMineR and perform a PCA analysis on matrix R.
 library(factoextra)
 library(GGally)
 library(forcats) # for merging
+library(lmtest)
 
 ###################################################
 ##########           Sources       ################
@@ -44,6 +45,7 @@ source("Hw 1.2/module.R")
 source("Hw 1.3/module.R")
 source("Hw 2.1/module.R")
 source("Hw 2.2/module.R")
+source("Hw 3/module.R")
 
 ###################################################
 ##########           UI            ################
@@ -53,12 +55,13 @@ ui <- navbarPage(
         title = "Data Analysis",
         position = "fixed-top",
         theme = shinytheme("journal"),
+        footer = div(HTML("<span>&copy; Data Heretic 2018</span>"), class = 'footer'),
         hw1.1_ui("HW1_1"),
         hw1.2_ui("HW1_2"),
         hw1.3_ui("HW1_3"),
         hw2.1_ui("HW2_1"),
         hw2.2_ui("HW2_2"),
-        footer = div(HTML("<span>&copy; Data Heretic 2018</span>"), class = 'footer'),
+        hw3_ui("HW3"),
         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")))
 
 ###################################################
@@ -66,11 +69,13 @@ ui <- navbarPage(
 ###################################################
 
 server <- function(input, output, session) {
+
     callModule(hw1.1_server, "HW1_1", reactive({ input$outliers }))
     callModule(hw1.2_server, "HW1_2", reactive({ input$outliers }))
     callModule(hw1.3_server, "HW1_3", reactive({ input$outliers }))
     callModule(hw2.1_server, "HW2_1")
     callModule(hw2.2_server, "HW2_2")
+    callModule(hw3_server, "HW3")
 }
 
 shinyApp(ui, server)
