@@ -24,14 +24,14 @@ hw2.1_q3a_ui <- function(id) {
                 verbatimTextOutput(ns("jarque.bera3a")))),
         fluidRow(
             column(4,
-                    h4("Testing Colour purity differences"),
-                    box(status = "primary", plotOutput(ns("predictColour")))),
+                    h4("Testing colour purity differences"),
+                    verbatimTextOutput(ns("predict.colour"))),
             column(4,
-                    h4("[[ Pending ]]"),
-                    box(status = "primary", plotOutput(ns("predictCertifier")))),
+                    h4("Testing certifier purity differences"),
+                    verbatimTextOutput(ns("predict.certifier"))),
             column(4,
                     h4("Doing statistical tests"),
-                    box(status = "primary", verbatimTextOutput(ns("stats"))))))
+                    verbatimTextOutput(ns("stats")))))
 }
 
 # Server
@@ -64,30 +64,36 @@ hw2.1_q3a_server <- function(input, output, session) {
         bptest(model3a)
     })
 
-    output$predictColour <- renderPlot({
+    output$predict.colour <- renderPrint({
         req(model3a)
+
+        # TODO: Check this print
+
         predict(model3a, test2[1,], interval = "confidence") ##GIA  
         predict(model3a, test2[2,], interval = "confidence") ##IGI
         predict(model3a, test2[3,], interval = "confidence") ##HRD
     })
 
-    output$predictCertifier <- renderPlot({
+    output$predict.certifier <- renderPrint({
         req(model3a)
+
+        # TODO: Check this print
+
         predict(model3a, test2[1,], interval = "confidence") ##GIA  
         predict(model3a, test2[2,], interval = "confidence") ##IGI
         predict(model3a, test2[3,], interval = "confidence") ##HRD
     })
 
     output$stats <- renderPrint({
-        req(model2)
+        req(model3a)
 
         #Check residuals dependancy
-        dwtest(model2, alternative = "two.sided")
+        dwtest(model3a, alternative = "two.sided")
 
         #Check normality for residuals
-        jarque.bera.test(model2$residuals)
+        jarque.bera.test(model3a$residuals)
 
         #Check equal variances for residuals
-        bptest(model2)
+        bptest(model3a)
     })
 }

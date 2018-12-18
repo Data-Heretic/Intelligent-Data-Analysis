@@ -2,12 +2,12 @@
 ##########       Data preprocessing      ##########
 ###################################################
 
+diamonds <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
+names(diamonds) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
+
 #####################
 ######    1     #####
 #####################
-
-diamonds <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
-names(diamonds) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
 
 #####################
 ######    2     #####
