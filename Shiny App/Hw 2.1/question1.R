@@ -7,7 +7,7 @@
 hw2.1_q1_ui <- function(id) {
     ns <- NS(id)
     tabPanel(title = "Question 1",
-        h3("Item nº1:Plot price vs. caratage and log(price) vs. caratage. Decide on which response variableis better to use."),
+        h3("Plot price vs. caratage and log(price) vs. caratage. Decide on which response variable is better to use."),
         fluidRow(
                  p("For linear regression models, we want to make sure that there is a linear
                     relationship between the input and output variables. Taking the log to the price
@@ -20,7 +20,7 @@ hw2.1_q1_ui <- function(id) {
         h3("The parameters in the given model are represented as below"),
         
         fluidRow(
-                 box(status = "primary", verbatimTextOutput(ns("summary3a"))),
+                 box(status = "primary", verbatimTextOutput(ns("summary1"))),
                  p("As we can see in the above summary, the overall model has a Multiple R-squared of 0.9723, so the model is able to predict any Y using X with accuracy of 97%."),
                  p("Test of significance for the overall model is 2.2e-16, We can reject the null hypothesis which assumes that all the Bi is equal to 1. We can conclude that the variables are significant for the model."),
                  p("For the weight coefficient: Since the dependent variable is expressed in log, then we can say either: - In log scale: If you increase one unit of cartage , log(price) will increase by 2.855 In Price scale: If you increase one unit of cartage the price of diamond is multiplied by a factor of exp (2.885) =17.37466"),
