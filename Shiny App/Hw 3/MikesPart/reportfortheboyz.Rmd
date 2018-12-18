@@ -1,0 +1,147 @@
+---
+title: "First part of Time series,Report for data heretics only"
+output: html_document
+---
+##Libraries and read file:
+```{r message = FALSE,warning = FALSE}
+require(xlsx) 
+library("forecast")
+library("fpp")
+library("fpp2")
+library("gridExtra")
+library("ggplot2")
+library(plotly)
+
+
+time<-read.xlsx("data_g10.xlsx",sheetName = "6.41 r")
+
+```
+##QUESTION1
+
+Calculate frequency of the time series, we need it to transform the table to a time series
+object
+Then plot the series
+
+```{r message = FALSE,warning = FALSE}
+freq<-100
+time.ts <- ts(time[,2],frequency = freq)
+plot_ly(x = time$Fecha, y = time$Tipo, mode = 'lines')
+```
+
+-Nacho and Panos : "Wow so beautiful and nice,good job Mike, thanks for that plot"
+
+-Mike : "Fuck Olympiakos"
+
+Keep calm and lets move on.
+
+Lets see if our data change with logarithmic tranformations.
+
+```{r message = FALSE,warning = FALSE}
+plot_ly(x = time$Fecha, y = log(time$Tipo), mode = 'lines')
+```
+
+-Nacho and Panos: "They look the same! "
+
+-Mike : "Thats right boyzzz"
+
+-Javier : "less plots for shiny then!"
+
+-Dani : "and for the report!"
+
+lets answer some questions now.
+
+Do our data have seasonality?what kind of correlations do we have?
+
+```{r message = FALSE,warning = FALSE}
+#seasonality
+ggmonthplot(time.ts)
+ggseasonplot(time.ts)
+# Exploring correlations of lagged observations
+gglagplot(time.ts, lag=9, do.lines=FALSE)
+
+```
+   Comments:
+   
+ Non stationary
+ 
+Trend: the measures tend to decrease over time = downward trend
+
+Seasonality : we cannot see any seasonality on the measures,they have no pattern on highs and lows
+
+Cyclicality : we can see that there might be a cyclicality on the measures as there are highs that apear over time
+
+needed for the next step: logarithmic transformation makes no difference so we wont need Multiplicative decomposition
+
+Thats it for Question1
+
+Lets see Question2:
+
+##QUESTION2
+
+We can have a lot types of decompositions.Here i am having 3 of them:
+In the actuall file you can see them,here i dont plot them because they are huge plots.
+```{r message = FALSE,warning = FALSE}
+timdec1<-decompose(time.ts)#simple
+timdec2<-stl(time.ts,freq,t.window=15, robust=TRUE)#t.window controls wiggliness of trend component. 
+timdec3<-stl(time.ts,freq,s.window="periodic", robust=TRUE) #we keep the seasonal component identical across years
+pd1<-plot(timdec1)
+pd2<-plot(timdec2)
+pd3<-plot(timdec3)
+
+
+```
+
+Now its time to forecast correctly,we can select which dicomposition we like.
+Method:ETS
+```{r message = FALSE,warning = FALSE}
+fcst=forecast(timdec2, method="ets", h=24)
+plot(fcst)
+fcst$mean
+```
+
+Method:Arima
+```{r}
+fcst=forecast(timdec3, method="arima", h=24)
+plot(fcst)
+fcst$mean
+```
+
+Lets check the differences,i dont know which plot represents our data better,so i put the ones i found(there are 2 more plots in the time.r).
+
+ACF1
+```{r}
+adjusted_diffts <- time.ts - timdec1$seasonal
+acf(adjusted_diffts, lag.max = 12, type = c("correlation", "covariance", "partial"), plot = TRUE, na.action = na.contiguous, demean = TRUE)
+
+```
+ACF2
+```{r}
+ggAcf(adjusted_diffts)
+```
+
+
+PACF 
+```{r}
+Pacf(adjusted_diffts, lag.max = 12, plot = TRUE, na.action = na.contiguous, demean = TRUE)
+```
+
+i was not able to find the `remainder` part,i dont know what that is so...But none of those stuff look like white noise so thats sweeettt
+
+
+[Press here to see my dick](https://i.imgur.com/QtX4eFi.gif)
+
+## 3. Fit an ARIMA model to your time series. Some steps to follow:
+
+A)We used both plot and tsdisplay in the time.r file and we saw that there is no difference,so we stick to the original data.
+In the time.r i have used some commands that might be useful for the rest questions(B and C probably,check it out before you start).
+
+We can interpret almost everything from the plots,but for some parts i will need your help.
+Until then,merry Christmass Data Heretics!!!
+
+[This gif is for you,dare to press it?](https://media1.giphy.com/media/wranrCRq3f90A/giphy.gif?cid=3640f6095c13bf0f63522e496b22a340)
+
+
+[Wanna smoke it up?](https://i.gifer.com/1M4U.gif)
+
+[Finalyy its over!](https://media.giphy.com/media/l2RnEqBAvS5tCwYNO/giphy.gif)
+

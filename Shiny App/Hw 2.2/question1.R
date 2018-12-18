@@ -9,7 +9,7 @@ hw2.2_q1_ui <- function(id, options) {
     tabPanel(title = "Question 1",
         column(10,
             h2(hw2.2_title),
-            h4("Description."),
+            h4("Estimated odds ratio and confidence intervals of crossing for car vs. truck at each traffic location."),
             fluidPage(
 
             )

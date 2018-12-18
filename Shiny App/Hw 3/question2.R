@@ -9,7 +9,7 @@ hw3_q2_ui <- function(id, options) {
     tabPanel(title = "Question 2",
         column(10,
             h2(hw3_title),
-            h4("Description."),
+            h4("See you in January."),
             fluidPage(
 
             )

@@ -1,0 +1,512 @@
+data.frame(10)
+View(tclass)
+matrix(1,10)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+a = matrix(1,10)
+a
+a = matrix(10,1)
+a[1,1] <- chisq.test(t1[which(t1[2]==((distinct(t1[2]) %>% pull())[2])),]$Count1 )$p.value
+a
+a = matrix(10,1)
+a[1,1] <- chisq.test(t1[which(t1[2]==((distinct(t1[2]) %>% pull())[2])),]$Count1 )$p.value
+a
+a[2,1] <- chisq.test(t1[which(t1[2]==((distinct(t1[2]) %>% pull())[2])),]$Count1 )$p.value
+a = matrix(10,1)
+a[1,1] <- c(chisq.test(t1[which(t1[2]==((distinct(t1[2]) %>% pull())[2])),]$Count1 )$p.value)
+a
+a = matrix(10,1)
+a
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+a = matrix(10,1)
+a
+a <- matrix(nrow=10,ncol=1)
+a
+a[1,1] <- c(chisq.test(t1[which(t1[2]==((distinct(t1[2]) %>% pull())[2])),]$Count1 )$p.value)
+a
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+a <- matrix(ncol=length(summary(datos[2])), nrow=1)
+datos <- t1
+a <- matrix(ncol=length(summary(datos[2])), nrow=1)
+for (i in length(summary(datos[2]))){
+a[i,1] = chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value
+}
+(i in length(summary(datos[2]))
+(i in length(summary(datos[2])))
+[i in length(summary(datos[2]))]
+i in length(summary(datos[2]))
+for (i in length(summary(datos[2]))){
+i
+}
+for (i in length(summary(datos[2]))){
+return(i)
+}
+for (i in length(summary(datos[2]))){
+print i
+}
+for (i in length(summary(datos[2]))){
+print (i)
+}
+for (i in 1:length(summary(datos[2]))){
+print (i)
+}
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+distinct(datos[2]) %>% pull()
+length(summary(datos[2]))
+summary(datos[2])
+length(distinct(datos[2]))
+distinct(datos[2])
+length(distinct(datos[2])%>% pull())
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+for (i in 1:length(distinct(datos[2])%>% pull())){
+a[i,1] = chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value
+}
+for (i in 1:length(distinct(datos[2])%>% pull())){
+a[i,1] = chisq.test(datos$Count1 )$p.value
+}
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+a <- matrix(ncol=length(distinct(datos[2])%>% pull()), nrow=1)
+a
+a[1,1] = chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[1])),]$Count1 )$p.value
+a
+1:length(distinct(datos[2])%>% pull())
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+data.frame(ncol=length(distinct(datos[2])%>% pull()), nrow=1)
+string("a")
+tostring("a")
+toString("a")
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value
+)
+install.packages("testit")
+library("testit")
+has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value
+)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
+else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)}
+(if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
+else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)})
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+a <- matrix(ncol=length(distinct(datos[2])%>% pull()), nrow=1)
+a[1,1] = (if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
+else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)})
+if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
++           else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)})
+(if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
+else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)})
+(if (has_error(chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1 )$p.value)) {"NA"}
+else {chisq.test(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[i])),]$Count1)$p.value})
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+qqplot(mpg$cty - mean(mpg$cty))
+?qqplot
+mpg$cty - mean(mpg$cty)
+qqnorm(mpg$cty - mean(mpg$cty))
+qqnorm(rnorm(100))
+qqnorm(mpg$cty - mean(mpg$cty))
+hist(mpg$cty - mean(mpg$cty))
+sort(mpg$cty - mean(mpg$cty))
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_D_v2.R')
+jarque.bera.test(mpg$cty - mean(mpg$cty))
+library(testit)
+jarque.bera.test(mpg$cty - mean(mpg$cty))
+shapiro.test(mpg$cty - mean(mpg$cty))
+shapiro.test(log(mpg$cty) - mean(log(mpg$cty)))
+jarque.bera.test(log(mpg$cty) - mean(log(mpg$cty)))
+library(tseries)
+jarque.bera.test(log(mpg$cty) - mean(log(mpg$cty)))
+jarque.bera.test(mpg$cty - mean(mpg$cty))
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v3.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+?qqplot
+qqnorm
+?qqnorm
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+jarque.bera.test(mog$cty)
+jarque.bera.test(mpg$cty)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+instal.packages("lawstat")
+install.packages("lawstat")
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+leveneTest(hwy ~ tr, data = mpg)
+?levene.test
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+?anova
+anova(mpg$cty ~ mpg$tr)
+?aov
+aov(mpg$cty ~ mpg$tr)
+aov(cty ~ tr,mpg)
+View(mpg)
+mpg$tr <-substr(mpg$trans, 0, 1)
+mpg$tr<-str_replace(mpg$tr,"^m","Manual")
+mpg$tr<-str_replace(mpg$tr,"^a","Automatic")
+aov(cty ~ tr,mpg)
+summary(aov(cty ~ tr,mpg))
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v4.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+?qqline
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+library(vkR)
+install.packages("vkR")
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+?has_error
+has_error(a==%ç)
+detach(vkR)
+detach("vkR")
+detach("vkR", unload = TRUE)
+detach(vkR, unload = TRUE)
+unloadNamespace("ckR")
+unloadNamespace("vkR")
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+?data.frame
+data.frame(Chi_Test_p_value=1:5, p=1)
+c = data.frame(Chi_Test_p_value=1:5, p=1)
+c
+c[1,1]
+c[1,2]
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+View(tcyl)
+datos = tcyl
+((distinct(datos[2]) %>% pull())[i]))
+((distinct(datos[2]) %>% pull())[1]))
+((distinct(datos[2]) %>% pull())[1])
+((distinct(datos[2]) %>% pull())[1]) == 4
+datos[2]
+datos[2] == ((distinct(datos[2]) %>% pull())[1])
+to_string(datos[2]) == ((distinct(datos[2]) %>% pull())[1])
+toString(datos[2]) == ((distinct(datos[2]) %>% pull())[1])
+toString(datos[2])
+View(tdt)
+View(tfl)
+View(tclass)
+datos = tclass
+datos[2] == ((distinct(datos[2]) %>% pull())[1])
+as.dactor(datos[2]) == ((distinct(datos[2]) %>% pull())[1])
+as.factor(datos[2]) == ((distinct(datos[2]) %>% pull())[1])
+datos[2]
+datos[2]=="2seater"
+((distinct(datos[2]) %>% pull())[1])
+toString(((distinct(datos[2]) %>% pull())[1]))
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+datos = tcyl
+datos
+((distinct(datos[2]) %>% pull())[1])
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+datos
+((distinct(datos[2]) %>% pull())[i])
+((distinct(datos[2]) %>% pull())[1])
+((distinct(datos[2]) %>% pull())[2])
+((distinct(datos[2]) %>% pull())[3])
+((distinct(datos[2]) %>% pull())[4])
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+datos
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1 )
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1)$p.value
+length(distinct(datos[2])%>% pull())
+((distinct(datos[2]) %>% pull())[1])
+((distinct(datos[2]) %>% pull())[4])
+((distinct(datos[2]) %>% pull())[2])
+((distinct(datos[2]) %>% pull())[3])
+fisher.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1)$p.value
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1)$p.value
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+has_error(chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1 )$p.value))
+has_error(chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1 )$p.value)
+try(has_error(chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1 )$p.value))
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+distinct(datos[2]) %>% pull())[i]
+(distinct(datos[2]) %>% pull())
+(distinct(datos[2]) %>% pull())[1]
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[i]))),]$Count1
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[2]))),]$Count1
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[3]))),]$Count1
+datos
+datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[4]))),]$Count1
+length(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[4]))),]$Count1)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+length(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[4]))),]$Count1)==1
+length(datos[which(datos[2]==((distinct(datos[2]) %>% pull())[4])),]$Count1)==1
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+datos
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[1]))),]$Count1)$p.value
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[2]))),]$Count1)$p.value
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[3]))),]$Count1)$p.value
+chisq.test(datos[which(datos[2]==toString(((distinct(datos[2]) %>% pull())[4]))),]$Count1)$p.value
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+((distinct(datos[2]) %>% pull())[i])
+((distinct(datos[2]) %>% pull())[1])
+((distinct(datos[2]) %>% pull())[2])
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+chisq.test
+?chisq.test
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+?kruskal.test
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+kruskal.test(datos$cty,datos$tr)
+kruskal.test(mpg$cty,mpg$tr)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+kruskal.test(log(cty) ~ as.factor(tr),data = mpg)
+kruskal.test(cty ~ as.factor(tr),data = mpg)
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+ggplot(data = dataset(),aes(x=hwy,y=cty, fill = year)) +
+geom_points() +
+labs(fill = "Miles",x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+dataset = mpg
+ggplot(data = dataset(),aes(x=hwy,y=cty, fill = year)) +
+geom_points() +
+labs(fill = "Miles",x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year)) +
+geom_points() +
+labs(fill = "Miles",x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year)) +
+geom_point() +
+labs(fill = "Miles",x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year, color= year)) +
+geom_point() +
+labs(fill = "Miles",x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year, color= year)) +
+geom_point() +
+labs(x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year, color= year)) +
+geom_boxplot() +
+labs(x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year) +
+geom_boxplot() +
+labs(x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+)
+ggplot(data = mpg,aes(x=hwy,y=cty, fill = year)) +
+geom_boxplot() +
+labs(x="Type of transmission",y="NUmber of Miles") +
+ggtitle("Mileage") +
+theme(plot.title = element_text(size = 40, face = "bold", hjust = 0.5)) + theme_minimal()
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v5.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v6.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v7.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+qqnorm(mpg$hwy)
+qqline(mpg$hwy)
+library(MASS)
+qqnorm(boxcox(mpg$hwy))
+qqnorm(boxcox(mpg$hwy))
+?boxcox
+unloadNamespace(MASS)
+unloadNamespace("MASS")
+detach("package:MASS", unload = TRUE)
+?detach
+library(bestNormalize)
+install.packages("bestNormalize")
+library(bestNormalize)
+qqnorm(mpg$cty)
+qqline(mpg$cty)
+qqnorm(boxcox(mpg$cty))
+qqnorm(boxcox(mpg$cty, standardize = TRUE))
+library(car)
+qqnorm(powerTransform(mpg$cty))
+qqnorm(powerTransform(as.factor(mpg$cty)))
+mpg$cty
+powerTransform(as.factor(mpg$cty))
+powerTransform(as.factor(mpg$hwy))
+powerTransform(mpg$hwy)
+summary(powerTransform(mpg$hwy))
+bcPower(mpg$cty, lambda = powerTransform(mpg$cty))
+powerTransform(mpg$cty)
+powerTransform(mpg$cty)[1]
+powerTransform(mpg$cty)$value
+powerTransform(mpg$cty)[2]
+powerTransform(mpg$cty)[3]
+powerTransform(mpg$cty)[4]
+powerTransform(mpg$cty)[5]
+powerTransform(mpg$cty)[6]
+powerTransform(mpg$cty)[7]
+powerTransform(mpg$cty)
+bcPower(mpg$cty, lambda = powerTransform(mpg$cty)$lambda)
+qqnorm(bcPower(mpg$cty, lambda = powerTransform(mpg$cty)$lambda))
+qqline(bcPower(mpg$cty, lambda = powerTransform(mpg$cty)$lambda))
+r2multv<-function(x){
+r2s=1-1/(diag(solve(cov(x)))*diag(cov(x)))
+r2s
+}
+r2multv(mpg)
+r2multv(select(mpg$cty, mpg$hwy, mpg$displ))
+r2multv(select(mpg,cty, hwy, displ))
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+library(shiny); runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+install.packages("png")
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny/ui_v10.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny')
+runApp()
+getwd()
+setwd("C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/04 Intelligent Data Analysis/01 Curso/02 Hw/Hw1/02 Shinny")
+Run App
+Run App()
+RunApp()
+runApp()
+source('app.R')
+source('app.R')
+source('app.R')
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp('ui_v10.R')
+runApp('ui_v12.R')
+runApp('C:/Users/34629/Desktop/09 DS Madrid/01 UPM/1º Semestre/01 Big Data/02 Hw/Hw1/Exercise 1/App-1')
