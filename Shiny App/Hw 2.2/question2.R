@@ -1,15 +1,15 @@
 ###################################################
-##########         Question 1        ##############
+##########         Question 2        ##############
 ###################################################
 
 # UI
 
-hw2.2_q1_ui <- function(id, options) {
+hw2.2_q2_ui <- function(id, options) {
     ns <- NS(id)
-    tabPanel(title = "Question 1",
+    tabPanel(title = "Question 2",
         column(10,
             h2(hw2.2_title),
-            h4("Estimated odds ratio and confidence intervals of crossing for car vs. truck at each traffic location."),
+            h4("Estimated odds ratio of crossing vs. retreat without taking into account the third (control) variable."),
             fluidPage(
 
             )
@@ -20,6 +20,6 @@ hw2.2_q1_ui <- function(id, options) {
 
 # Server
 
-hw2.2_q1_server <- function(input, output, session) {
+hw2.2_q2_server <- function(input, output, session) {
 
 }
