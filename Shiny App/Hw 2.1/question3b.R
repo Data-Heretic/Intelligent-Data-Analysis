@@ -18,7 +18,8 @@ hw2.1_q3b_ui <- function(id) {
                 verbatimTextOutput(ns("dwtest3b")),
                 verbatimTextOutput(ns("bptest3b"))),
             box(status = "primary",
-                verbatimTextOutput(ns("jarque.bera3b")))))
+                verbatimTextOutput(ns("jarque.bera3b"))))
+                )
 }
 
 # Server
