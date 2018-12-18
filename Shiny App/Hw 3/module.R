@@ -3,7 +3,7 @@
 ###################################################
 
 hw3_path <- "Hw 3/"
-hw3_title <- "Temporary title"
+hw3_title <- "Coming soon..."
 
 # Load questions
 

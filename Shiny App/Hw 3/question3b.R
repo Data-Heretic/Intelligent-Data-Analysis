@@ -9,7 +9,7 @@ hw3_q3b_ui <- function(id, options) {
     tabPanel(title = "Section b)",
         column(10,
             h2(hw3_title),
-            h4("Description."),
+            h4("Can't wait..."),
             fluidPage(
 
             )
