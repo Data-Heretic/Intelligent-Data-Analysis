@@ -25,10 +25,10 @@ hw2.1_q1_ui <- function(id) {
                  p("Test of significance for the overall model is 2.2e-16, We can reject the null hypothesis which assumes that all the Bi is equal to 1. We can conclude that the variables are significant for the model."),
                  p("For the weight coefficient: Since the dependent variable is expressed in log, then we can say either: - In log scale: If you increase one unit of cartage , log(price) will increase by 2.855 In Price scale: If you increase one unit of cartage the price of diamond is multiplied by a factor of exp (2.885) =17.37466"),
                  p("For the color purity coefficient: Since the dependent variable is expressed in log and reference category is “I”, then we can say that the price of “ColourPurityD” is exp(0.41)=1.53 times the price of “ColourPurityI” , we can conclude that “ColourPurityD” is much better than the reference category"),
-                 p(" For the certifiers coefficient, we can see that the HRD and GIA are better than IGI but with a very small difference"),
+                 p(" For the certifiers coefficient, we can see that the HRD and GIA are better than IGI but with a very small difference")
                  
 
-            ),
+            )
         )
 }
 
@@ -47,4 +47,3 @@ hw2.1_q1_server <- function(input, output, session) {
     
 
 }
-box(status = "primary", verbatimTextOutput(ns("summary1")))
