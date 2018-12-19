@@ -22,7 +22,7 @@ source(str_c(hw2.1_path, "data-preprocessing.R"))
 hw2.1_ui <- function(id) {
     ns <- NS(id)
     tabPanel("Homework 2.1", class = 'content-wrapper',
-        navlistPanel(widths = c(1, 11), "Questions",
+        navlistPanel(widths = c(2, 10), "Questions",
             hw2.1_q1_ui(id),
             hw2.1_q2_ui(id),
             tabPanel(title = "Question 3", column(12, h2(hw2.1_title), tabsetPanel(hw2.1_q3a_ui(id), hw2.1_q3b_ui(id), type = "pills"))),

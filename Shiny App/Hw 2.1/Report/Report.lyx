@@ -88,7 +88,7 @@ Ignacio Rodriguez, Daniel Minguez
 \end_layout
 
 \begin_layout Date
-December 21st, 2018
+December 20th, 2018
 \end_layout
 
 \begin_layout Section
@@ -99,6 +99,16 @@ Plot price vs.
 \end_layout
 
 \begin_layout Standard
+For linear regression models, we want to make sure that there is a linear
+ relationship between the input and output variables.
+ Taking the log to the price makes the relationship between price and carat
+ looks more linear.
+ This is our main objective for linear regression, As we can see in the
+ below graphs, plotting the log price gives a better representation of the
+ variables.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -106,13 +116,23 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset Graphics
+	filename 00 Images/Im1.PNG
+	scale 50
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The overall model has a Multiple R-squared of 0.9723, so the model is able
+ to predict any Y using X with accuracy of 97%.
 \end_layout
 
 \begin_layout Section
@@ -124,6 +144,10 @@ Find a suitable way to include, besides caratage, the other categorical
  
 \end_layout
 
+\begin_layout Standard
+Pending from Nacho
+\end_layout
+
 \begin_layout Section
 Remedial actions
 \end_layout
@@ -133,13 +157,25 @@ Is this regression model satisfactory? Are the standard assumptions of linear
  regression validated? Are the numerical estimates sensible?
 \end_layout
 
+\begin_layout Standard
+Pending from Nacho
+\end_layout
+
 \begin_layout Subsection
 Interpret the interaction parameter med*carat.
  What can we infer on the incremental pricing of caratage in the 3 clusters?
 \end_layout
 
+\begin_layout Standard
+Pending from Nacho
+\end_layout
+
 \begin_layout Subsection
 Which is more highly valued: colour or clarity?
+\end_layout
+
+\begin_layout Standard
+Pending from Nacho
 \end_layout
 
 \begin_layout Subsection
@@ -147,9 +183,17 @@ All other things being equal, what is the average price dierence between
  a grade D diamond and another one graded (a) I (b) E? 
 \end_layout
 
+\begin_layout Standard
+Pending from Nacho
+\end_layout
+
 \begin_layout Subsection
 All other things being equal, are there price dierences amongst the stones
  appraised by the GIA, IGI and HRD?
+\end_layout
+
+\begin_layout Standard
+Pending from Nacho
 \end_layout
 
 \begin_layout Subsection
@@ -157,10 +201,18 @@ Include the square of carat as a new explanatory variable.
  It avoids the subjectivity of clusters denition
 \end_layout
 
+\begin_layout Standard
+Pending from Nacho
+\end_layout
+
 \begin_layout Section
 Which of the two remedial actions do you prefer and why? Think on terms
  of interpretability and validity of the assumptions.
  
+\end_layout
+
+\begin_layout Standard
+Pending from Nacho
 \end_layout
 
 \end_body
