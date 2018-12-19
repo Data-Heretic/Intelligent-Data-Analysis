@@ -6,9 +6,8 @@
 
 hw2.1_q3a_ui <- function(id) {
     ns <- NS(id)
-
     tabPanel(title = "Section a)",
-        h3("After we modified the Carat Size variable and turned it into a categorical one we present the results of the linear model here: "),
+        h3("After we modified the Carat Size variable and turned it into a categorical one we present the results of the linear model here."),
         fluidRow(
             box(status = "primary", verbatimTextOutput(ns("summary3a"))),
             p("The regression model is satisfactory as the overall test of significance for the model is 2.2e-16 and R2 = 0.9953 (there is an obvious improvement in the model compared to model 1 )"),

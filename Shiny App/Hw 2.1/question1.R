@@ -9,7 +9,8 @@ hw2.1_q1_ui <- function(id) {
     tabPanel(title = "Question 1",
         h3("Plot price vs. caratage and log(price) vs. caratage. Decide on which response variable is better to use."),
         fluidRow(
-            p("For linear regression models, we want to make sure that there is a linear relationship between the input and output variables. Taking the log to the price makes the relationship between price and carat looks more linear. This is our main objective for linear regression, As we can see in the below graphs, plotting the log price gives a better representation of the variables."),
+            box(width = 12,
+                p("For linear regression models, we want to make sure that there is a linear relationship between the input and output variables. Taking the log to the price makes the relationship between price and carat looks more linear. This is our main objective for linear regression, As we can see in the below graphs, plotting the log price gives a better representation of the variables.")),
              box(status = "warning", plotOutput(ns("plot.lm1"))),
              box(status = "warning", plotOutput(ns("plot.lm2")))),
         h3("The parameters in the given model are represented as below"),

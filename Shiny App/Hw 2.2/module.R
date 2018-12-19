@@ -43,4 +43,7 @@ hw2.2_server <- function(input, output, session) {
     # Call questions' servers
 
     hw2.2_q1_server(input, output, session)
+    hw2.2_q2_server(input, output, session)
+    hw2.2_q3_server(input, output, session)
+    hw2.2_q4_server(input, output, session)
 }

@@ -9,13 +9,13 @@ hw2.2_q4_ui <- function(id, options) {
     tabPanel(title = "Question 4",
         column(10,
             h2(hw2.2_title),
-            h4("Are X and Y conditional independent given Z?."),
-            fluidPage(
-
-            )
-        ),
-        column(2, box(width = 12, class = 'well box-options', options))
-    )
+            h3("Are X and Y conditional independent given Z?."),
+            fluidRow(
+                box(width = 12,
+                    h4("Let's test the hypothesis of conditional independence"),
+                    verbatimTextOutput(ns("test.mantelhaen.partial")),
+                    p("The very low p-value (7.868e-07) indicates that we can reject the conditional independence of the Odds Ratio through the two levels of traffic.")))),
+        column(2, box(width = 12, class = 'well box-options', options)))
 }
 
 # Server
