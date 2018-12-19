@@ -4,10 +4,10 @@
 
 # UI
 
-hw2.2_q2_ui <- function(id, options) {
+hw2.2_q2_ui <- function(id) {
     ns <- NS(id)
     tabPanel(title = "Question 2",
-        column(10,
+        column(12,
             h2(hw2.2_title),
             h3("Estimated odds ratio of crossing vs. retreat without taking into account the third (control) variable."),
             fluidRow(
@@ -33,9 +33,7 @@ hw2.2_q2_ui <- function(id, options) {
                     plotOutput(ns("plot.fourfold.marginal"))),
                 box(width = 4,
                     p("From the mosaic plot below We see that there is no systematic association between different actions and the type of vehicle - except among the action of trucks under low traffic. The tiles show that there are relatively less trucks in low traffic with crossing that the hypothesis of independence would predict."),
-                    plotOutput(ns("plot.mosaic.partial"))))),
-        column(2, box(width = 12, class = 'well box-options', options))
-    )
+                    plotOutput(ns("plot.mosaic.partial"))))))
 }
 
 # Server
