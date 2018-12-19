@@ -8,7 +8,7 @@ hw3_q3f_ui <- function(id, options) {
     ns <- NS(id)
     tabPanel(title = "Section f)",
         column(10,
-            h2(hw3_title),
+            h2("See you in January."),
             h4("Can't wait..."),
             fluidPage(
 

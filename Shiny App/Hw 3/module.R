@@ -27,7 +27,7 @@ source(str_c(hw3_path, "data-preprocessing.R"))
 hw3_ui <- function(id) {
     ns <- NS(id)
     tabPanel("Homework 3", class = 'content-wrapper',
-        navlistPanel(widths = c(1, 11), "Questions",
+        navlistPanel(widths = c(2, 10), "Questions",
             hw3_q1_ui(id, hw3_options()),
             hw3_q2_ui(id, hw3_options()),
             tabPanel(title = "Question 3", column(12, h2(hw3_title), tabsetPanel(

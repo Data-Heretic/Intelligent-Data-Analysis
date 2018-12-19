@@ -4,20 +4,19 @@
 
 # UI
 
-hw2.2_q1_ui <- function(id, options) {
+hw2.2_q1_ui <- function(id) {
     ns <- NS(id)
     tabPanel(title = "Question 1",
-        column(10,
+        column(12,
             h2(hw2.2_title),
-            h4("Estimated odds ratio and confidence intervals of crossing for car vs. truck at each traffic location."),
+            h3("Estimated odds ratio and confidence intervals of crossing for car vs. truck at each traffic location."),
             fluidRow(
-                box(h5("Table of Action by Vehicle given Traffic, Traffic = Low."),
+                box(h4("Table of Action by Vehicle given Traffic, Traffic = Low."),
                     p("Odds ratio > 1"),
                     verbatimTextOutput(ns("oddsratio.traffic_low"))),
-                box(h5("Table of Action by Vehicle given Traffic, Traffic = High."),
+                box(h4("Table of Action by Vehicle given Traffic, Traffic = High."),
                     p("Odds ratio < 1"),
-                    verbatimTextOutput(ns("oddsratio.traffic_high"))))),
-        column(2, box(width = 12, class = 'well box-options', options)))
+                    verbatimTextOutput(ns("oddsratio.traffic_high"))))))
 }
 
 # Server
