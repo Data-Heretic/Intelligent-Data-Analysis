@@ -14,11 +14,9 @@ hw2.1_q3b_ui <- function(id) {
         h3("Interpretation of the Plots:"),
         h4("Statistical tests:"),
         fluidRow(
-            box(status = "primary",
-                verbatimTextOutput(ns("dwtest3b")),
-                verbatimTextOutput(ns("bptest3b"))),
-            box(status = "primary",
-                verbatimTextOutput(ns("jarque.bera3b")))))
+            box(width = 4, verbatimTextOutput(ns("dwtest3b"))),
+            box(width = 4, verbatimTextOutput(ns("bptest3b"))),
+            box(width = 4, verbatimTextOutput(ns("jarque.bera3b")))))
 }
 
 # Server

@@ -10,8 +10,8 @@ hw2.1_q3a_ui <- function(id) {
         h3("After we modified the Carat Size variable and turned it into a categorical one we present the results of the linear model here."),
         fluidRow(
             box(status = "primary", verbatimTextOutput(ns("summary3a"))),
-            p("The regression model is satisfactory as the overall test of significance for the model is 2.2e-16 and R2 = 0.9953 (there is an obvious improvement in the model compared to model 1 )"),
-            p("Afterwards, we started plotting a graph using the plot function for the model, as in the below picture."),
+            box(p("The regression model is satisfactory as the overall test of significance for the model is 2.2e-16 and R2 = 0.9953 (there is an obvious improvement in the model compared to model 1 )"),
+                p("Afterwards, we started plotting a graph using the plot function for the model, as in the below picture.")),
             box(status = "warning", plotOutput(ns("plot.lm3a")))),
         h3("Interpretation of the Plots"),
         h4("Statistical tests"),
