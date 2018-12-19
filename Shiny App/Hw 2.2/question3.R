@@ -22,4 +22,8 @@ hw2.2_q3_ui <- function(id, options) {
 
 hw2.2_q3_server <- function(input, output, session) {
 
+    output$test.woolf.partial <- renderPrint({
+        req(Elks.partial)
+        woolf_test(Elks.partial)
+    })
 }

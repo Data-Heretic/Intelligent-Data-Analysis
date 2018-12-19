@@ -14,9 +14,6 @@ names(diamonds) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
 diamo2 <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
 names(diamo2) <- c('Carat', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
 
-
-
-
 model1 <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier, data = diamonds)
 
 #####################

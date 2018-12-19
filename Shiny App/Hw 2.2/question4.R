@@ -22,4 +22,8 @@ hw2.2_q4_ui <- function(id, options) {
 
 hw2.2_q4_server <- function(input, output, session) {
 
+    output$test.mantelhaen.partial <- renderPrint({
+        req(Elks.partial)
+        mantelhaen.test(Elks.partial)
+    })
 }

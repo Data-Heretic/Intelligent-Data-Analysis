@@ -13,7 +13,7 @@ setwd("C:/Users/Panagiotis/Documents/EIT Digital Masterschool/UPM/1st semester/I
 
 Elks.table = data.frame(expand.grid(Action=c("Crossing", "Retreat"), Traffic=c("Low", "High"), Vehicle=c("Car", "Truck")), counts=c(287,57,237,52,40,42,57,12))
 
-Elks.partial=xtabs(counts~Action+Vehicle+Traffic, data=Elks.table)
+Elks.partial = xtabs(counts ~ Action + Vehicle + Traffic, data = Elks.table)
 Elks.partial
 
 Elks.podds=oddsratio(Elks.partial, log=FALSE)
@@ -26,6 +26,8 @@ oddsratio(Elks.partial[,,1], log=FALSE)
 ### Table of Action by Vehicle given Traffic, Traffic = High
 #odds ratio <1
 oddsratio(Elks.partial[,,2], log=FALSE)
+
+# Question 2
 
 # Marginal table of Action by Vehicle, ignoring Traffic
 Elks.marginal=xtabs(counts~Action+Vehicle, data=Elks.table)
@@ -59,13 +61,15 @@ fourfold(Elks.marginal)
 # The tiles show that there are relatively less trucks in low traffic with crossing that the hypothesis of independence would predict.
 mosaic(Elks.partial, shade = T, split_vertical=TRUE)
 
+# Question 3
+
 # Let’s test the hypothesis of homogeneous association (or homogeneity of odds ratio).
 woolf_test(Elks.partial)
 # The very low p-value (0.0001) indicates that we can reject the Homogeneity of the Odds Ratio through the two levels of traffic.
 # We cannot assume that the conditional relationship between any pair of variables given the third one is the same at each level of the third variable.
 
+# Question 4
+
 # Let's test the hypothesis of conditional independence
 mantelhaen.test(Elks.partial)
 # The very low p-value (7.868e-07) indicates that we can reject the conditional independence of the Odds Ratio through the two levels of traffic.
-
-
