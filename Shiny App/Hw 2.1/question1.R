@@ -14,8 +14,8 @@ hw2.1_q1_ui <- function(id) {
                        makes the relationship between price and carat looks more linear. This is our
                     main objective for linear regression, As we can see in the below graphs,
                     plotting the log price gives a better representation of the variables."),
-             box(status = "warning", plotOutput(ns("plot.lm1"))),
-             box(status = "warning", plotOutput(ns("plot.lm2")))
+             box(status = "warning", plotOutput(ns("plot.lm2"))),
+             box(status = "warning", plotOutput(ns("plot.lm3")))
             ),
         h3("The parameters in the given model are represented as below"),
         
