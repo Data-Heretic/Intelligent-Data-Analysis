@@ -19,6 +19,15 @@ model1 <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier,
 #####################
 ######    2     #####
 #####################
+diamondq2 = diamonds
+
+diamondq2 = diamondq2[-152,]
+diamondq2 = diamondq2[-214,]
+diamondq2 = diamondq2[-110,]
+
+#Getting model after removing the outliers
+modelNoOutlier <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier, data = diamondq2 )
+
 
 #####################
 ######   3.A    #####
