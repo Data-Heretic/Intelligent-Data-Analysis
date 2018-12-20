@@ -139,6 +139,9 @@ status open
 \begin_layout Section
 Find a suitable way to include, besides caratage, the other categorical
  information available.
+ Use the worst level of each categorical variable as the reference category
+ and HRD for certication institution.
+ Comment on the model and perform a basic analysis of the residuals.
  
 \end_layout
 
@@ -147,9 +150,8 @@ Find a suitable way to include, besides caratage, the other categorical
 \length 15bp
 \end_inset
 
-We have choose the worst level for each categorical cariable: VS2 (very
- sligthly imperfect 2) for Clarity, I for ColourPurity and HRD for certification
- institution as reference categories.
+We have choose VS2 (very sligthly imperfect 2) for Clarity, I for ColourPurity
+ and HRD for certification institution as reference categories.
  
 \end_layout
 
@@ -273,7 +275,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im03.PNG
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -339,13 +341,6 @@ status open
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -442,13 +437,6 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 After removing the above outliers from the model, there was no significant
  enhancement done and other outliers appeared, we can see that from the
  below
@@ -507,27 +495,15 @@ Try two dierent remedial actions:
  It avoids the subjectivity of clusters denition.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Is this regression model satisfactory? Are the standard assumptions of linear
  regression validated? Are the numerical estimates sensible?
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
-The regression model is satisfactory, even though some assumtions are not
- satisfactory, as the overall test of significance for the model is 2.2e-16
- and R2 = 0.9953 (there is an obvious improvement in the model compared to
- model 1).
+The regression model is satisfactory as the overall test of significance
+ for the model is 2.2e-16 and R2 = 0.9953 (there is an obvious improvement
+ in the model compared to model 1).
 \end_layout
 
 \begin_layout Standard
@@ -542,7 +518,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im09.PNG
-	scale 40
+	scale 50
 
 \end_inset
 
@@ -616,7 +592,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im11.PNG
-	scale 40
+	scale 50
 
 \end_inset
 
@@ -634,10 +610,6 @@ Interpret the interaction parameter med*carat.
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
 We can interpret that the interaction term for 'med*weight' is significant
  as p-value is less than 0.05 (5% level).
  
@@ -657,10 +629,6 @@ Which is more highly valued: colour or clarity?
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
 Colour is more highly valued since the best colour purity influence more
  in the price that the best clarity (and the same for the subsequent levels)
 \end_layout
@@ -670,13 +638,12 @@ All other things being equal, what is the average price diference between
  a grade D diamond and another one graded (a) I (b) E? 
 \end_layout
 
-\begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
+\begin_layout Itemize
+The log(price) is 0.47 higher for a D diamond than for a I diamond
+\end_layout
 
-The log(price) is 0.47 higher for a D diamond than for a I diamond, and is
- 0.08 higher for a D diamond than for a E diamond
+\begin_layout Itemize
+The log(price) is 0.08 higher for a D diamond than for a E diamond
 \end_layout
 
 \begin_layout Subsection
@@ -685,10 +652,6 @@ All other things being equal, are there price diferences amongst the stones
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
 Given this model, all the coeficients related to the certifiers are significally
  equal to 0, so the prices are not influenced by them.
 \end_layout
@@ -699,10 +662,6 @@ Include the square of carat as a new explanatory variable.
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
 We have replace carat by the square of carat in order to avoid relation
  between variables, obtaining the following result:
 \end_layout
@@ -718,7 +677,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename 00 Images/Im12.PNG
+	filename 00 Images/Im11.PNG
 	scale 50
 
 \end_inset
@@ -746,7 +705,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename 00 Images/Im13.PNG
+	filename 00 Images/Im11.PNG
 	scale 50
 
 \end_inset
@@ -766,10 +725,6 @@ Which of the two remedial actions do you prefer and why? Think on terms
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
 In both models we have a good 
 \begin_inset Formula $R^{2}$
 \end_inset
@@ -778,23 +733,19 @@ In both models we have a good
 \end_layout
 
 \begin_layout Itemize
-The linearity of residuals , both have the same problem.
+The linearity of residuals , model2 is more linear than model3 
 \end_layout
 
 \begin_layout Itemize
-Normality , model 2 behaves better compared to model 3.
+Normality , model2 behaves better compared to model3 
 \end_layout
 
 \begin_layout Itemize
-Variance equality, both have the same problem.
+Variance equality, model 3 is better than model2.
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset space \hspace{}
-\length 15bp
-\end_inset
-
+\begin_layout Itemize
 In summary:
 \end_layout
 
@@ -803,11 +754,11 @@ In summary:
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -821,7 +772,18 @@ In summary:
 
 \begin_layout Plain Layout
 
-\series bold
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Model 2
 \end_layout
 
@@ -832,7 +794,18 @@ Model 2
 
 \begin_layout Plain Layout
 
-\series bold
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Model 3
 \end_layout
 
@@ -844,10 +817,20 @@ Model 3
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $R^{2}$
-\end_inset
 
-
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+R^_{2}
 \end_layout
 
 \end_inset
@@ -959,7 +942,7 @@ Durbin-Watson test p-value (linearity)
 \uwave off
 \noun off
 \color none
-2.2e-16
+NA
 \end_layout
 
 \end_inset
@@ -1109,7 +1092,7 @@ Breusch-Pagan test p-value
 \end_layout
 
 \begin_layout Standard
-Therefore we conclude that the model 2 is better.
+Therefore we conclude that the first remedial is better.
 \end_layout
 
 \end_body

@@ -2,17 +2,18 @@
 ##########       Data preprocessing      ##########
 ###################################################
 
-diamonds <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
-names(diamonds) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
-
 #####################
 ######    1     #####
 #####################
 
 diamonds <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
 names(diamonds) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
-diamo2 <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
-names(diamo2) <- c('Carat', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
+
+diamonds <- within(diamonds, Clarity <- relevel(Clarity, ref = "VS2"))
+diamonds <- within(diamonds, ColourPurity <- relevel(ColourPurity, ref = "I"))
+diamonds <- within(diamonds, Certifier <- relevel(Certifier, ref = "HRD"))
+
+diamo2 <- diamonds
 
 model1 <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier, data = diamonds)
 
@@ -21,6 +22,8 @@ model1 <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier,
 #####################
 diamondq2 = diamonds
 
+diamondq2 = diamondq2[-223,]
+diamondq2 = diamondq2[-211,]
 diamondq2 = diamondq2[-152,]
 diamondq2 = diamondq2[-214,]
 diamondq2 = diamondq2[-110,]
@@ -55,9 +58,8 @@ names(test2) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Carat_Size'
 ######   3.B    #####
 #####################
 
-diamonds3B <- read.table(str_c(hw2.1_path, "HW-diamonds.txt"))
-names(diamonds3B) <- c('Weight', 'ColourPurity', 'Clarity', 'Certifier', 'Price')
+diamonds3B <- diamonds
 sqrt_Carat_Size = (diamonds3B$Weight) * 2
 diamonds3B <- cbind(diamonds3B, sqrt_Carat_Size) # add wealth as a column to ds
 
-model3b <- lm(formula = log(Price) ~ Weight + ColourPurity + Clarity + Certifier + sqrt_Carat_Size, data = diamonds3B)
+model3b <- lm(formula = log(Price) ~ sqrt_Carat_Size + ColourPurity + Clarity + Certifier, data = diamonds3B)
