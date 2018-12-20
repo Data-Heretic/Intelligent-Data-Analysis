@@ -35,14 +35,14 @@ Elks.marginal
 
 # Let's estimate the odds ratio of crossing vs. retreat without taking into account the control variable.
 # The odds of “success” (crossing) for car vehicles are higher than for trucks.
-oddsratio(Elks.marginal, log=FALSE)
+oddsratio(Elks.marginal, log = FALSE)
 # Taking into account (controlling for) traffic, the odds of crossing are lower for car vehicles than for trucks in case of high traffic. 
 # Just the reverse direction that the marginal table showed.
 # Simpson’s Paradox: The result that a marginal association can have a different direction from each conditional association.
 # Moral: It can be dangerous to “collapse” contingency tables over a third control variable.
 
 # The odds ratio is greater than 1 for low traffic which means that the odds of crossing for cars are higher than the odds for trucks.
-# But in case of high traffic the odds ratio is less than 1 which means that the odds of crossing for cars are lower than the odds for trucks. 
+# But in case of high traffic, since the confidence interval contains the value 1, we are going to assume that the odds ratio of crossing for cars is comparable to the odds ratio of crossing for trucks.
 confint(Elks.podds, log=FALSE)
 plot(Elks.podds)
 

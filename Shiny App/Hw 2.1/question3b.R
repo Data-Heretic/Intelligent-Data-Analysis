@@ -11,7 +11,7 @@ hw2.1_q3b_ui <- function(id) {
         p("Afterwards, we started plotting a graph using the plot function for the model, as in the below picture."),
         fluidRow(
             box(width = 12, status = "warning", plotOutput(ns("plot.lm3b")))),
-        h3("Interpretation of the Plots:"),
+        h5("After adding the square of the carat weights we plotted the above graph for the new model (model3b)"),
         h4("Statistical tests:"),
         fluidRow(
             box(width = 4, verbatimTextOutput(ns("dwtest3b"))),
@@ -25,7 +25,8 @@ hw2.1_q3b_server <- function(input, output, session) {
 
     output$plot.lm3b <- renderPlot({
         req(model3b)
-        plot(model3b)
+        par(mfrow = c(2, 2))
+        plot(model3b,which = c(1,2,3,5), ask = F)
     })
 
     output$dwtest3b <- renderPrint({

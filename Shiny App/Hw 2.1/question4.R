@@ -38,7 +38,7 @@ hw2.1_q4_ui <- function(id) {
                     tags$tr(
                     tags$td("Breusch-Pagan test p-value"),
                     tags$td("0.0007143"),
-                    tags$td("7.195e-06")))))))
+                    tags$td("4.265e-06")))))))
 }
 
 # Server
