@@ -29,8 +29,8 @@ hw2.1_q4_ui <- function(id) {
                     tags$td("0.9723")),
                     tags$tr(
                     tags$td("Durbin-Watson test p-value (linearity)"),
-                    tags$td("2.2e-16"),
-                    tags$td("NA")),
+                    tags$td(" < 2.2e-16"),
+                    tags$td(" < 2.2e-16")),
                     tags$tr(
                     tags$td("Jarque Bera Test p-value"),
                     tags$td("0.1723"),

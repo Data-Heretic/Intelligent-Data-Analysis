@@ -35,14 +35,22 @@ hw2.1_q3a_ui <- function(id) {
         fluidRow(
             column(4,
                 h4("Testing colour purity differences"),
-                verbatimTextOutput(ns("predict.colour")),
-                h5("Color Purity is more valued")),
+                verbatimTextOutput(ns("predict.colour"))),
+                
             column(4,
                 h4("Testing certifier purity differences"),
                 verbatimTextOutput(ns("predict.certifier"))),
             column(4,
                 h4("Doing statistical tests"),
-                verbatimTextOutput(ns("stats")))))
+                verbatimTextOutput(ns("stats")))),
+        fluidRow(
+              h5("Color Purity is more valued"),
+              h5("Fit D value = 9.342298, Fit I value = 8.906038, Fit E value = 9.25695"),
+              h5("Average price distance between D and I is: 0.436. Average price distance between D and E is: 0.085"),
+              h5("Fit GIA value = 9.342298. Fit IGI value = 9.31861. Fit HRD value = 9.336692"),
+              h5("Prices do not differ a lot among different certifiers")
+            
+        ))
 }
 
 # Server
