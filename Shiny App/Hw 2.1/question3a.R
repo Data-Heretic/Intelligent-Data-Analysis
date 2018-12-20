@@ -14,6 +14,11 @@ hw2.1_q3a_ui <- function(id) {
                 p("Afterwards, we started plotting a graph using the plot function for the model, as in the below picture.")),
             box(status = "warning", plotOutput(ns("plot.lm3a")))),
         h3("Interpretation of the Plots"),
+        tags$ol(
+          tags$li("Residuals vs Fitted: we can see that the residuals do follow somehow a linear relationship"),
+          tags$li("Normal Q-Q: Residuals come from a normal distribution which is a good"),
+          tags$li("In the scale location plot: we can see that the residuals are divided into 2 groups along with the range of the predictor and there is a gap between those 2 groups."),
+          tags$li("Residuals vs Leverage: We can see that there are some outliers like: 32, 33 and 210 that are seen far away from the concentrated data on the left")),
         h4("Statistical tests"),
         fluidRow(
             box(status = "primary",
@@ -22,15 +27,26 @@ hw2.1_q3a_ui <- function(id) {
             box(status = "primary",
                 verbatimTextOutput(ns("jarque.bera3a")))),
         fluidRow(
+          h5("Durbin Watson test: The p-value < 2.2e-16, which means that the residuals have a correlation (not good interpretation for linear regression models)"),
+          h5("Jarque-Bera: The p-value = 0.172, which means accepting the null hypothesis, so residuals follow a normal distribution (good interpretation about the model)"),
+          h5("Breusch-Pagan: The p-value equals to 0.0007143, so we will reject the null hypothesis that means variances are not constant."),
+          h5("We can interpret that the interaction term for 'med*weight' is significant as p-value is less than 0.05 (5% level).
+             Since the dependent variable (price) is expressed in logs, then we can say that if all the variables are equal, the increase in price for a diamond of medium size is 
+             exp(-2.04)= 0.13 times the increase in the price of a small diamond. This means that the price of diamond for small ones increases faster than medium ones, when you increase the carat by one")
+        ),
+        fluidRow(
             column(4,
                     h4("Testing colour purity differences"),
-                    verbatimTextOutput(ns("predict.colour"))),
+                    verbatimTextOutput(ns("predict.colour")),
+                    h5("Color Purity is more valued")),
             column(4,
                     h4("Testing certifier purity differences"),
-                    verbatimTextOutput(ns("predict.certifier"))),
+                    verbatimTextOutput(ns("predict.certifier"))
+                   ),
             column(4,
                     h4("Doing statistical tests"),
-                    verbatimTextOutput(ns("stats")))))
+                    verbatimTextOutput(ns("stats"))
+                    )))
 }
 
 # Server
@@ -45,7 +61,8 @@ hw2.1_q3a_server <- function(input, output, session) {
 
     output$plot.lm3a <- renderPlot({
         req(model3a)
-        plot(model3a)
+      par(mfrow = c(2, 2))
+      plot(model3a,which = c(1,2,3,5), ask = F)
     })
 
     output$dwtest3a <- renderPrint({
