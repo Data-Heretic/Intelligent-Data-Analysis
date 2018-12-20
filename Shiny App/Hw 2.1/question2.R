@@ -37,12 +37,10 @@ hw2.1_q2_ui <- function(id) {
                 box(verbatimTextOutput(ns("bptest"))),
                 box(p("To check for variance equality, Breusch-Pagan test have been used, the p-value equals to 0.3507, so we will accept the null hypothesis that means variances are constant (good interpretation about the model)"))),
             fluidRow(
-                box(width = 12, h4("Outliers"), p("We can see that there are 3 values that can be considered as outliers: 152,214,110")),
-                box(width = 12, verbatimTextOutput(ns("outlier1")))),
-                #box(width = 4, verbatimTextOutput(ns("outlier2"))),
-                #box(width = 4, verbatimTextOutput(ns("outlier3")))),
-            fluidRow(
-                box(width = 12, p("After removing the above outliers from the model, there was no enhancement done and other outliers appeared, we can see that from the below")),
+                box(width = 12, h4("Outliers")),
+                box(p("We can see that there are 3 values that can be considered as outliers: 152,214,110"),
+                    verbatimTextOutput(ns("outlier1")),
+                    p("After removing the above outliers from the model, there was no enhancement done and other outliers appeared, we can see that from the figure on the right.")),
                 box(verbatimTextOutput(ns("summary2"))))))
 }
 
@@ -75,14 +73,6 @@ hw2.1_q2_server <- function(input, output, session) {
     output$outlier1 <- renderPrint({
         diamonds[c(110, 152, 211,214, 223),]
     })
-
-    #output$outlier2 <- renderPrint({
-        #diamonds[214,]
-    #})
-
-    #output$outlier3 <- renderPrint({
-        #diamonds[110,]
-    #})
 
     output$summary2 <- renderPrint({
         summary(modelNoOutlier)

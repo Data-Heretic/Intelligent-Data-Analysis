@@ -21,32 +21,28 @@ hw2.1_q3a_ui <- function(id) {
           tags$li("Residuals vs Leverage: We can see that there are some outliers like: 32, 33 and 210 that are seen far away from the concentrated data on the left")),
         h4("Statistical tests"),
         fluidRow(
-            box(status = "primary",
-                verbatimTextOutput(ns("dwtest3a")),
-                verbatimTextOutput(ns("bptest3a"))),
-            box(status = "primary",
-                verbatimTextOutput(ns("jarque.bera3a")))),
+            box(verbatimTextOutput(ns("dwtest3a"))),
+            box(p("Durbin Watson test: The p-value < 2.2e-16, which means that the residuals have a correlation (not good interpretation for linear regression models)"))),
         fluidRow(
-          h5("Durbin Watson test: The p-value < 2.2e-16, which means that the residuals have a correlation (not good interpretation for linear regression models)"),
-          h5("Jarque-Bera: The p-value = 0.172, which means accepting the null hypothesis, so residuals follow a normal distribution (good interpretation about the model)"),
-          h5("Breusch-Pagan: The p-value equals to 0.0007143, so we will reject the null hypothesis that means variances are not constant."),
-          h5("We can interpret that the interaction term for 'med*weight' is significant as p-value is less than 0.05 (5% level).
+            box(verbatimTextOutput(ns("bptest3a"))),
+            box(p("Jarque-Bera: The p-value = 0.172, which means accepting the null hypothesis, so residuals follow a normal distribution (good interpretation about the model)"))),
+        fluidRow(
+            box(verbatimTextOutput(ns("jarque.bera3a"))),
+            box(p("Breusch-Pagan: The p-value equals to 0.0007143, so we will reject the null hypothesis that means variances are not constant.")),
+            box(width = 12, p("We can interpret that the interaction term for 'med*weight' is significant as p-value is less than 0.05 (5% level).
              Since the dependent variable (price) is expressed in logs, then we can say that if all the variables are equal, the increase in price for a diamond of medium size is 
-             exp(-2.04)= 0.13 times the increase in the price of a small diamond. This means that the price of diamond for small ones increases faster than medium ones, when you increase the carat by one")
-        ),
+             exp(-2.04)= 0.13 times the increase in the price of a small diamond. This means that the price of diamond for small ones increases faster than medium ones, when you increase the carat by one"))),
         fluidRow(
             column(4,
-                    h4("Testing colour purity differences"),
-                    verbatimTextOutput(ns("predict.colour")),
-                    h5("Color Purity is more valued")),
+                h4("Testing colour purity differences"),
+                verbatimTextOutput(ns("predict.colour")),
+                h5("Color Purity is more valued")),
             column(4,
-                    h4("Testing certifier purity differences"),
-                    verbatimTextOutput(ns("predict.certifier"))
-                   ),
+                h4("Testing certifier purity differences"),
+                verbatimTextOutput(ns("predict.certifier"))),
             column(4,
-                    h4("Doing statistical tests"),
-                    verbatimTextOutput(ns("stats"))
-                    )))
+                h4("Doing statistical tests"),
+                verbatimTextOutput(ns("stats")))))
 }
 
 # Server
