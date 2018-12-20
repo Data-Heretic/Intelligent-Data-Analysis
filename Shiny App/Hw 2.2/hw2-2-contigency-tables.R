@@ -35,7 +35,7 @@ Elks.marginal
 
 # Let's estimate the odds ratio of crossing vs. retreat without taking into account the control variable.
 # The odds of “success” (crossing) for car vehicles are higher than for trucks.
-oddsratio(Elks.marginal, log=FALSE)
+oddsratio(Elks.marginal, log = FALSE)
 # Taking into account (controlling for) traffic, the odds of crossing are lower for car vehicles than for trucks in case of high traffic. 
 # Just the reverse direction that the marginal table showed.
 # Simpson’s Paradox: The result that a marginal association can have a different direction from each conditional association.

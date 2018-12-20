@@ -175,7 +175,7 @@ In case of high traffic the odds ratio is less than 1 which means that the
 \begin_layout Standard
 Hoewer, since the confidence interval contains the value 1, we are going
  to assume that the odds ratio of crossing for cars is comparable to the
- odds ratio of crossing for trucks (with high traffic):
+ odds ratio of crossing for trucks:
 \end_layout
 
 \begin_layout Standard
@@ -276,7 +276,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename 00 Images/Im03.PNG
 	scale 50
