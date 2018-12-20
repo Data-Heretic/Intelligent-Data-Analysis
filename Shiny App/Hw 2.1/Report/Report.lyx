@@ -184,7 +184,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Test of significance for the overall model is 
+The test of significance for the overall model is 
 \begin_inset Formula $2.2e-16$
 \end_inset
 
@@ -227,8 +227,8 @@ For the color purity coefficient,
 \series default
  since the dependent variable is expressed in log and reference category
  is “I”, then we can say that the price of “ColourPurityD” is exp(0.41)=1.53
- times the price of “ColourPurityI” , we can conclude that “ColourPurityD”
- is much better than the reference category.
+ the price of “ColourPurityI” , we can conclude that “ColourPurityD” is
+ better than the reference category.
  Also it can be appreciated that the influence on the price is grouwing
  the better the color purity is.
 \end_layout
@@ -290,9 +290,9 @@ From the graph we can see that:
 \end_layout
 
 \begin_layout Enumerate
-The residuals don’t behave nicely , there is a nonlinear relationship between
- the outcome and predictor (seem to be following a quadratic relation not
- a linear one).
+The residuals don’t behave nicely , there seems to be a nonlinear relationship
+ between the outcome and predictor (seem to be following a quadratic relation
+ not a linear one).
 \end_layout
 
 \begin_layout Enumerate
@@ -300,8 +300,8 @@ Residuals seems to come from a normal distribution, but with lighter tails.
 \end_layout
 
 \begin_layout Enumerate
-In the scale location plot, we can see that the residuals are spread somehow
- equally along with the range of the predictor.
+In the scale location plot, we can see that the residuals seems to be spread
+ somehow equally along with the range of the predictor.
 \end_layout
 
 \begin_layout Enumerate
@@ -315,9 +315,13 @@ In Cooks distance plot, we can see that there are 3 influential values ,
 \end_inset
 
 We can test residuals dependency using “Durbin Watson test”, the p-value
- for the test is p-value ( < 2.2e-16 ) , so we can reject the null hypothesis
- which means that the residuals are dependent and have correlation (not
- a good interpretation, residuals should be independent)
+ for the test is p-value (
+\begin_inset Formula $<2.2e-16$
+\end_inset
+
+) , so we can reject the null hypothesis which means that the residuals
+ are dependent and have correlation (not a good interpretation, residuals
+ should be independent).
 \end_layout
 
 \begin_layout Standard
@@ -353,9 +357,9 @@ status open
 
 \begin_layout Standard
 Jarque-Bera test has been used to check for residuals normality and the
- p-value of the residuals is p-value = 0.1952 , which means accepting the
- null hypothesis, so residuals follow a normal distribution (good interpretation
- about the model)
+ p-value of the residuals is p-value = 0.01775 , which means rejection of
+ the null hypothesis, so residuals does not follow a normal distribution
+ (not a good interpretation, residuals should be normal).
 \end_layout
 
 \begin_layout Standard
@@ -384,8 +388,9 @@ status open
 
 \begin_layout Standard
 To check for variance equality, Breusch-Pagan test have been used, the p-value
- equals to 0.3507, so we will accept the null hypothesis that means variances
- are constant (good interpretation about the model)
+ equals to 4.265e-06, so we will reject the null hypothesis that means variances
+ are constant (not a good interpretation, residuals should have constant
+ variance).
 \end_layout
 
 \begin_layout Standard
@@ -488,9 +493,12 @@ Try two dierent remedial actions:
 \series bold
 3.1-3.5
 \series default
- Create a new categorical variable to segregate the stones according to
- caratage: let's say less than 0.5 carats small, 0.5 to less than 1 carat
- (medium) and 1 carat and over (large).
+ 
+\series bold
+Create a new categorical variable 
+\series default
+to segregate the stones according to caratage: let's say less than 0.5 carats
+ small, 0.5 to less than 1 carat (medium) and 1 carat and over (large).
  Make small as the reference category.
  Add this new variable to the existing model as well as an interaction term
  between this new variable and caratage.
@@ -503,7 +511,11 @@ Try two dierent remedial actions:
 \series bold
 3.6
 \series default
- Include the square of carat as a new explanatory variable.
+ 
+\series bold
+Include the square of carat
+\series default
+ as a new explanatory variable.
  It avoids the subjectivity of clusters denition.
 \end_layout
 
@@ -526,8 +538,11 @@ Is this regression model satisfactory? Are the standard assumptions of linear
 
 The regression model is satisfactory, even though some assumtions are not
  satisfactory, as the overall test of significance for the model is 2.2e-16
- and R2 = 0.9953 (there is an obvious improvement in the model compared to
- model 1).
+ and 
+\begin_inset Formula $R^{2}=0.9953$
+\end_inset
+
+ (there is an obvious improvement in the model compared to model 1).
 \end_layout
 
 \begin_layout Standard
@@ -557,6 +572,51 @@ status open
 \begin_layout Standard
 Afterwards, we started plotting a graph using the plot function for the
  model, as in the below picture.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Residuals vs Fitted
+\series default
+: we can see that the residuals do follow somehow a linear relationship,
+ but it does not seem to be constant for all fitted values (see between
+ 7.5 and 8)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Normal Q-Q: 
+\series default
+Residuals seems come from a normal distribution, again with differences
+ in the tails.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+In the scale location plot:
+\series default
+ we can see that the residuals are divided into 2 groups along with the
+ range of the predictor and there is a gap between those 2 groups.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Residuals vs Leverage:
+\series default
+ We can see that there are some outliers like: 32, 33 and 210 that are seen
+ far away from the concentrated data on the left
 \end_layout
 
 \begin_layout Standard
@@ -589,19 +649,31 @@ Regarding the assumtions for linear regression, we have applied the following
 \end_layout
 
 \begin_layout Itemize
-Durbin Watson test: The p-value < 2.2e-16, which means that the residuals
- have a correlation (not good interpretation for linear regression models)
+
+\series bold
+Durbin Watson test:
+\series default
+ The p-value < 2.2e-16, which means that the residuals have a correlation
+ (not good interpretation for linear regression models)
 \end_layout
 
 \begin_layout Itemize
-Jarque-Bera: The p-value = 0.172, which means accepting the null hypothesis,
- so residuals follow a normal distribution (good interpretation about the
- model) 
+
+\series bold
+Jarque-Bera: 
+\series default
+The p-value = 0.172, which means accepting the null hypothesis, so residuals
+ follow a normal distribution (good interpretation about the model) 
 \end_layout
 
 \begin_layout Itemize
-Breusch-Pagan: The p-value equals to 0.0007143, so we will reject the null
- hypothesis that means variances are not constant.
+
+\series bold
+Breusch-Pagan: 
+\series default
+The p-value equals to 0.0007143, so we will reject the null hypothesis that
+ means variance is not constant (again not good interpretation for linear
+ regression models)
 \end_layout
 
 \begin_layout Standard
@@ -645,7 +717,7 @@ We can interpret that the interaction term for 'med*weight' is significant
 
 \begin_layout Standard
 Since the dependent variable (price) is expressed in logs, then we can say
- that if all the variables are equal, the increase in price for a diamond
+ that if the other variables are equal, the increase in price for a diamond
  of medium size is exp(-2.04)= 0.13 times the increase in the price of a small
  diamond.
  This means that the price of diamond for small ones increases faster than
@@ -690,7 +762,14 @@ All other things being equal, are there price diferences amongst the stones
 \end_inset
 
 Given this model, all the coeficients related to the certifiers are significally
- equal to 0, so the prices are not influenced by them.
+ equal to 0, so we can assume that the prices are not influenced by them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -704,7 +783,9 @@ Include the square of carat as a new explanatory variable.
 \end_inset
 
 We have replace carat by the square of carat in order to avoid relation
- between variables, obtaining the following result:
+ between variables, since if we use both carat and its square the model
+ we obtain that there is a variable ilinearly related to the other variables.
+ We obtain the following result:
 \end_layout
 
 \begin_layout Standard
@@ -719,6 +800,34 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im12.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We attach below the plots:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im14.PNG
 	scale 50
 
 \end_inset
@@ -747,7 +856,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im13.PNG
-	scale 50
+	scale 30
 
 \end_inset
 
@@ -757,6 +866,15 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We can see that we still have problems with the assumptions and that the
+ 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ in the model is not improved.
 \end_layout
 
 \begin_layout Section
@@ -774,19 +892,31 @@ In both models we have a good
 \begin_inset Formula $R^{2}$
 \end_inset
 
- and a good p-value, the main difference in the models can be seen here:
+ and a good p-value, regarding the assumptions:
 \end_layout
 
 \begin_layout Itemize
-The linearity of residuals , both have the same problem.
+L
+\series bold
+inearity of residuals
+\series default
+ , both have the same problem.
 \end_layout
 
 \begin_layout Itemize
-Normality , model 2 behaves better compared to model 3.
+
+\series bold
+Normality 
+\series default
+, model 2 behaves better compared to model 3.
 \end_layout
 
 \begin_layout Itemize
-Variance equality, both have the same problem.
+
+\series bold
+Variance equality
+\series default
+, both have the same problem.
  
 \end_layout
 
@@ -891,7 +1021,7 @@ Model 3
 \uwave off
 \noun off
 \color none
-0.9723
+0.9712
 \end_layout
 
 \end_inset
@@ -1106,6 +1236,12 @@ Breusch-Pagan test p-value
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Also the second model allow us to interpret the result based on carat size
+ and the second not.
+ It´s more difficult to interpret the square of carat.
 \end_layout
 
 \begin_layout Standard

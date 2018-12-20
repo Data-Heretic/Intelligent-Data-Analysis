@@ -9,7 +9,7 @@ hw2.1_q2_ui <- function(id) {
     tabPanel(title = "Question 2",
         column(12,
             h2(hw2.1_title),
-            h3("Find a suitable way to include, besides caratage, the other categorical information available: clarity, color and certicate. Use the worst level of each categorical variables as the reference category. Comment on the model tted, and perform a basic analysis of the residuals.."),
+            h3("Find a suitable way to include, besides caratage, the other categorical information available: clarity, color and certificate. Use the worst level of each categorical variables as the reference category. Comment on the model fitted, and perform a basic analysis of the residuals.."),
             fluidRow(
                 box(width = 12, h4("The parameters in the given model are represented as below")),
                 box(status = "primary", verbatimTextOutput(ns("summary.model1_2"))),
@@ -32,13 +32,13 @@ hw2.1_q2_ui <- function(id) {
                 box(p("We can test residuals dependency using “Durbin Watson test”, the p-value for the test is p-value ( < 2.2e-16 ) , so we can reject the null hypothesis which means that the residuals are dependent and have correlation (not a good interpretation, residuals should be independent)"))),
             fluidRow(
                 box(verbatimTextOutput(ns("jarqueber2"))),
-                box(p("Jarque-Bera test has been used to check for residuals normality and the p-value of the residuals is p-value = 0.1952 , which means accepting the null hypothesis, so residuals follow a normal distribution (good interpretation about the model)"))),
+                box(p("Jarque-Bera test has been used to check for residuals normality and the p-value of the residuals is p-value = 0.01775 , which means rejection of the null hypothesis, so residuals does not follow a normal distribution (not a good interpretation)"))),
             fluidRow(
                 box(verbatimTextOutput(ns("bptest"))),
-                box(p("To check for variance equality, Breusch-Pagan test have been used, the p-value equals to 0.3507, so we will accept the null hypothesis that means variances are constant (good interpretation about the model)"))),
+                box(p("To check for variance equality, Breusch-Pagan test have been used, the p-value equals to 4.265e-06, so we will reject the null hypothesis that means variances are constant (not a good interpretation, residuals should have constant variance)."))),
             fluidRow(
                 box(width = 12, h4("Outliers")),
-                box(p("We can see that there are 3 values that can be considered as outliers: 152,214,110"),
+                box(p("We can see that there are 6 possible values that can be considered as outliers, drawn from the qqplot and the Cook´s distance plot plotted before"),
                     verbatimTextOutput(ns("outlier1")),
                     p("After removing the above outliers from the model, there was no enhancement done and other outliers appeared, we can see that from the figure on the right.")),
                 box(verbatimTextOutput(ns("summary2"))))))
