@@ -20,7 +20,7 @@ hw2.2_q2_ui <- function(id) {
                     p("Moral: It can be dangerous to ?collapse? contingency tables over a third control variable.")),
                 box(width = 6,
                     p("The odds ratio is greater than 1 for low traffic which means that the odds of crossing for cars are higher than the odds for trucks."),
-                    p("But in case of high traffic, since every confidence interval contains the value 1, we are going to assume that the odds ratio of crossing for cars is comparable to the odds ratio of crossing for trucks."),
+                    p("But in case of high traffic, since the confidence interval contains the value 1, we are going to assume that the odds ratio of crossing for cars is comparable to the odds ratio of crossing for trucks."),
                     verbatimTextOutput(ns("confint.podds")),
                     plotOutput(ns("plot.podds")))),
             fluidRow(
