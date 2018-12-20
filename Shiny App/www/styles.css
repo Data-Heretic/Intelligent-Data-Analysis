@@ -57,3 +57,10 @@ p {
     text-align: justify;
     text-justify: inter-word;
 }
+
+/* Hw 2.2 */
+
+.hw2_2_q2_fourfold {
+    margin: -117px;
+    margin-bottom: -60px;
+}
