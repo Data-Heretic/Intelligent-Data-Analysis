@@ -75,7 +75,1532 @@
 
 \begin_body
 
+\begin_layout Title
+Intelligent Data Analysis - Homework 3
+\end_layout
+
+\begin_layout Author
+Panagiotis Michalopoulos, Javier de la Rua, Michail Gongolidis, 
+\begin_inset Newline newline
+\end_inset
+
+Ignacio Rodriguez, Daniel Minguez
+\end_layout
+
+\begin_layout Date
+January 16h, 2019
+\end_layout
+
+\begin_layout Section
+Plot the series and comment
+\end_layout
+
 \begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+As we are group 10, we have used the file with data related to the monthly
+ interest rate on unsubsidised loans for house purchase (percentage) from
+ January 1995 to September 2013.
+ The first thing we did was plot the series:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im01.PNG
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can appreciate that the time series has an obvious global downward trend
+ without seasonality (so it is not a stationary series).
+ We can appreaciate also upward subtrends in some intervals.
+ After applying the log transformation (left) and the box-cox transformation
+ (right) to the data we obtain the following result:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im02.PNG
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im03.PNG
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It does not make so much change, neither in trend nor in variability, so
+ we decided to work with the original time series.
+ We can appreciate also that the time series is not stationary and that
+ it does not have a seasonal trend by checking the seasonal differences
+ and the month differences:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im05.PNG
+	scale 8
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im14.PNG
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally we also used the autocorrelation and partial autocorrelation plots:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im06.PNG
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that ACF does not drop quickly to values inside or almost inside
+ the critical values and that 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ is large and positive.
+ All this are signs of a non-stationary time series.
+ PACF value 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ is almost 1.
+ This is also a sign of non-stationary process.
+ Therefore the data should be differenced to apply a model.
+ We applied also a stationary test, with a p-vlaue lower than 0.05 we reject
+ the null hypothesis of stationarity:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im13.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Obtain a plot of the decomposition of the series
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+Since the log transformation does not change the variance of our time series
+ and our series does not have seasonality, we use an additive decomposition
+ approach with 
+\shape italic
+stl
+\shape default
+ with the parameters 
+\shape italic
+s.window=
+\begin_inset Quotes erd
+\end_inset
+
+periodic
+\begin_inset Quotes erd
+\end_inset
+
+, t.window=15, robust=TRUE
+\shape default
+ to the log data.
+ We can appreciate the downtrend and the differences of the remainder across
+ time.:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im07.PNG
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Use the function forecast() to forecast future values.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+We have used the forecast function with Random walk with drift, random walk,
+ ETS and ARIMA:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im08.PNG
+	scale 6
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im09.PNG
+	scale 6
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im10.PNG
+	scale 6
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im11.PNG
+	scale 6
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can appreciate that the confidence intervals of ETS and ARIMA are bigger
+ that the one created with random walk variants.
+\end_layout
+
+\begin_layout Subsection
+Multiplicative decomposition is useful when the logarithmic transformation
+ makes a difference in the appearance of your series and shows more constant
+ variance.
+ Does the remainder look like a white noise to you?
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+As we saw in the first part, the log transformation does not change the
+ variance of our data, so we applied the additive decomposition 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+Time series = Seasonal + Trend + Random
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+ to the original series
+\end_layout
+
+\begin_layout Subsection
+White noise is just a group of independent, identically distributed variables,
+ with zero mean and constant variance.
+ Answer to this point just visually or plot the ACF and PACF of the remainder
+ part.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+We can see in the remainder plot that there are some parts where the differences
+ does not seem to be random noise because of its variance, using the ACF
+ and PCAF graph we can check as well that the 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ is close to 0.6 and -0.4 respectively, so we can say that the remainder is
+ not white noise:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im12.PNG
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fit an ARIMA model to your time series
+\end_layout
+
+\begin_layout Subsection
+Decide on whether to work with your original variable or with the log transform
+ one
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+As we have seen in the previous part, we are going to use the original data.
+ The following is the tsdisplay of the data and log data:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im15.PNG
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im16.PNG
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Are you going to consider a seasonal component? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+We are not going to use a seasonal component since, as we checked in the
+ previous part, there is no seasonal component in our series.
+ Using the periodogram we can also intepret this:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im17.PNG
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decide on the values of d and D to make your series stationary.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+In our case, since we do not have a seasonal component, we have 
+\begin_inset Formula $D=0$
+\end_inset
+
+, in order to decide about d we took first, second and third differences
+ with diff function, obtaining the following standard deviations:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Difference
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Standard deviation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Original log data
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.239662
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1st
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1486072
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2nd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1030107
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3rd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1562024
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have to decide between 1st and 2nd differences by checking ACF and
+ PACF, since both series are stationary by the adf.test (with p-values lower
+ than 0.05, and Dickey-Fuller of -4.3715 and -7.6347 respectively):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im18.PNG
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im19.PNG
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have decided to try with second order differences.
+\end_layout
+
+\begin_layout Subsection
+Identify values for p and q for the regular part and P and Q for the seasonal
+ part.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 15bp
+\end_inset
+
+We have fitted different models for different p-q parameters to the train
+ data (data before 2013), we have also calculated the RMSE with the test
+ data (2013 data):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="16" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARIMA Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RMSE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1,2,0) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-376.4445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-369.7126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8832099
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0,2,1) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-377.8681
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-371.1361
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8473354
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1,2,1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-389.8618
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-379.7638
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.51469
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(2,2,0) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-378.3003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-368.2024
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8324347
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0,2,2) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-379.3241
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-369.2262
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8028774
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(2,2,1) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-388.1842
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-374.7203
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5174389
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1,2,2) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-388.2293
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-374.7654
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5180392
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(2,2,2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-385.872
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-369.0421
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5150287
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3,2,0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-376.3377
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-362.8738
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8291334
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3,2,1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-374.7115
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-357.8816
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8475045
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3,2,2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-385.057
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-364.8612
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5252064
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(3,2,3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-394.4765
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-370.9147
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4526032
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(0,2,3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-377.8079
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-364.344
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7863561
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(1,2,3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-386.5934
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-369.7636
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5257217
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(2,2,3)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-384.8269
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-364.631
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5235576
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, apparently the best model was ARIMA(3,2,3) with the lowest AIC and ARIMA(1,2
+,1) with the lowes BIC.
+ But if we check the correlation between the coeficients of ARIMA(3,2,3)
+ we obtain high correlation between ma1 and ma3 and ar coefficients.
+ We include also the result with ARIMA(1,2,1), obtaining the following correlati
+on:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im20.PNG
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im21.PNG
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding the residuals we checked for normality with test with jarque bera
+ test, but we obtained that the residuals are not normal.
+ We look for outliers:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im22.png
+	scale 8
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After removing some ouliers (we would need to find an explanation for them),
+ we obtain normal residuals (although the mean test say that mean is not
+ equal to 0):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im23.PNG
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im24.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also we have plot the autocorrelations
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im25.PNG
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Once you have found a suitable model, repeating the fitting model process
+ several times if necessary, use it to make forecasts.
+ Plot them.
+ 
+\end_layout
+
+\begin_layout Standard
+We have done forecast with ARIMA(3,2,3) and ARIMA(1,2,1):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im26.png
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 00 Images/Im27.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Use the function getrmse to compute the test set RMSE of some of the models
+ you have already fitted.
+ 
+\end_layout
+
+\begin_layout Standard
+As we can see in the previous section, we obtained that the model ARIMA(3,2,3)
+ is the one that get better RMSE, although the correlation of some of the
+ coeficients is close to 1.
+\end_layout
+
+\begin_layout Subsection
+You can also use the auto.arima() function with some of its parameters fixed,
+ to see if it suggests a better model that the one you have found.
+ 
+\end_layout
+
+\begin_layout Standard
+If we execute the auto.arima function we obtain the following result
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 00 Images/Im28.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
