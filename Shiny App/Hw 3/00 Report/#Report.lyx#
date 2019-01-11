@@ -140,7 +140,7 @@ During this report we are going to use the Box-Jenkins methodology that
 \series bold
 Model identification and model selection:
 \series default
- check for stationarity, seasonality and use of plots of autocorrelation
+ check for stationarity, seasonality and using plots of the autocorrelation
  and partial autocorrelation.
 \end_layout
 
@@ -170,18 +170,7 @@ Model checking:
 We can appreciate that the time series has an obvious global downward trend
  without seasonality (so it is not a stationary series).
  We can appreaciate also upward subtrends in some intervals.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-After applying the log transformation (left) and the box-cox transformation
+ After applying the log transformation (left) and the box-cox transformation
  (right) to the data we obtain the following result:
 \end_layout
 
@@ -211,6 +200,13 @@ status open
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -498,13 +494,6 @@ We can appreciate that the confidence intervals of ETS and ARIMA are bigger
  are constructed.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Fit an ARIMA model to your time series
 \end_layout
@@ -614,8 +603,8 @@ In our case, since we do not have a seasonal component, we have
 \begin_inset Formula $Q=0$
 \end_inset
 
-), in order to decide about which d we take, we compare first, second and
- third differences, obtaining the following standard deviations:
+), in order to decide about which d we compare first, second and third differenc
+es, obtaining the following standard deviations:
 \end_layout
 
 \begin_layout Standard
@@ -770,8 +759,8 @@ status open
 \end_layout
 
 \begin_layout Standard
-We decided to try with second order differences because of the shape of
- the PACF, with smaller values.
+Deciding to try with second order differences because of the shape of the
+ PACF, with smaller values.
 \end_layout
 
 \begin_layout Subsection
@@ -1414,7 +1403,7 @@ RMSE
 \end_layout
 
 \begin_layout Standard
-So, apparently, the best model according with AIC was ARIMA(3,2,3) and according
+So, apparently the best model according with AIC was ARIMA(3,2,3) and according
  BIC was ARIMA(1,2,1).
  If we dont focus in RMSE and we check the correlation between the coeficients
  of ARIMA(3,2,3) we obtain relatively high correlation between ma1 and ma3
@@ -1454,8 +1443,8 @@ status open
 \end_layout
 
 \begin_layout Standard
-Regarding the residuals we have checked for normality of ARIMA(1,2,1) with
- jarque bera test, obtaining that the residuals are not normal.
+Regarding the residuals we have checked for normality with jarque bera test,
+ obtaining that the residuals are not normal.
  We looked for outliers:
 \end_layout
 
@@ -1553,15 +1542,11 @@ So, forgetting about RMSE, it seems that ARIMA(1,2,1) behaves better that
  ARIMA(3,2,3).
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-Ise the model to make forecasts
+Once you have found a suitable model, repeating the fitting model process
+ several times if necessary, use it to make forecasts.
+ Plot them.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1581,14 +1566,14 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im26.png
-	scale 8
+	scale 10
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename 00 Images/Im27.png
-	scale 8
+	scale 10
 
 \end_inset
 
@@ -1634,7 +1619,7 @@ You can also use the auto.arima() function with some of its parameters fixed,
 \length 15bp
 \end_inset
 
-If we execute the auto.arima function we obtain the following result:
+If we execute the auto.arima function we obtain the following result
 \end_layout
 
 \begin_layout Standard
@@ -1662,7 +1647,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-This ARIMA(0,2,1) has an AIC of -378 (as we obtained before), but it is
+This ARIMA(0,2,1) have an AIC of -378 (as we obtained before), but it is
  not a better result (as we saw in the previous part) that ARIMA(1,2,1)
  or ARIMA(3,2,3).
  Maybe it tooks other measurements into account like the log likelihood
