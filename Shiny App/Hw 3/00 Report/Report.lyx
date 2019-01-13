@@ -103,7 +103,17 @@ Plot the series and comment
 As we are group 10, we have used the file with data related to the monthly
  interest rate on unsubsidised loans for house purchase (percentage) from
  January 1995 to September 2013.
- The first thing we did was plot the series:
+ The first thing we did was plot the series
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Plots have been resized in order to try to achieve the limit of 8 pages
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -169,7 +179,7 @@ Model checking:
 
 We can appreciate that the time series has an obvious global downward trend
  without seasonality (so it is not a stationary series).
- We can appreaciate also upward subtrends in some intervals.
+ We can appreciate also upward subtrends in some intervals.
  
 \end_layout
 
@@ -298,8 +308,8 @@ We can see that ACF does not drop quickly to values inside or almost inside
  is almost 1.
  This is also a sign of non-stationary process.
  Therefore the data should be differenced to apply a model.
- We applied also a stationary test, with a p-vlaue lower than 0.05 we reject
- the null hypothesis of stationarity:
+ We applied also the Phillips-Perron unit root test, with a p-vlaue of 0.8223,
+ we could say that the time series is not stationary:
 \end_layout
 
 \begin_layout Standard
@@ -398,7 +408,18 @@ status open
 Also the differences of the remainder across time are evident, this could
  indicate not constant variance through time or outliers in the observations
  due to specific events.
- Using the ACF and PCAF graph we can check as well that the 
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the ACF and PCAF graph we can check as well that the 
 \begin_inset Formula $r_{1}$
 \end_inset
 
@@ -418,7 +439,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 00 Images/Im12.png
-	scale 10
+	scale 8
 
 \end_inset
 
@@ -498,13 +519,6 @@ We can appreciate that the confidence intervals of ETS and ARIMA are bigger
  are constructed.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Fit an ARIMA model to your time series
 \end_layout
@@ -565,7 +579,7 @@ Are you going to consider a seasonal component?
 
 We are not going to use a seasonal component since, as we checked in the
  previous part, there is no seasonal component in our series.
- Using the periodogram we can also intepret this:
+ Using the periodogram we can also interpret this:
 \end_layout
 
 \begin_layout Standard
@@ -1416,7 +1430,7 @@ RMSE
 \begin_layout Standard
 So, apparently, the best model according with AIC was ARIMA(3,2,3) and according
  BIC was ARIMA(1,2,1).
- If we dont focus in RMSE and we check the correlation between the coeficients
+ If we don't focus in RMSE and we check the correlation between the coefficients
  of ARIMA(3,2,3) we obtain relatively high correlation between ma1 and ma3
  and ar coefficients.
  We include also the result with ARIMA(1,2,1), obtaining the following correlati
@@ -1484,7 +1498,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-After removing some ouliers (we would need to find an explanation for them),
+After removing some outliers (we would need to find an explanation for them),
  we obtained normal residuals (although the mean test say that mean is not
  equal to 0):
 \end_layout
@@ -1561,7 +1575,7 @@ So, forgetting about RMSE, it seems that ARIMA(1,2,1) behaves better that
 \end_layout
 
 \begin_layout Subsection
-Ise the model to make forecasts
+Use the model to make forecasts
 \end_layout
 
 \begin_layout Standard
@@ -1613,12 +1627,12 @@ Use the function getrmse to compute the test set RMSE of some of the models
 
 As we can see in the previous section, we obtained that the model ARIMA(3,2,3)
  is the one that get better RMSE, although the correlation of some of its
- coeficients is close to 1.
+ coefficients is close to 1.
  ARIMA(1,2,1) get the second better results.
 \end_layout
 
 \begin_layout Standard
-So if we take into account only this mesaure the best model would be ARIMA(3,2,3
+So if we take into account only this measure the best model would be ARIMA(3,2,3
 ), but we recommend to continue validating this model through future observation
 s since the ARIMA(1,2,1) also behaves well and is more simple.
 \end_layout
@@ -1665,8 +1679,8 @@ status open
 This ARIMA(0,2,1) has an AIC of -378 (as we obtained before), but it is
  not a better result (as we saw in the previous part) that ARIMA(1,2,1)
  or ARIMA(3,2,3).
- Maybe it tooks other measurements into account like the log likelihood
- or sigma squared showed.
+ Maybe it took other measurements into account like the log likelihood or
+ sigma squared showed.
 \end_layout
 
 \end_body

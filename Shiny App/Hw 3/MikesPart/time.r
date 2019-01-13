@@ -34,7 +34,13 @@ gglagplot(time.ts, lag=9, do.lines=FALSE)
 ggAcf(time.ts)
 
 # Stationary Tests
-adf.test(time.ts)
+#adf.test(time.ts)
+
+pp.test(time.ts)
+
+#library("locits")
+#ans <- hwtos2(time.ts)
+#ans
 
 
 ##   Comments:
